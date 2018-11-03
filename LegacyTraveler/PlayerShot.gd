@@ -12,10 +12,4 @@ func _ready():
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-	var shooting = Input.is_action_pressed("ui_shoot")
-	
-	if (shooting):
-		var bullet = preload("res://PlayerShot.tscn").instance()
-		bullet.position.x = position.x
-		bullet.position.y = position.y
-		add_child(bullet)
+	position.x += 1
