@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Traveler.tscn" type="PackedScene" id=1]
 
-[node name="Root" type="Node" index="0"]
+[node name="Root" type="Node"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 

@@ -3,6 +3,12 @@
 [ext_resource path="res://Traveler.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
@@ -12,35 +18,25 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
-
-custom_solver_bias = 0.0
-radius = 10.0
-height = 20.0
-
-[node name="Traveler" type="Node2D"]
-
-script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
-
-frames = SubResource( 1 )
-animation = "default"
-_sections_unfolded = [ "Material", "Transform" ]
-
-[node name="KinematicBody2D" type="KinematicBody2D" parent="." index="1"]
+[node name="Traveler" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-_sections_unfolded = [ "collision" ]
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 scale = Vector2( 3.20419, 1.73979 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+
+frames = SubResource( 1 )
+animation = "default"
+_sections_unfolded = [ "Material", "Transform" ]
 
 
