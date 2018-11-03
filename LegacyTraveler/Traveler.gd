@@ -23,5 +23,3 @@ func _process(delta):
 		
 	if Input.is_action_pressed("ui_left"):
 		position.x -= 1
-		
-	var shooting = Input.is_action_pressed("ui_shoot")

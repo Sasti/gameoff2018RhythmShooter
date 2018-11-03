@@ -1,8 +1,6 @@
 extends AnimatedSprite
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+const SPEED = 2
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -12,4 +10,5 @@ func _ready():
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-	position.x += 1
+	position.x += SPEED
+	play()

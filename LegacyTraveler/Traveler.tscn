@@ -43,9 +43,17 @@ _sections_unfolded = [ "Transform" ]
 [node name="PlayerWeapon" type="AnimatedSprite" parent="Player" index="0"]
 
 position = Vector2( 63.1672, -12.1972 )
+z_index = 2
 frames = SubResource( 3 )
 animation = "default"
 script = ExtResource( 4 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="ShotSpawn" type="Position2D" parent="Player/PlayerWeapon" index="0"]
+
+position = Vector2( 38.6139, -0.963188 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="PlayerBody" type="KinematicBody2D" parent="Player" index="1"]
 
