@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Traveler.tscn" type="PackedScene" id=1]
+
+[node name="Root" type="Node" index="0"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+
+[node name="Gameworld" type="CanvasLayer" parent="." index="1"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Traveler" parent="Gameworld" index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 493.295, 240.308 )
+
+[node name="UI-Overlay" type="CanvasLayer" parent="." index="2"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+
