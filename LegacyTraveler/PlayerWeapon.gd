@@ -1,4 +1,4 @@
-extends Node2D
+extends AnimatedSprite
 
 # class member variables go here, for example:
 # var a = 2
@@ -9,19 +9,11 @@ func _ready():
 	# Initialization here
 	pass
 
-func _process(delta):
+#func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-	if Input.is_action_pressed("ui_down"):
-		position.y += 1
-	
-	if Input.is_action_pressed("ui_up"):
-		position.y -= 1
-		
-	if Input.is_action_pressed("ui_right"):
-		position.x += 1
-		
-	if Input.is_action_pressed("ui_left"):
-		position.x -= 1
-		
 	var shooting = Input.is_action_pressed("ui_shoot")
+	
+	if (shooting):
+		var bullet = preload("res://PlayerShot.tscn").instance()
+		add_child(bullet)
