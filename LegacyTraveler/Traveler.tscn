@@ -61,12 +61,19 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-_sections_unfolded = [ "collision" ]
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="Player/PlayerBody" index="0"]
 
 scale = Vector2( 3.20419, 1.73979 )
 shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+
+frames = SubResource( 1 )
+animation = "default"
+_sections_unfolded = [ "Material", "Transform" ]
 
 
