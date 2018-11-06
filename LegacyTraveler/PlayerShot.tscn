@@ -14,13 +14,18 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="PlayerShot" type="AnimatedSprite"]
+[node name="PlayerShot" type="AnimatedSprite" index="0"]
 
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "bullet"
+frame = 1
 playing = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="0"]
+
+rect = Rect2( -10, -10, 20, 20 )
 
 
