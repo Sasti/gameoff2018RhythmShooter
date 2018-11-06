@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Traveler.tscn" type="PackedScene" id=1]
+[ext_resource path="res://DummyMob.gd" type="Script" id=2]
+[ext_resource path="res://sprites/troll-1414023002.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
 
 [node name="Root" type="Node" index="0"]
 
@@ -35,12 +51,12 @@ position = Vector2( 493.295, 240.308 )
 position = Vector2( 840.997, 242.659 )
 input_pickable = false
 collision_layer = 1
-collision_mask = 1
+collision_mask = 0
 mode = 0
 mass = 1.0
 friction = 1.0
 bounce = 0.0
-gravity_scale = 1.0
+gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = 0
 contacts_reported = 0
@@ -51,15 +67,37 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Gameworld/DummyMob" index="0"]
 
+frames = SubResource( 1 )
 animation = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameworld/DummyMob" index="1"]
+[node name="MobHitArea" type="Area2D" parent="Gameworld/DummyMob" index="1"]
+
+position = Vector2( -0.218942, -0.0547333 )
+rotation = 1.5708
+scale = Vector2( 0.995789, 1.26589 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameworld/DummyMob/MobHitArea" index="0"]
+
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Gameworld/DummyMob" index="2"]
 
+position = Vector2( -0.0158039, 0.124878 )
+scale = Vector2( 1.12233, 1.01249 )
 rect = Rect2( -10, -10, 20, 20 )
 
 [node name="UI-Overlay" type="CanvasLayer" parent="." index="2"]
