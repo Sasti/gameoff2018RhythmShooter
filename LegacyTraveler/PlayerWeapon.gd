@@ -1,10 +1,13 @@
-extends AnimatedSprite
+extends Sprite
 
 var bullet_delay = 0.25
 var shot_timer 
 var can_shoot = true
 
-onready var shot_spawn = get_node("ShotSpawn")
+var shot
+
+func _init():
+	shot = load("res://PlayerShot.tscn")
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -21,19 +24,10 @@ func on_timeout_complete():
 	can_shoot = true
 
 func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-	var shooting = Input.is_action_pressed("ui_shoot")
-	
-	if (shooting && can_shoot):
-		spawn_shot()
-
-# Add a new shot instance to the scene
-func spawn_shot():	
-	var shot = load("res://PlayerShot.tscn").instance()
-	
-	shot.position = shot_spawn.position
-	add_child(shot)
-	
-	can_shoot = false
-	shot_timer.start()
+	if Input.is_action_just_pressed("ui_shoot"):
+		var shotInstance = shot.instance()
+		shotInstance.position = get_parent().position
+		
+		var shotOffset = 110
+		shotInstance.position.x = shotInstance.position.x + shotOffset
+		get_parent().get_parent().add_child(shotInstance)

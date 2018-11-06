@@ -1,11 +1,17 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Traveler.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://sprites/weapon.png" type="Texture" id=3]
 [ext_resource path="res://PlayerWeapon.gd" type="Script" id=4]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -14,48 +20,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=3]
-
-animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="CapsuleShape2D" id=5]
-
-custom_solver_bias = 0.0
-radius = 10.0
-height = 20.0
-
-[node name="Traveler" type="Node2D" index="0"]
-
-position = Vector2( 79.5225, 81.7945 )
-script = ExtResource( 1 )
-
-[node name="Player" type="AnimatedSprite" parent="." index="0"]
-
-frames = SubResource( 4 )
-animation = "default"
-_sections_unfolded = [ "Transform" ]
-
-[node name="PlayerWeapon" type="AnimatedSprite" parent="Player" index="0"]
-
-position = Vector2( 63.1672, -12.1972 )
-z_index = 2
-frames = SubResource( 3 )
-animation = "default"
-script = ExtResource( 4 )
-_sections_unfolded = [ "Z Index" ]
-
-[node name="ShotSpawn" type="Position2D" parent="Player/PlayerWeapon" index="0"]
-
-position = Vector2( 38.6139, -0.963188 )
-scale = Vector2( 0.5, 0.5 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="PlayerBody" type="KinematicBody2D" parent="Player" index="1"]
+[node name="Traveler" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -64,16 +29,22 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PlayerCollisionShape" type="CollisionShape2D" parent="Player/PlayerBody" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 scale = Vector2( 3.20419, 1.73979 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "default"
-_sections_unfolded = [ "Material", "Transform" ]
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="weapon" type="Sprite" parent="." index="2"]
+
+position = Vector2( 68.2906, 2.06525 )
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
 
 

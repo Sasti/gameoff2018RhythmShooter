@@ -16,10 +16,10 @@ _sections_unfolded = [ "Resource" ]
 
 [node name="PlayerShot" type="AnimatedSprite"]
 
-position = Vector2( 107.546, -11.6849 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "bullet"
+playing = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
