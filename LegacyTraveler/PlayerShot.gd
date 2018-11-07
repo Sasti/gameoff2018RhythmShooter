@@ -5,7 +5,7 @@ const SPEED = 2
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	pass
+	$PlayerShotHitArea.connect('area_entered', self, 'hit')
 
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -15,3 +15,7 @@ func _process(delta):
 
 func _on_Visibility_screen_exited():
 	queue_free()
+
+func hit(object):
+	if object.name == 'MobHitArea':
+		queue_free()
