@@ -90,7 +90,6 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gameworld/DummyMob/MobHitArea" index="0"]
 
-scale = Vector2( 1, 1 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
