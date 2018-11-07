@@ -12,3 +12,6 @@ func _process(delta):
 #	# Update game logic here.
 	position.x += SPEED
 	play()
+
+func _on_Visibility_screen_exited():
+	queue_free()
