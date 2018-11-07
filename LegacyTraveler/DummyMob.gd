@@ -14,5 +14,5 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-func hit():
+func hit(object):
 	queue_free()
