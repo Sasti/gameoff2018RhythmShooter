@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Traveler.tscn" type="PackedScene" id=1]
-[ext_resource path="res://FlyingMeleeMob.gd" type="Script" id=2]
+[ext_resource path="res://enemies/FlyingMeleeMob.gd" type="Script" id=2]
 [ext_resource path="res://sprites/troll-1414023002.png" type="Texture" id=3]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
@@ -13,17 +13,17 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Root" type="Node" index="0"]
+[node name="Root" type="Node"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
@@ -63,7 +63,7 @@ _sections_unfolded = [ "Collision", "collision" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Gameworld/FlyingMeleeMob" index="0"]
 
-frames = SubResource( 3 )
+frames = SubResource( 1 )
 animation = "default"
 
 [node name="MobHitArea" type="Area2D" parent="Gameworld/FlyingMeleeMob" index="1"]
@@ -82,7 +82,7 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gameworld/FlyingMeleeMob/MobHitArea" index="0"]
 
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="MobAggroRange" type="Area2D" parent="Gameworld/FlyingMeleeMob" index="2"]
@@ -99,7 +99,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gameworld/FlyingMeleeMob/MobAggroRange" index="0"]
 
 scale = Vector2( 30, 30 )
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Gameworld/FlyingMeleeMob" index="3"]

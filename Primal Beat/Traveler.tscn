@@ -5,12 +5,6 @@
 [ext_resource path="res://sprites/weapon.png" type="Texture" id=3]
 [ext_resource path="res://PlayerWeapon.gd" type="Script" id=4]
 
-[sub_resource type="CapsuleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 10.0
-height = 20.0
-
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
@@ -25,7 +19,13 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Traveler" type="KinematicBody2D"]
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[node name="Traveler" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -34,25 +34,19 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "collision" ]
 
-[node name="PlayerHItbox" type="CollisionShape2D" parent="." index="0"]
-
-scale = Vector2( 3.20419, 1.73979 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 frames = SubResource( 2 )
 animation = "default"
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
-[node name="weapon" type="Sprite" parent="." index="2"]
+[node name="weapon" type="Sprite" parent="." index="1"]
 
 position = Vector2( 68.2906, 2.06525 )
 texture = ExtResource( 3 )
 script = ExtResource( 4 )
 
-[node name="PlayerAggroRange" type="Area2D" parent="." index="3"]
+[node name="PlayerAggroRange" type="Area2D" parent="." index="2"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -67,5 +61,21 @@ audio_bus_name = "Master"
 scale = Vector2( 25, 25 )
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="PlayerHitbox" type="Area2D" parent="." index="3"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 0.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="ColisionShape2D" type="CollisionShape2D" parent="PlayerHitbox" index="0"]
+
+scale = Vector2( 2.2, 1.3 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 

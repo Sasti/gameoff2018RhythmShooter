@@ -13,8 +13,9 @@ var attacking = false
 var target = Vector2()
 
 # Movement parameters
-var speed = 15
+var speed = 450
 var velocity = Vector2()
+var collision
 
 func _ready():
 	target = get_node('../Traveler')
@@ -22,10 +23,13 @@ func _ready():
 	$MobAggroRange.connect('area_entered', self, 'aggro')
 
 func _physics_process(delta):
-	velocity = (target.position - position).normalized() * speed
-
 	if aggroed:
-		move_and_collide(velocity)
+		velocity = (target.position - position).normalized() * speed
+		collision = move_and_collide(velocity * delta)
+		print(collision)
+
+	if collision:
+		print('collided')
 
 func hit(area):
 	if area.name == 'PlayerShotHitArea':
