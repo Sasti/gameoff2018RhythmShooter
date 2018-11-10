@@ -1,9 +1,7 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 var shot
+var speed = 5
 
 func _init():
 	shot = load("res://PlayerShot.tscn")
@@ -20,13 +18,13 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_down"):
-		position.y += 1
-	
+		position.y += speed
+
 	if Input.is_action_pressed("ui_up"):
-		position.y -= 1
-		
+		position.y -= speed
+
 	if Input.is_action_pressed("ui_right"):
-		position.x += 1
-		
+		position.x += speed
+
 	if Input.is_action_pressed("ui_left"):
-		position.x -= 1
+		position.x -= speed
