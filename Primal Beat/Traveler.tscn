@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Traveler.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -20,16 +20,21 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Traveler" type="KinematicBody2D" index="0"]
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="Traveler" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+[node name="PlayerHItbox" type="CollisionShape2D" parent="." index="0"]
 
 scale = Vector2( 3.20419, 1.73979 )
 shape = SubResource( 1 )
@@ -46,5 +51,21 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 position = Vector2( 68.2906, 2.06525 )
 texture = ExtResource( 3 )
 script = ExtResource( 4 )
+
+[node name="PlayerAggroRange" type="Area2D" parent="." index="3"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAggroRange" index="0"]
+
+scale = Vector2( 25, 25 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 

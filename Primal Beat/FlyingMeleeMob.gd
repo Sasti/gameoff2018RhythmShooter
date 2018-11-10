@@ -4,7 +4,7 @@
 extends RigidBody2D
 
 # Whether the player has entered our aggro range
-var aggroing = false
+var aggroed = false
 
 # Whether we are in range to attack the player
 var attacking = false
@@ -19,12 +19,20 @@ var velocity = Vector2()
 func _ready():
 	target = get_node('../Traveler')
 	$MobHitArea.connect('area_entered', self, 'hit')
+	$MobAggroRange.connect('area_entered', self, 'aggro')
 
 func _process(delta):
 	velocity = (target.position - position).normalized() * speed
 
-	if aggroing:
-		move_and_collide(velocity)
+	if aggroed:
+		pass
 
-func hit(object):
-	queue_free()
+func hit(area):
+	if area.name == 'PlayerShotHitArea':
+		print('mob hit by shot')
+		queue_free()
+
+func aggro(area):
+	if area.name == 'PlayerAggroRange':
+		print('mob aggroed')
+		aggroed = true
