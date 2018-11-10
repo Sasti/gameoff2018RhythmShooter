@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="LegacyTraveler"
+config/name="Primal Beat"
 run/main_scene="res://LevelTemplate.tscn"
 config/icon="res://icon.png"
 
