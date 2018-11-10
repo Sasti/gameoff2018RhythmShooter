@@ -1,7 +1,11 @@
 # A flying enemy unaffected by gravity.
 # Hovers in the air until the player enters its aggro range, then pursues the player.
-# When it manages to reach the player's attack range, it latches on, slowly draining their life.
+# When it manages to reach the player's attack range, it will damage them, then die.
 extends KinematicBody2D
+
+signal player_damaged
+
+var damage = 1
 
 # Whether the player has entered our aggro range
 var aggroed = false
@@ -15,28 +19,33 @@ var target = Vector2()
 # Movement parameters
 var speed = 450
 var velocity = Vector2()
-var collision
 
 func _ready():
 	target = get_node('../Traveler')
-	$MobHitArea.connect('area_entered', self, 'hit')
-	$MobAggroRange.connect('area_entered', self, 'aggro')
+	$MobHitArea.connect('area_entered', self, '_on_hit')
+	$MobAggroRange.connect('area_entered', self, '_on_aggro')
 
 func _physics_process(delta):
-	if aggroed:
+	if aggroed and not attacking:
 		velocity = (target.position - position).normalized() * speed
-		collision = move_and_collide(velocity * delta)
-		print(collision)
+		move_and_collide(velocity * delta)
 
-	if collision:
-		print('collided')
+	if attacking:
+		print('damaged player')
+		emit_signal('player_damaged', damage)
+		attacking = false
+		queue_free()
 
-func hit(area):
+func _on_hit(area):
+	if area.name == 'PlayerHitbox':
+		print('reached player')
+		attacking = true
+
 	if area.name == 'PlayerShotHitArea':
 		print('mob hit by shot')
 		queue_free()
 
-func aggro(area):
+func _on_aggro(area):
 	if area.name == 'PlayerAggroRange':
 		print('mob aggroed')
 		aggroed = true
