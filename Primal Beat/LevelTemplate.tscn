@@ -51,29 +51,15 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 position = Vector2( 263.295, 290.308 )
 
-[node name="FlyingMeleeMob" type="RigidBody2D" parent="Gameworld" index="1"]
+[node name="FlyingMeleeMob" type="KinematicBody2D" parent="Gameworld" index="1"]
 
 position = Vector2( 1001, 292.659 )
 input_pickable = false
 collision_layer = 0
 collision_mask = 0
-mode = 0
-mass = 1.02041e-05
-friction = 1.0
-bounce = 0.0
-gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
+collision/safe_margin = 0.08
 script = ExtResource( 2 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "collision" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Gameworld/FlyingMeleeMob" index="0"]
 
