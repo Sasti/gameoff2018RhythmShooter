@@ -96,7 +96,7 @@ scale = Vector2( 25, 25 )
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="DummyMob" type="RigidBody2D" parent="Gameworld" index="1"]
+[node name="FlyingMeleeMob" type="RigidBody2D" parent="Gameworld" index="1"]
 
 position = Vector2( 1001, 292.659 )
 input_pickable = false
@@ -120,19 +120,19 @@ angular_damp = -1.0
 script = ExtResource( 2 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Gameworld/DummyMob" index="0"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Gameworld/FlyingMeleeMob" index="0"]
 
 frames = SubResource( 2 )
 animation = "default"
 
-[node name="MobAggroRange" type="CollisionShape2D" parent="Gameworld/DummyMob" index="1"]
+[node name="MobAggroRange" type="CollisionShape2D" parent="Gameworld/FlyingMeleeMob" index="1"]
 
 scale = Vector2( 30, 30 )
 shape = SubResource( 5 )
 disabled = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="MobHitArea" type="Area2D" parent="Gameworld/DummyMob" index="2"]
+[node name="MobHitArea" type="Area2D" parent="Gameworld/FlyingMeleeMob" index="2"]
 
 position = Vector2( -0.218942, -0.0547333 )
 rotation = 1.5708
@@ -145,12 +145,12 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameworld/DummyMob/MobHitArea" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameworld/FlyingMeleeMob/MobHitArea" index="0"]
 
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Gameworld/DummyMob" index="3"]
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Gameworld/FlyingMeleeMob" index="3"]
 
 position = Vector2( -0.0158039, 0.124878 )
 scale = Vector2( 1.12233, 1.01249 )
