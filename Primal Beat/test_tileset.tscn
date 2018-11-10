@@ -1,0 +1,349 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://dummy_assets/2015-02-26 [DB32](Generic Platformer)(Tileset).png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=1]
+
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="AtlasTexture" id=3]
+
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[sub_resource type="AtlasTexture" id=4]
+
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[sub_resource type="StreamTexture" id=5]
+
+flags = 4
+load_path = "res://.import/2015-02-26 [DB32](Generic Platformer)(Tileset).png-c09ebbc8f980a3ce805a3441321574c2.stex"
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="AtlasTexture" id=6]
+
+flags = 4
+atlas = SubResource( 5 )
+region = Rect2( 48, 0, 16, 16 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[sub_resource type="StreamTexture" id=7]
+
+flags = 4
+load_path = "res://.import/2015-02-26 [DB32](Generic Platformer)(Tileset).png-c09ebbc8f980a3ce805a3441321574c2.stex"
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="AtlasTexture" id=8]
+
+flags = 4
+atlas = SubResource( 7 )
+region = Rect2( 64, 0, 16, 16 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[sub_resource type="StreamTexture" id=9]
+
+flags = 4
+load_path = "res://.import/2015-02-26 [DB32](Generic Platformer)(Tileset).png-c09ebbc8f980a3ce805a3441321574c2.stex"
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="AtlasTexture" id=10]
+
+flags = 4
+atlas = SubResource( 9 )
+region = Rect2( 80, 0, 16, 16 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[sub_resource type="StreamTexture" id=11]
+
+flags = 4
+load_path = "res://.import/2015-02-26 [DB32](Generic Platformer)(Tileset).png-c09ebbc8f980a3ce805a3441321574c2.stex"
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="AtlasTexture" id=12]
+
+flags = 4
+atlas = SubResource( 11 )
+region = Rect2( 96, 0, 16, 16 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[sub_resource type="StreamTexture" id=13]
+
+flags = 4
+load_path = "res://.import/2015-02-26 [DB32](Generic Platformer)(Tileset).png-c09ebbc8f980a3ce805a3441321574c2.stex"
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="AtlasTexture" id=14]
+
+flags = 4
+atlas = SubResource( 13 )
+region = Rect2( 112, 0, 16, 16 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[sub_resource type="StreamTexture" id=15]
+
+flags = 4
+load_path = "res://.import/2015-02-26 [DB32](Generic Platformer)(Tileset).png-c09ebbc8f980a3ce805a3441321574c2.stex"
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="AtlasTexture" id=16]
+
+flags = 4
+atlas = SubResource( 15 )
+region = Rect2( 128, 0, 16, 16 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[node name="Node" type="Node"]
+
+[node name="grass_open" type="Sprite" parent="." index="0"]
+
+position = Vector2( 10, 10 )
+texture = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="grass_open" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grass_open/StaticBody2D" index="0"]
+
+position = Vector2( 4.76837e-07, 4.76837e-07 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="grass_middle" type="Sprite" parent="." index="1"]
+
+position = Vector2( 70, 10 )
+texture = SubResource( 3 )
+_sections_unfolded = [ "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="grass_middle" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Pickable", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grass_middle/StaticBody2D" index="0"]
+
+position = Vector2( 4.76837e-07, -4.76837e-07 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="grass_end" type="Sprite" parent="." index="2"]
+
+position = Vector2( 130, 10 )
+texture = SubResource( 4 )
+_sections_unfolded = [ "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="grass_end" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grass_end/StaticBody2D" index="0"]
+
+position = Vector2( -9.53674e-07, -4.76837e-07 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="dirt_1" type="Sprite" parent="." index="3"]
+
+position = Vector2( 190, 10 )
+texture = SubResource( 6 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="dirt_1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="dirt_1/StaticBody2D" index="0"]
+
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="dirt_2" type="Sprite" parent="." index="4"]
+
+position = Vector2( 260, 10 )
+texture = SubResource( 8 )
+_sections_unfolded = [ "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="dirt_2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dirt_2/StaticBody2D" index="0"]
+
+position = Vector2( -9.53674e-07, -4.76837e-07 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="dirt_3" type="Sprite" parent="." index="5"]
+
+position = Vector2( 330, 10 )
+texture = SubResource( 10 )
+_sections_unfolded = [ "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="dirt_3" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dirt_3/StaticBody2D" index="0"]
+
+position = Vector2( -9.53674e-07, -4.76837e-07 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="bricks_closed_left_top" type="Sprite" parent="." index="6"]
+
+position = Vector2( 10, 70 )
+texture = SubResource( 12 )
+_sections_unfolded = [ "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="bricks_closed_left_top" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bricks_closed_left_top/StaticBody2D" index="0"]
+
+position = Vector2( -4.76837e-07, 4.76837e-07 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="bricks_closed_center_top" type="Sprite" parent="." index="7"]
+
+position = Vector2( 70, 70 )
+texture = SubResource( 14 )
+_sections_unfolded = [ "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="bricks_closed_center_top" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bricks_closed_center_top/StaticBody2D" index="0"]
+
+position = Vector2( 4.76837e-07, 4.76837e-07 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="bricks_closed_right_top" type="Sprite" parent="." index="8"]
+
+position = Vector2( 130, 70 )
+texture = SubResource( 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="bricks_closed_right_top" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bricks_closed_right_top/StaticBody2D" index="0"]
+
+position = Vector2( -9.53674e-07, 4.76837e-07 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+
