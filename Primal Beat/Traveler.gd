@@ -6,8 +6,6 @@ var speed = 5
 # gravity represent the accelaration for the downwards direction
 var gravity = 3
 
-var speed = 5
-
 func _init():
 	shot = load("res://PlayerShot.tscn")
 
