@@ -25,6 +25,9 @@ func _process(delta):
 func set_health(health):
 	current_health = clamp(health, 0, max_health)
 
+func set_lives(live):
+	current_lives = clamp(live, 0, max_lives)
+
 func update():
 	var visible_hearts_counter = current_health
 	for heart in hearts_bar_elements:
