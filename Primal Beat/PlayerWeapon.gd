@@ -16,8 +16,6 @@ func _ready():
 	player = get_parent()
 	gameworld = get_node('/root')
 
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
 	shot_timer = Timer.new()
 	shot_timer.wait_time = BULLET_DELAY
 	shot_timer.one_shot = true
