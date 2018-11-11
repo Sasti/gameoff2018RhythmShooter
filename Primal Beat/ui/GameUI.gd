@@ -13,6 +13,7 @@ var max_health = 3
 onready var hearts_bar_elements = get_tree().get_nodes_in_group('health_indicator')
 
 func _ready():
+	# Copy the intial state of the PlayerState singleton (AutoLoad)
 	set_health(PlayerState.health)
 	set_lives(PlayerState.live)
 	
@@ -29,11 +30,13 @@ func set_health(health):
 func set_lives(live):
 	current_lives = clamp(live, 0, max_lives)
 
+# Handler function wich should be called when the PlayerState changed
 func _on_player_state_changed():
 	set_health(PlayerState.health)
 	set_lives(PlayerState.live)
 	update()
 
+# Updates the visibility and visual properties of the visual nodes used to represent the state of the game
 func update():
 	var visible_hearts_counter = current_health
 	for heart in hearts_bar_elements:
