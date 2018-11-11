@@ -1,6 +1,6 @@
 extends AnimatedSprite
 
-const SPEED = 2
+const SPEED = 500
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -10,7 +10,7 @@ func _ready():
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-	position.x += SPEED
+	position.x += SPEED * delta
 	play()
 
 func _on_Visibility_screen_exited():

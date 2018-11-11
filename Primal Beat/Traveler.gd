@@ -1,13 +1,13 @@
 extends KinematicBody2D
 
 # acceleration for left/right
-const runSpeed = 400
+const RUN_SPEED = 400
 
 # acceleration for going up
-const jumpSpeed = -250
+const JUMP_SPEED = -250
 
 # acceleration for going down
-const gravity = 600
+const GRAVITY = 600
 
 # Whether the character is jumping (allows us to control the animation)
 var jumping = false
@@ -18,7 +18,7 @@ var velocity = Vector2()
 
 func _physics_process(delta):
 	# Downward movement for constant gravity pull
-	velocity.y += gravity * delta
+	velocity.y += GRAVITY * delta
 
 	# Read user input and modify velocity as appropriate
 	_get_input()
@@ -40,14 +40,14 @@ func _get_input():
 	var jump = Input.is_action_just_pressed('ui_jump')
 
 	if left:
-		velocity.x -= runSpeed
+		velocity.x -= RUN_SPEED
 		facing = -1
 	if right:
-		velocity.x += runSpeed
+		velocity.x += RUN_SPEED
 		facing = 1
 	if is_on_floor() and jump:
 		jumping = true
-		velocity.y = jumpSpeed
+		velocity.y = JUMP_SPEED
 
 func _animate():
 	if jumping:
