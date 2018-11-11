@@ -11,3 +11,4 @@ func _process(delta):
 func _on_player_damaged(damage):
 	hearts -= damage
 	print('took %d damage - %d hearts left' % [damage, hearts])
+	

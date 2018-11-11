@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Gameworld.gd" type="Script" id=1]
 [ext_resource path="res://dummy_assets/2015-02-26 [DB32](Generic Platformer)(Clouds).png" type="Texture" id=2]
 [ext_resource path="res://dummy_assets/2015-02-26 [DB32](Generic Platformer)(Mountains).png" type="Texture" id=3]
-[ext_resource path="res://Traveler.tscn" type="PackedScene" id=4]
-[ext_resource path="res://enemies/FlyingMeleeMob.tscn" type="PackedScene" id=5]
-[ext_resource path="res://dummy_assets/basic_tileset.res" type="TileSet" id=6]
+[ext_resource path="res://ui/GameUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Traveler.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/FlyingMeleeMob.tscn" type="PackedScene" id=6]
+[ext_resource path="res://dummy_assets/basic_tileset.res" type="TileSet" id=7]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 [node name="Gameworld" type="Node" parent="." index="0"]
 
@@ -15,7 +16,6 @@ script = ExtResource( 1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="1"]
 
-editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -68,18 +68,23 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Traveler" parent="." index="3" instance=ExtResource( 4 )]
+[node name="GameUI" parent="UI-Overlay" index="0" instance=ExtResource( 4 )]
+
+current_lives = 3
+current_health = 3
+
+[node name="Traveler" parent="." index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 20, 390 )
 
-[node name="FlyingMeleeMob" parent="." index="4" instance=ExtResource( 5 )]
+[node name="FlyingMeleeMob" parent="." index="4" instance=ExtResource( 6 )]
 
 _sections_unfolded = [ "Collision", "Transform", "collision" ]
 
 [node name="TileMap" type="TileMap" parent="." index="5"]
 
 mode = 0
-tile_set = ExtResource( 6 )
+tile_set = ExtResource( 7 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
