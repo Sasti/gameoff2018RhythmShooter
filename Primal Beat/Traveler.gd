@@ -19,13 +19,25 @@ func _physics_process(delta):
 	var movementDelta = Vector2(0,0)
 
 	if Input.is_action_pressed("ui_down"):
-		position.y += speed
+		movementDelta.y += speed
 
 	if Input.is_action_pressed("ui_up"):
-		position.y -= speed
+		movementDelta.y -= speed
 
 	if Input.is_action_pressed("ui_right"):
-		position.x += speed
+		movementDelta.x += speed
 
 	if Input.is_action_pressed("ui_left"):
-		position.x -= speed
+		movementDelta.x -= speed
+
+	movementDelta.y += gravity
+
+	var collision = move_and_collide(movementDelta)
+
+	if collision != null:
+		# This is very clumsy and needs to be replaces.
+		# I will replace it with a propper implementation as soon as I understand the engine better.
+		# Probably something like acceleration + speed * delta etc. and clamp it to the max speed
+		movementDelta.y = 0
+		movementDelta.x = collision.remainder.x
+		move_and_slide(collision.remainder)
