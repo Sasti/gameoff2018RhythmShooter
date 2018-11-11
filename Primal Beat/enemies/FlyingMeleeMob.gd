@@ -31,21 +31,17 @@ func _physics_process(delta):
 		move_and_collide(velocity * delta)
 
 	if attacking:
-		print('damaged player')
 		emit_signal('player_damaged', damage)
 		attacking = false
 		queue_free()
 
+func _on_aggro(area):
+	if area.name == 'PlayerAggroRange':
+		aggroed = true
+
 func _on_hit(area):
 	if area.name == 'PlayerHitbox':
-		print('reached player')
 		attacking = true
 
 	if area.name == 'PlayerShotHitArea':
-		print('mob hit by shot')
 		queue_free()
-
-func _on_aggro(area):
-	if area.name == 'PlayerAggroRange':
-		print('mob aggroed')
-		aggroed = true
