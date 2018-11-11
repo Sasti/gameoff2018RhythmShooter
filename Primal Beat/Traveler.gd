@@ -1,43 +1,34 @@
 extends KinematicBody2D
 
-var shot
-var speed = 5
+var runSpeed = 400
+var jumpSpeed = -300
 
-# gravity represent the accelaration for the downwards direction
-var gravity = 3
+# acceleration for the down direction
+var gravity = 600
 
-func _init():
-	shot = load("res://PlayerShot.tscn")
-
-func _ready():
-	pass
-
-func _process(delta):
-	pass
+var velocity = Vector2()
 
 func _physics_process(delta):
-	var movementDelta = Vector2(0,0)
+	# Downward movement for constant gravity pull
+	velocity.y += gravity * delta
 
-	if Input.is_action_pressed("ui_down"):
-		movementDelta.y += speed
+	# Read user input and modify velocity as appropriate
+	_get_input()
 
-	if Input.is_action_pressed("ui_up"):
-		movementDelta.y -= speed
+	# Perform the actual movement
+	velocity = move_and_slide(velocity, Vector2(0, -1))
 
-	if Input.is_action_pressed("ui_right"):
-		movementDelta.x += speed
+func _get_input():
+	# Reset to prevent the character from moving indefinitely
+	velocity.x = 0
 
-	if Input.is_action_pressed("ui_left"):
-		movementDelta.x -= speed
+	var left = Input.is_action_pressed('ui_left')
+	var right = Input.is_action_pressed('ui_right')
+	var jump = Input.is_action_just_pressed('ui_jump')
 
-	movementDelta.y += gravity
-
-	var collision = move_and_collide(movementDelta)
-
-	if collision != null:
-		# This is very clumsy and needs to be replaces.
-		# I will replace it with a propper implementation as soon as I understand the engine better.
-		# Probably something like acceleration + speed * delta etc. and clamp it to the max speed
-		movementDelta.y = 0
-		movementDelta.x = collision.remainder.x
-		move_and_slide(collision.remainder)
+	if left:
+		velocity.x -= runSpeed
+	if right:
+		velocity.x += runSpeed
+	if is_on_floor() and jump:
+		velocity.y = jumpSpeed
