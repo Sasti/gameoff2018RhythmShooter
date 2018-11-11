@@ -1,43 +1,62 @@
 extends KinematicBody2D
 
-var shot
-var speed = 5
+# acceleration for left/right
+const RUN_SPEED = 400
 
-# gravity represent the accelaration for the downwards direction
-var gravity = 3
+# acceleration for going up
+const JUMP_SPEED = -250
 
-func _init():
-	shot = load("res://PlayerShot.tscn")
+# acceleration for going down
+const GRAVITY = 600
 
-func _ready():
-	pass
+# Whether the character is jumping (allows us to control the animation)
+var jumping = false
 
-func _process(delta):
-	pass
+var facing = 1
+
+var velocity = Vector2()
 
 func _physics_process(delta):
-	var movementDelta = Vector2(0,0)
+	# Downward movement for constant gravity pull
+	velocity.y += GRAVITY * delta
 
-	if Input.is_action_pressed("ui_down"):
-		movementDelta.y += speed
+	# Read user input and modify velocity as appropriate
+	_get_input()
 
-	if Input.is_action_pressed("ui_up"):
-		movementDelta.y -= speed
+	# Perform the actual movement
+	velocity = move_and_slide(velocity, Vector2(0, -1))
 
-	if Input.is_action_pressed("ui_right"):
-		movementDelta.x += speed
+	if jumping and is_on_floor():
+		jumping = false
 
-	if Input.is_action_pressed("ui_left"):
-		movementDelta.x -= speed
+	_animate()
 
-	movementDelta.y += gravity
+func _get_input():
+	# Reset to prevent the character from moving indefinitely
+	velocity.x = 0
 
-	var collision = move_and_collide(movementDelta)
+	var left = Input.is_action_pressed('ui_left')
+	var right = Input.is_action_pressed('ui_right')
+	var jump = Input.is_action_just_pressed('ui_jump')
 
-	if collision != null:
-		# This is very clumsy and needs to be replaces.
-		# I will replace it with a propper implementation as soon as I understand the engine better.
-		# Probably something like acceleration + speed * delta etc. and clamp it to the max speed
-		movementDelta.y = 0
-		movementDelta.x = collision.remainder.x
-		move_and_slide(collision.remainder)
+	if left:
+		velocity.x -= RUN_SPEED
+		facing = -1
+	if right:
+		velocity.x += RUN_SPEED
+		facing = 1
+	if is_on_floor() and jump:
+		jumping = true
+		velocity.y = JUMP_SPEED
+
+func _animate():
+	if jumping:
+		$AnimatedSprite.animation = 'jumping'
+	elif velocity.x != 0:
+		$AnimatedSprite.animation = 'running'
+	else:
+		$AnimatedSprite.animation = 'idle'
+
+	# Horizontally flip animation when moving/facing left
+	$AnimatedSprite.flip_h = velocity.x < 0 or facing == -1
+	$AnimatedSprite.play()
