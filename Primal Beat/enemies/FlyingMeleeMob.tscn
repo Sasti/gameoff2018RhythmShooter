@@ -13,7 +13,7 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="ConvexPolygonShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
@@ -23,7 +23,7 @@ points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="FlyingMeleeMob" type="KinematicBody2D"]
+[node name="FlyingMeleeMob" type="KinematicBody2D" index="0"]
 
 position = Vector2( 1001, 292.659 )
 input_pickable = false
@@ -59,7 +59,7 @@ _sections_unfolded = [ "Collision" ]
 
 position = Vector2( -0.221954, -6.03165 )
 scale = Vector2( 3.01586, -4.95034 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="MobAggroRange" type="Area2D" parent="." index="2"]

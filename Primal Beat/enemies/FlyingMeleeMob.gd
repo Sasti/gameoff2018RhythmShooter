@@ -31,7 +31,7 @@ func _physics_process(delta):
 		move_and_collide(velocity * delta)
 
 	if attacking:
-		emit_signal('player_damaged', damage)
+		PlayerState.damage_player(damage)
 		attacking = false
 		queue_free()
 

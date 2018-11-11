@@ -10,16 +10,17 @@ export var max_lives = 3
 export var current_health = 3
 var max_health = 3
 
-onready var hearts_bar_elements = get_tree().get_nodes_in_group("health_indicator")
+onready var hearts_bar_elements = get_tree().get_nodes_in_group('health_indicator')
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	update()
+	set_health(PlayerState.health)
+	set_lives(PlayerState.live)
 	
-func _process(delta):
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
+	# Register to the global PlayerState
+	var err = PlayerState.connect('player_state_changed', self, '_on_player_state_changed')
+	print(err)
+	
+	# Update the state of the ui to match the initial PlayerState
 	update()
 	
 func set_health(health):
@@ -27,6 +28,11 @@ func set_health(health):
 
 func set_lives(live):
 	current_lives = clamp(live, 0, max_lives)
+
+func _on_player_state_changed():
+	set_health(PlayerState.health)
+	set_lives(PlayerState.live)
+	update()
 
 func update():
 	var visible_hearts_counter = current_health
