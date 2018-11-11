@@ -3,7 +3,7 @@
 [ext_resource path="res://dummy_assets/2015-02-26 [DB32](Generic Platformer)(Clouds).png" type="Texture" id=1]
 [ext_resource path="res://dummy_assets/2015-02-26 [DB32](Generic Platformer)(Mountains).png" type="Texture" id=2]
 [ext_resource path="res://Traveler.tscn" type="PackedScene" id=3]
-[ext_resource path="res://FlyingMeleeMob.tscn" type="Script" id=4]
+[ext_resource path="res://FlyingMeleeMob.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/troll-1414023002.png" type="Texture" id=5]
 [ext_resource path="res://dummy_assets/basic_tileset.res" type="TileSet" id=6]
 [ext_resource path="res://Gameworld.gd" type="Script" id=7]
