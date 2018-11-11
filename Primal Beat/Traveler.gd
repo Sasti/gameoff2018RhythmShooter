@@ -1,10 +1,18 @@
 extends KinematicBody2D
 
-var runSpeed = 400
-var jumpSpeed = -300
+# acceleration for left/right
+const runSpeed = 400
 
-# acceleration for the down direction
-var gravity = 600
+# acceleration for going up
+const jumpSpeed = -250
+
+# acceleration for going down
+const gravity = 600
+
+# Whether the character is jumping (allows us to control the animation)
+var jumping = false
+
+var facing = 1
 
 var velocity = Vector2()
 
@@ -18,6 +26,11 @@ func _physics_process(delta):
 	# Perform the actual movement
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
+	if jumping and is_on_floor():
+		jumping = false
+
+	_animate()
+
 func _get_input():
 	# Reset to prevent the character from moving indefinitely
 	velocity.x = 0
@@ -28,7 +41,22 @@ func _get_input():
 
 	if left:
 		velocity.x -= runSpeed
+		facing = -1
 	if right:
 		velocity.x += runSpeed
+		facing = 1
 	if is_on_floor() and jump:
+		jumping = true
 		velocity.y = jumpSpeed
+
+func _animate():
+	if jumping:
+		$AnimatedSprite.animation = 'jumping'
+	elif velocity.x != 0:
+		$AnimatedSprite.animation = 'running'
+	else:
+		$AnimatedSprite.animation = 'idle'
+
+	# Horizontally flip animation when moving/facing left
+	$AnimatedSprite.flip_h = velocity.x < 0 or facing == -1
+	$AnimatedSprite.play()
