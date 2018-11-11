@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://enemies/FlyingMeleeMob.gd" type="Script" id=1]
-[ext_resource path="res://sprites/troll-1414023002.png" type="Texture" id=2]
+[ext_resource path="res://dummy_assets/Dinosaur_Set_PNG/Pterodactyl/Pterodactyl.png" type="Texture" id=2]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -11,11 +11,12 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+_sections_unfolded = [ "Resource" ]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
-radius = 10.0
+points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 
 [sub_resource type="CircleShape2D" id=3]
 
@@ -34,8 +35,11 @@ _sections_unfolded = [ "Collision", "collision" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
+scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
 animation = "default"
+flip_h = true
+_sections_unfolded = [ "Transform" ]
 
 [node name="MobHitArea" type="Area2D" parent="." index="1"]
 
@@ -53,7 +57,9 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MobHitArea" index="0"]
 
-shape = SubResource( 2 )
+position = Vector2( -0.221954, -6.03165 )
+scale = Vector2( 3.01586, -4.95034 )
+shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="MobAggroRange" type="Area2D" parent="." index="2"]
@@ -75,8 +81,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="3"]
 
-position = Vector2( -0.0158039, 0.124878 )
-scale = Vector2( 1.12233, 1.01249 )
+position = Vector2( 0.908346, 1.07175 )
+scale = Vector2( 4.8634, 2.13462 )
 rect = Rect2( -10, -10, 20, 20 )
 
 
