@@ -40,11 +40,10 @@ func _process(delta):
 		shotInstance.position = player.position
 		gameworld.add_child(shotInstance)
 
-	if player.facing == player.FACING_LEFT:
-		position.x = -(anchorPoint)
+	if player.facing == -1:
 		flip_h = true
 	else:
-		position.x = anchorPoint
 		flip_h = false
 
+	position.x = player.facing * anchorPoint
 	play()
