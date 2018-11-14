@@ -17,7 +17,7 @@ func _init():
 
 func _ready():
 	player = get_parent()
-	gameworld = get_node('/root')
+	gameworld = get_node('/root/GameWorld')
 
 	anchorPoint = position.x
 
@@ -43,7 +43,7 @@ func _process(delta):
 	if player.facing == player.FACING_LEFT:
 		position.x = -(anchorPoint)
 		flip_h = true
-	elif player.facing == player.FACING_RIGHT:
+	else:
 		position.x = anchorPoint
 		flip_h = false
 

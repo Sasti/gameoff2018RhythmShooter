@@ -7,10 +7,11 @@
 [ext_resource path="res://enemies/FlyingMeleeMob.tscn" type="PackedScene" id=5]
 [ext_resource path="res://dummy_assets/basic_tileset.res" type="TileSet" id=6]
 
-[node name="Root" type="Node" index="0"]
+[node name="GameWorld" type="Node" index="0"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
+editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -57,6 +58,7 @@ _sections_unfolded = [ "Region", "Transform" ]
 
 [node name="UI-Overlay" type="CanvasLayer" parent="." index="1"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
