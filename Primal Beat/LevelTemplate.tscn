@@ -7,7 +7,7 @@
 [ext_resource path="res://enemies/FlyingMeleeMob.tscn" type="PackedScene" id=5]
 [ext_resource path="res://dummy_assets/basic_tileset.res" type="TileSet" id=6]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
@@ -71,7 +71,6 @@ current_health = 3
 [node name="Traveler" parent="." index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 20, 390 )
-facing = "right"
 
 [node name="FlyingMeleeMob" parent="." index="3" instance=ExtResource( 5 )]
 
