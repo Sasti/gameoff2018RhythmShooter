@@ -1,4 +1,4 @@
-extends Sprite
+extends AnimatedSprite
 
 const BULLET_DELAY = 0.25
 
@@ -32,3 +32,8 @@ func _process(delta):
 		var shotInstance = shot.instance()
 		shotInstance.position = player.position
 		gameworld.add_child(shotInstance)
+
+	if player.facing == player.FACING_LEFT:
+		print('left')
+	elif player.facing == player.FACING_RIGHT:
+		print('right')

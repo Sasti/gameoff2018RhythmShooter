@@ -6,13 +6,17 @@ const RUN_SPEED = 400
 # acceleration for going up
 const JUMP_SPEED = -250
 
+const FACING_LEFT = 'left'
+const FACING_RIGHT = 'right'
+
 # acceleration for going down
 const GRAVITY = 600
 
 # Whether the character is jumping (allows us to control the animation)
 var jumping = false
 
-var facing = 1
+# Whether the character is facing left or right
+export var facing = 'right'
 
 var velocity = Vector2()
 
@@ -41,10 +45,10 @@ func _get_input():
 
 	if left:
 		velocity.x -= RUN_SPEED
-		facing = -1
+		facing = self.FACING_LEFT
 	if right:
 		velocity.x += RUN_SPEED
-		facing = 1
+		facing = self.FACING_RIGHT
 	if is_on_floor() and jump:
 		jumping = true
 		velocity.y = JUMP_SPEED
@@ -58,5 +62,5 @@ func _animate():
 		$AnimatedSprite.animation = 'idle'
 
 	# Horizontally flip animation when moving/facing left
-	$AnimatedSprite.flip_h = velocity.x < 0 or facing == -1
+	$AnimatedSprite.flip_h = velocity.x < 0 or facing == self.FACING_LEFT
 	$AnimatedSprite.play()
