@@ -7,7 +7,7 @@
 [ext_resource path="res://enemies/FlyingMeleeMob.tscn" type="PackedScene" id=5]
 [ext_resource path="res://dummy_assets/basic_tileset.res" type="TileSet" id=6]
 
-[node name="GameWorld" type="Node"]
+[node name="GameWorld" type="Node" index="0"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
