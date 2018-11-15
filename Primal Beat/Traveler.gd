@@ -12,7 +12,8 @@ const GRAVITY = 600
 # Whether the character is jumping (allows us to control the animation)
 var jumping = false
 
-var facing = 1
+# Whether the character is facing left (-1) or right (1)
+export var facing = 1
 
 var velocity = Vector2()
 
