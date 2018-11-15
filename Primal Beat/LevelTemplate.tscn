@@ -76,6 +76,7 @@ position = Vector2( 20, 390 )
 
 [node name="FlyingMeleeMob" parent="." index="3" instance=ExtResource( 5 )]
 
+position = Vector2( 709.88, 283.136 )
 _sections_unfolded = [ "Collision", "Transform", "collision" ]
 
 [node name="TileMap" type="TileMap" parent="." index="4"]
