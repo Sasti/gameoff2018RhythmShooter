@@ -3,8 +3,6 @@
 # When it manages to reach the player's attack range, it will damage them, then die.
 extends KinematicBody2D
 
-signal player_damaged
-
 # No player in sight, just hanging around
 const STATE_IDLE = 'idle'
 
