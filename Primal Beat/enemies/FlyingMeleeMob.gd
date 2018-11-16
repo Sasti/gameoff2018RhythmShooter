@@ -17,9 +17,6 @@ const STATE_ATTACKING = 'attacking'
 # After a successful attack, the mob falls back
 const STATE_DISENGAGING = 'disengaging'
 
-# The mob has reached the fallback position and is waiting to resume pursuit after the timer runs out
-const STATE_HOVERING = 'hovering'
-
 # Lifecycle states controlling mob behaviour
 var mob_state = STATE_IDLE
 
@@ -63,8 +60,6 @@ func _physics_process(delta):
 		mob_state = STATE_DISENGAGING
 	elif mob_state == STATE_DISENGAGING:
 		_move_and_hover(delta)
-	elif mob_state == STATE_HOVERING:
-		pass
 
 # Move to fallback position after attacking and start the timer for the next attack
 func _move_and_hover(delta):
@@ -72,7 +67,7 @@ func _move_and_hover(delta):
 	move_and_collide(velocity * delta)
 
 	if global_position >= fallback_point:
-		mob_state = STATE_HOVERING
+		mob_state = STATE_IDLE
 		disengage_timer.start()
 
 # Called when hovering after the timer has run out - start pursuing the player again
