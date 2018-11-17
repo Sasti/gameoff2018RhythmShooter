@@ -6,9 +6,9 @@
 [ext_resource path="res://Traveler.tscn" type="PackedScene" id=4]
 [ext_resource path="res://enemies/FlyingMeleeMob.tscn" type="PackedScene" id=5]
 [ext_resource path="res://dummy_assets/basic_tileset.res" type="TileSet" id=6]
-[ext_resource path="res://grass.tscn" type="PackedScene" id=7]
+[ext_resource path="res://elements/grass.tscn" type="PackedScene" id=7]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
@@ -115,6 +115,8 @@ scale = Vector2( 1.02734, 0.949219 )
 
 position = Vector2( 240, 480 )
 scale = Vector2( 1.02734, 0.949219 )
+spawnOffset = Vector2( 160, -160 )
+spawnedEnemy = ExtResource( 5 )
 
 [node name="Node2D4" parent="." index="8" instance=ExtResource( 7 )]
 

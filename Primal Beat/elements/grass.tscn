@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://elements/grass.gd" type="Script" id=1]
+[ext_resource path="res://sprites/grass_bush_cut.png" type="Texture" id=2]
+[ext_resource path="res://elements/GrassMovement.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 13 )
+
+[node name="Grass" type="Node2D"]
+
+position = Vector2( 387, 304.5 )
+scale = Vector2( 7, 7 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+spawnOffset = Vector2( 0, 0 )
+spawnedEnemy = null
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.0648861, 0.0648861 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 128, 128 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+wobbleSpeed = 1.3
+wobbleDistance = 0.2
+wobbleDirection = -1
+
+[node name="grass_touch_detection" type="Area2D" parent="." index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="grass_bounds" type="CollisionPolygon2D" parent="grass_touch_detection" index="0"]
+
+scale = Vector2( 1.78945, 1.75293 )
+build_mode = 0
+polygon = PoolVector2Array( -14.1304, -0.366734, -10.9371, -10.9612, 11.4161, -10.9612, 13.0128, 1.26319, 11.4161, 11.8577, -11.7354, 11.8577 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="noise_detection" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="noise_detection_are" type="CollisionShape2D" parent="noise_detection" index="0"]
+
+scale = Vector2( 10.7692, 10.7692 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="spawn_detection" type="Area2D" parent="." index="3"]
+
+scale = Vector2( 1, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="spawn_detection_area" type="CollisionShape2D" parent="spawn_detection" index="0"]
+
+scale = Vector2( 7.30769, 1.92308 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="area_entered" from="grass_touch_detection" to="." method="_on_grass_touch_detection_area_entered"]
+
+[connection signal="area_entered" from="noise_detection" to="." method="_on_noise_detection_area_entered"]
+
+[connection signal="area_entered" from="spawn_detection" to="." method="_on_spawn_detection_area_entered"]
+
+
