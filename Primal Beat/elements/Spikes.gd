@@ -42,7 +42,7 @@ func _ready():
 func _process(delta):
 	if moving_spikes and harmfull:
 		_update_active_state(delta)
-	if _player_inside:
+	if _player_inside and harmfull:
 		PlayerState.damage_player(1)
 	
 # Updates the position and active state of the spikes
@@ -68,11 +68,11 @@ func _make_unharmfull():
 	spikes_idle_timer.start()
 
 func _on_DamageArea_area_entered(area):
-	if player_interaction.is_player_area():
+	if player_interaction.is_player_area(area):
 		_player_inside = true
 
 func _on_DamageArea_area_exited(area):
-	if player_interaction.is_player_area():
+	if player_interaction.is_player_area(area):
 		_player_inside = false
 
 func _on_spikes_idle_timeout():
