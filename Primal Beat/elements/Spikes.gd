@@ -39,7 +39,7 @@ func _ready():
 		spikes_idle_timer.name = "SpikesIdleTimeout"
 		add_child(spikes_idle_timer)
 
-func _process(delta):
+func _physics_process(delta):
 	if moving_spikes and harmfull:
 		_update_active_state(delta)
 	if _player_inside and harmfull:
