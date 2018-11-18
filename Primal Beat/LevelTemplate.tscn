@@ -9,7 +9,7 @@
 [ext_resource path="res://elements/grass.tscn" type="PackedScene" id=7]
 [ext_resource path="res://elements/Ladder.tscn" type="PackedScene" id=8]
 
-[node name="GameWorld" type="Node" index="0"]
+[node name="GameWorld" type="Node"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
@@ -60,6 +60,7 @@ _sections_unfolded = [ "Region", "Transform" ]
 
 [node name="UI-Overlay" type="CanvasLayer" parent="." index="1"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
