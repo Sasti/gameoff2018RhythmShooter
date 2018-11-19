@@ -49,6 +49,8 @@ func _ready():
 	add_child(disengage_timer)
 
 func _physics_process(delta):
+	$AnimatedSprite.animation = 'idle'
+
 	if mob_state == STATE_AGGROED:
 		velocity = (target.position - position).normalized() * SPEED
 		move_and_collide(velocity * delta)
@@ -56,8 +58,11 @@ func _physics_process(delta):
 		fallback_point = global_position + FALLBACK_OFFSET
 		PlayerState.damage_player(damage)
 		mob_state = STATE_DISENGAGING
+		$AnimatedSprite.animation = 'stinging'
 	elif mob_state == STATE_DISENGAGING:
 		_move_and_hover(delta)
+
+	$AnimatedSprite.play()
 
 # Move to fallback position after attacking and start the timer for the next attack
 func _move_and_hover(delta):

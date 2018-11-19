@@ -4,7 +4,7 @@
 [ext_resource path="res://dummy_assets/2015-02-26 [DB32](Generic Platformer)(Mountains).png" type="Texture" id=2]
 [ext_resource path="res://ui/GameUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Traveler.tscn" type="PackedScene" id=4]
-[ext_resource path="res://enemies/FlyingMeleeMob.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/GiantWasp.tscn" type="PackedScene" id=5]
 [ext_resource path="res://dummy_assets/basic_tileset.res" type="TileSet" id=6]
 [ext_resource path="res://elements/grass.tscn" type="PackedScene" id=7]
 
@@ -75,10 +75,9 @@ current_health = 3
 
 position = Vector2( 20, 390 )
 
-[node name="FlyingMeleeMob" parent="." index="3" instance=ExtResource( 5 )]
+[node name="GiantWasp" parent="." index="3" instance=ExtResource( 5 )]
 
-position = Vector2( 709.88, 283.136 )
-_sections_unfolded = [ "Collision", "Transform", "collision" ]
+position = Vector2( 727.565, 279.055 )
 
 [node name="TileMap" type="TileMap" parent="." index="4"]
 
