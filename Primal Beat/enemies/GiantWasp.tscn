@@ -57,11 +57,11 @@ shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="MobAggroRange" index="0"]
 
-position = Vector2( 83.9529, -26.1609 )
+scale = Vector2( 25, 25 )
 
 [node name="VisibilityNotifier2D" parent="." index="3"]
 
-position = Vector2( 3.30299, -45.7902 )
-scale = Vector2( 1.54587, -2.68744 )
+position = Vector2( 2.63953, -2.68458 )
+scale = Vector2( 1.54587, -1.60747 )
 
 

@@ -82,11 +82,11 @@ func _on_disengage_timeout():
 	fallback_point = Vector2()
 
 func _on_aggro(area):
-	if area.name == 'PlayerAggroRange':
+	if area.name == 'PlayerAggroRange' and mob_state == STATE_IDLE:
 		mob_state = STATE_AGGROED
 
 func _on_hit(area):
-	if area.name == 'PlayerHitbox':
+	if area.name == 'PlayerHitbox' and mob_state == STATE_AGGROED:
 		mob_state = STATE_ATTACKING
 		$AnimatedSprite.animation = 'attacking'
 
