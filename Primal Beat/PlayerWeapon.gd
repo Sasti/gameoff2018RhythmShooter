@@ -22,12 +22,12 @@ func _ready():
 	shot_timer = Timer.new()
 	shot_timer.wait_time = 0.5
 	shot_timer.one_shot = true
-	shot_timer.connect('timeout', self, 'on_timeout_complete')
+	shot_timer.connect('timeout', self, '_on_timeout_complete')
 
 	add_child(shot_timer)
 
 # Allow shooting again after the timer has stopped
-func on_timeout_complete():
+func _on_timeout_complete():
 	shooting = false
 
 func _process(delta):
