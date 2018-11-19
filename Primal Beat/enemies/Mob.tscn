@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://enemies/Mob.gd" type="Script" id=1]
+[ext_resource path="res://dummy_assets/Dinosaur_Set_PNG/Raptor/Raptor.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "moving",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "attacking",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="Mob" type="KinematicBody2D"]
+
+position = Vector2( 1001, 292.659 )
+input_pickable = false
+collision_layer = 0
+collision_mask = 0
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "collision" ]
+__meta__ = {
+"_edit_vertical_guides_": [ 988.705 ]
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 1 )
+animation = "idle"
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="MobHitArea" type="Area2D" parent="." index="1"]
+
+position = Vector2( -0.218942, -0.0547333 )
+rotation = 1.5708
+scale = Vector2( 0.995789, 1.26589 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 0.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MobHitArea" index="0"]
+
+position = Vector2( -0.250883, 9.97425 )
+rotation = 3.14159
+scale = Vector2( 3.17102, -4.201 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MobAggroRange" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 0.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MobAggroRange" index="0"]
+
+scale = Vector2( 30, 30 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="3"]
+
+position = Vector2( -0.999989, 2.34102 )
+scale = Vector2( 4, 2.5 )
+rect = Rect2( -10, -10, 20, 20 )
+
+

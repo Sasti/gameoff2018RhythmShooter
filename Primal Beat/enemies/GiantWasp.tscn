@@ -1,34 +1,35 @@
 [gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://enemies/GiantWasp.gd" type="Script" id=1]
-[ext_resource path="res://enemies/assets/wasp/wasp-idle-0.png" type="Texture" id=2]
-[ext_resource path="res://enemies/assets/wasp/wasp-idle-1.png" type="Texture" id=3]
-[ext_resource path="res://enemies/assets/wasp/wasp-idle-2.png" type="Texture" id=4]
-[ext_resource path="res://enemies/assets/wasp/wasp-idle-3.png" type="Texture" id=5]
-[ext_resource path="res://enemies/assets/wasp/wasp-attacking-0.png" type="Texture" id=6]
-[ext_resource path="res://enemies/assets/wasp/wasp-attacking-1.png" type="Texture" id=7]
-[ext_resource path="res://enemies/assets/wasp/wasp-attacking-2.png" type="Texture" id=8]
-[ext_resource path="res://enemies/assets/wasp/wasp-attacking-3.png" type="Texture" id=9]
-[ext_resource path="res://enemies/assets/wasp/wasp-attacking-4.png" type="Texture" id=10]
-[ext_resource path="res://enemies/assets/wasp/wasp-attacking-5.png" type="Texture" id=11]
-[ext_resource path="res://enemies/assets/wasp/wasp-attacking-6.png" type="Texture" id=12]
-[ext_resource path="res://enemies/assets/wasp/wasp-attacking-7.png" type="Texture" id=13]
-[ext_resource path="res://enemies/assets/wasp/wasp-attacking-8.png" type="Texture" id=14]
-[ext_resource path="res://enemies/assets/wasp/wasp-attacking-9.png" type="Texture" id=15]
-[ext_resource path="res://enemies/assets/wasp/wasp-attacking-10.png" type="Texture" id=16]
-[ext_resource path="res://enemies/assets/wasp/wasp-attacking-11.png" type="Texture" id=17]
+[ext_resource path="res://enemies/Mob.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/GiantWasp.gd" type="Script" id=2]
+[ext_resource path="res://enemies/assets/wasp/wasp-idle-0.png" type="Texture" id=3]
+[ext_resource path="res://enemies/assets/wasp/wasp-idle-1.png" type="Texture" id=4]
+[ext_resource path="res://enemies/assets/wasp/wasp-idle-2.png" type="Texture" id=5]
+[ext_resource path="res://enemies/assets/wasp/wasp-idle-3.png" type="Texture" id=6]
+[ext_resource path="res://enemies/assets/wasp/wasp-attacking-0.png" type="Texture" id=7]
+[ext_resource path="res://enemies/assets/wasp/wasp-attacking-1.png" type="Texture" id=8]
+[ext_resource path="res://enemies/assets/wasp/wasp-attacking-2.png" type="Texture" id=9]
+[ext_resource path="res://enemies/assets/wasp/wasp-attacking-3.png" type="Texture" id=10]
+[ext_resource path="res://enemies/assets/wasp/wasp-attacking-4.png" type="Texture" id=11]
+[ext_resource path="res://enemies/assets/wasp/wasp-attacking-5.png" type="Texture" id=12]
+[ext_resource path="res://enemies/assets/wasp/wasp-attacking-6.png" type="Texture" id=13]
+[ext_resource path="res://enemies/assets/wasp/wasp-attacking-7.png" type="Texture" id=14]
+[ext_resource path="res://enemies/assets/wasp/wasp-attacking-8.png" type="Texture" id=15]
+[ext_resource path="res://enemies/assets/wasp/wasp-attacking-9.png" type="Texture" id=16]
+[ext_resource path="res://enemies/assets/wasp/wasp-attacking-10.png" type="Texture" id=17]
+[ext_resource path="res://enemies/assets/wasp/wasp-attacking-11.png" type="Texture" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
-"name": "stinging",
+"name": "attacking",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -36,77 +37,31 @@ _sections_unfolded = [ "Resource" ]
 [sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 10.848
-height = 12.9999
-
-[sub_resource type="CircleShape2D" id=3]
-
-custom_solver_bias = 0.0
 radius = 10.0
+height = 15.7141
 
-[node name="GiantWasp" type="KinematicBody2D" index="0"]
+[node name="GiantWasp" instance=ExtResource( 1 )]
 
-position = Vector2( 1001, 292.659 )
-input_pickable = false
-collision_layer = 0
-collision_mask = 0
-collision/safe_margin = 0.08
-script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "collision" ]
-__meta__ = {
-"_edit_vertical_guides_": [ 988.705 ]
-}
+script = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+[node name="AnimatedSprite" parent="." index="0"]
 
-scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
-animation = "idle"
-flip_h = true
-_sections_unfolded = [ "Transform" ]
 
-[node name="MobHitArea" type="Area2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="MobHitArea" index="0"]
 
-position = Vector2( -0.218942, -0.0547333 )
+position = Vector2( -1.2074, 2.29039 )
 rotation = 1.5708
-scale = Vector2( 0.995789, 1.26589 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 0.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MobHitArea" index="0"]
-
-position = Vector2( -0.693721, 1.04547 )
-scale = Vector2( 1.47146, -0.646523 )
+scale = Vector2( 0.534719, -0.855955 )
 shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="MobAggroRange" type="Area2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="MobAggroRange" index="0"]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 0.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
+position = Vector2( 83.9529, -26.1609 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MobAggroRange" index="0"]
+[node name="VisibilityNotifier2D" parent="." index="3"]
 
-scale = Vector2( 30, 30 )
-shape = SubResource( 3 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="3"]
-
-position = Vector2( 2.06684, -1.02328 )
-scale = Vector2( 1.80511, 1.92512 )
-rect = Rect2( -10, -10, 20, 20 )
+position = Vector2( 3.30299, -45.7902 )
+scale = Vector2( 1.54587, -2.68744 )
 
 
