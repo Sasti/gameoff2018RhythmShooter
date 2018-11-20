@@ -28,7 +28,7 @@ script = ExtResource( 2 )
 _sections_unfolded = [ "Texture", "Transform" ]
 spikes_idle_time = 1.0
 moving_spikes = true
-spikes_speed = 100
+spikes_speed = 1000
 
 [node name="DamageArea" type="Area2D" parent="." index="0"]
 

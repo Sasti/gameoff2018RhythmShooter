@@ -167,12 +167,14 @@ scale = Vector2( 1, 1 )
 position = Vector2( 480.404, 505.354 )
 scale = Vector2( 0.13125, 0.0858592 )
 spikes_idle_time = 5.0
+spikes_speed = 500
 
 [node name="Spikes_2" parent="." index="12" instance=ExtResource( 9 )]
 
 position = Vector2( 510.404, 505.354 )
 scale = Vector2( 0.13125, 0.0858592 )
 spikes_idle_time = 5.0
+spikes_speed = 500
 
 [connection signal="player_entered" from="Node2D6/Ladder" to="Traveler" method="_on_Ladder_player_entered"]
 
