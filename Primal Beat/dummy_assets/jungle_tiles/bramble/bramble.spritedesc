@@ -1,0 +1,9 @@
+/*----------------------------------------------------------------------------*/
+sprite_sheet "bramble" 512 x 512 margin 1
+
+img "bramble.xcf.bz2"
+
+"bramble" autosize * 0.666 with img
+  glob "*"
+  exclude "1"
+  ;
