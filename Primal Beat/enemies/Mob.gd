@@ -1,6 +1,8 @@
 # Default node type for a mob with basic attack pattern.
 extends KinematicBody2D
 
+const DEFAULT_ANIMATION = 'idle'
+
 # No player in sight, just hanging around
 const STATE_IDLE = 'idle'
 
@@ -13,7 +15,7 @@ const STATE_ATTACKING = 'attacking'
 # After a successful attack, the mob falls back
 const STATE_DISENGAGING = 'disengaging'
 
-# Lifecycle states controlling mob behaviour
+# Lifecycle states controlling mob behaviour. This is the default state.
 var mob_state = STATE_IDLE
 
 # Amount of damage the player suffers for each successful attack from this mob
@@ -26,8 +28,10 @@ const DISENGAGE_WAIT_TIME = 2
 var target = Vector2()
 
 # Movement properties
-const SPEED = 300
-const FALLBACK_OFFSET = Vector2(200, 0)
+const GRAVITY = 600
+const SPEED = 250
+const FALLBACK_OFFSET = Vector2(0, 0)
+
 var velocity = Vector2()
 var fallback_point = Vector2()
 
@@ -47,7 +51,11 @@ func _ready():
 	add_child(disengage_timer)
 
 func _physics_process(delta):
-	$AnimatedSprite.animation = 'idle'
+
+	# velocity.y += GRAVITY * delta
+
+	# Perform the actual movement
+	# velocity = move_and_slide(velocity, Vector2(0, -1))
 
 	if mob_state == STATE_AGGROED:
 		_move_to_target(delta)
@@ -55,6 +63,14 @@ func _physics_process(delta):
 		_disengage()
 	elif mob_state == STATE_DISENGAGING:
 		_move_and_wait(delta)
+
+	_animate()
+
+func _animate():
+	if mob_state == STATE_ATTACKING:
+		$AnimatedSprite.animation = 'attacking'
+	else:
+		$AnimatedSprite.animation = DEFAULT_ANIMATION
 
 	$AnimatedSprite.play()
 
@@ -69,8 +85,9 @@ func _disengage():
 
 # Move to fallback position after attacking and start the timer for the next attack
 func _move_and_wait(delta):
-	velocity = fallback_point.normalized() * SPEED
-	move_and_collide(velocity * delta)
+	if global_position != fallback_point:
+		velocity = fallback_point.normalized() * SPEED
+		move_and_collide(velocity * delta)
 
 	if global_position >= fallback_point:
 		mob_state = STATE_IDLE
@@ -88,7 +105,6 @@ func _on_aggro(area):
 func _on_hit(area):
 	if area.name == 'PlayerHitbox' and mob_state == STATE_AGGROED:
 		mob_state = STATE_ATTACKING
-		$AnimatedSprite.animation = 'attacking'
 
 	if area.name == 'PlayerShotHitArea':
 		queue_free()
