@@ -42,6 +42,7 @@ func _ready():
 	target = get_node('../Traveler')
 	$MobHitArea.connect('area_entered', self, '_on_hit')
 	$MobAggroRange.connect('area_entered', self, '_on_aggro')
+	$AnimatedSprite.connect('animation_finished', self, '_on_animation_finished')
 
 	disengage_timer = Timer.new()
 	disengage_timer.wait_time = DISENGAGE_WAIT_TIME
@@ -69,9 +70,14 @@ func _physics_process(delta):
 func _animate():
 	if mob_state == STATE_ATTACKING:
 		$AnimatedSprite.animation = 'attacking'
+	elif mob_state == STATE_IDLE:
+		$AnimatedSprite.animation = 'idle'
+	elif velocity.x != 0:
+		$AnimatedSprite.animation = 'moving'
 	else:
 		$AnimatedSprite.animation = DEFAULT_ANIMATION
 
+	$AnimatedSprite.flip_h = velocity.x < 0
 	$AnimatedSprite.play()
 
 func _move_to_target(delta):
