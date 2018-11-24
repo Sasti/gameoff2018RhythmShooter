@@ -29,7 +29,7 @@ var target = Vector2()
 
 # Movement properties
 const SPEED = 450
-const FALLBACK_OFFSET = Vector2(200, -1000)
+const FALLBACK_OFFSET = Vector2(200, -800)
 var velocity = Vector2()
 var fallback_point = Vector2()
 

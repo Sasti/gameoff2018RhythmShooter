@@ -23,7 +23,7 @@ points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="FlyingMeleeMob" type="KinematicBody2D"]
+[node name="FlyingMeleeMob" type="KinematicBody2D" index="0"]
 
 position = Vector2( 1001, 292.659 )
 input_pickable = false
