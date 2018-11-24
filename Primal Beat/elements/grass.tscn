@@ -43,7 +43,6 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
 
 [node name="grass_bounds" type="CollisionPolygon2D" parent="grass_touch_detection" index="0"]
 
@@ -57,6 +56,7 @@ __meta__ = {
 
 [node name="noise_detection" type="Area2D" parent="." index="2"]
 
+visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -76,7 +76,7 @@ __meta__ = {
 
 [node name="spawn_detection" type="Area2D" parent="." index="3"]
 
-scale = Vector2( 1, 1 )
+visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0

@@ -1,15 +1,15 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Traveler.gd" type="Script" id=1]
 [ext_resource path="res://dummy_assets/Margery_Limited/Margery_Idle Right_0.png" type="Texture" id=2]
 [ext_resource path="res://dummy_assets/Margery_Limited/Margery_Idle Right_1.png" type="Texture" id=3]
-[ext_resource path="res://dummy_assets/Margery_Limited/Margery_Jump Right_0.png" type="Texture" id=4]
-[ext_resource path="res://dummy_assets/Margery_Limited/Margery_Run Right_0.png" type="Texture" id=5]
-[ext_resource path="res://dummy_assets/Margery_Limited/Margery_Run Right_1.png" type="Texture" id=6]
-[ext_resource path="res://dummy_assets/Margery_Limited/Margery_Run Right_2.png" type="Texture" id=7]
-[ext_resource path="res://dummy_assets/Margery_Limited/Margery_Run Right_4.png" type="Texture" id=8]
-[ext_resource path="res://dummy_assets/Margery_Limited/Margery_Run Right_5.png" type="Texture" id=9]
-[ext_resource path="res://dummy_assets/Margery_Limited/Margery_Run Right_3.png" type="Texture" id=10]
+[ext_resource path="res://dummy_assets/Margery_Limited/Margery_Run Right_0.png" type="Texture" id=4]
+[ext_resource path="res://dummy_assets/Margery_Limited/Margery_Run Right_1.png" type="Texture" id=5]
+[ext_resource path="res://dummy_assets/Margery_Limited/Margery_Run Right_2.png" type="Texture" id=6]
+[ext_resource path="res://dummy_assets/Margery_Limited/Margery_Run Right_4.png" type="Texture" id=7]
+[ext_resource path="res://dummy_assets/Margery_Limited/Margery_Run Right_5.png" type="Texture" id=8]
+[ext_resource path="res://dummy_assets/Margery_Limited/Margery_Run Right_3.png" type="Texture" id=9]
+[ext_resource path="res://dummy_assets/Margery_Limited/Margery_Jump Right_0.png" type="Texture" id=10]
 [ext_resource path="res://sprites/weapon1.png" type="Texture" id=11]
 [ext_resource path="res://sprites/weapon2.png" type="Texture" id=12]
 [ext_resource path="res://sprites/weapon3.png" type="Texture" id=13]
@@ -27,19 +27,19 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "jumping",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "running",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "jumping",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
@@ -53,7 +53,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 10.0
@@ -64,7 +64,13 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[node name="Traveler" type="KinematicBody2D" index="0"]
+[sub_resource type="CapsuleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 6.82864
+
+[node name="Traveler" type="KinematicBody2D"]
 
 z_index = 50
 input_pickable = false
@@ -85,7 +91,7 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 position = Vector2( 11.0059, -1.8959 )
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 5 )
+frames = SubResource( 2 )
 animation = "idle"
 script = ExtResource( 18 )
 _sections_unfolded = [ "Transform" ]
@@ -103,7 +109,7 @@ audio_bus_name = "Master"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAggroRange" index="0"]
 
 scale = Vector2( 25, 25 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="PlayerHitbox" type="Area2D" parent="." index="3"]
@@ -115,15 +121,18 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColisionShape2D" type="CollisionShape2D" parent="PlayerHitbox" index="0"]
 
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+[node name="SolidObjectShape" type="CollisionShape2D" parent="." index="4"]
 
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
