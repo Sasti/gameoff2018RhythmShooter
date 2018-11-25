@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 onready var state = IdleState.new(self)
 
-export(NodePath) onready var animation = get_node('AnimatedSprite/AnimationPlayer')
+export(NodePath) onready var animation = $AnimationPlayer
 
 const STATE_IDLE = 'idle'
 const STATE_AGGROED = 'aggroed'
@@ -32,14 +32,14 @@ func _ready():
 	target = get_node('../Traveler')
 	$MobHitArea.connect('area_entered', self, '_on_hit')
 	$MobAggroRange.connect('area_entered', self, '_on_aggro')
+	animation.connect('animation_finished', self, '_on_anim_finished')
 
 	$DisengageTimer.wait_time = DISENGAGE_WAIT_TIME
 	$DisengageTimer.connect('timeout', self, '_on_disengage_timeout')
 
 func _physics_process(delta):
-	# print(animation.current_animation)
+	$AnimatedSprite.flip_h = velocity.x <= 0
 	state.process(delta)
-	animation.get_parent().flip_h = velocity.x <= 0
 
 func _on_disengage_timeout():
 	set_state(STATE_AGGROED)
@@ -47,6 +47,12 @@ func _on_disengage_timeout():
 func _on_aggro(area):
 	if area.name == 'PlayerAggroRange' and get_state() == STATE_IDLE:
 		set_state(STATE_AGGROED)
+
+func _on_anim_finished(anim):
+	print('Animation finished: ' + anim)
+	if anim == 'attacking':
+		PlayerState.damage_player(DAMAGE)
+		set_state(STATE_DISENGAGING)
 
 func _on_hit(area):
 	if area.name == 'PlayerHitbox' and get_state() == STATE_AGGROED:
@@ -90,7 +96,7 @@ class IdleState:
 		self.mob = mob
 
 	func process(delta):
-		mob.animation.play('idle')
+		mob.animation.queue('idle')
 
 	func exit():
 		pass
@@ -102,7 +108,7 @@ class MovingState:
 		self.mob = mob
 
 	func process(delta):
-		mob.animation.queue('moving')
+		mob.animation.play('moving')
 
 	func exit():
 		pass
@@ -141,9 +147,8 @@ class AttackingState:
 		self.mob = mob
 
 	func process(delta):
-		mob.animation.queue('attacking')
-		PlayerState.damage_player(mob.DAMAGE)
-		mob.set_state(mob.STATE_DISENGAGING)
+		mob.animation.play('attacking')
+		print(mob.animation.current_animation_position)
 
 	func exit():
 		pass

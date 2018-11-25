@@ -39,6 +39,12 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 15.7141
+
 [sub_resource type="Animation" id=3]
 
 resource_name = "attacking"
@@ -46,19 +52,19 @@ length = 1.2
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath("AnimatedSprite:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -67,10 +73,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ "attacking" ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:animation")
+tracks/2/path = NodePath("AnimatedSprite:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -79,50 +85,62 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ "attacking" ]
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=4]
 
 resource_name = "idle"
-length = 1.5
+length = 0.8
 loop = true
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
-tracks/0/loop_wrap = false
+tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.7, 1.1, 1.5 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 0 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.8, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 6 ), Vector2( 0, 0 ) ]
-}
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:animation")
+tracks/2/path = NodePath("AnimatedSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 5 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ "idle" ]
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -132,31 +150,31 @@ length = 0.8
 loop = true
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 0 ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "idle" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath("AnimatedSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.8 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:animation")
+tracks/2/path = NodePath("AnimatedSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -165,14 +183,20 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ "moving" ]
+"values": [ Vector2( 0, 0 ) ]
 }
-
-[sub_resource type="CapsuleShape2D" id=2]
-
-custom_solver_bias = 0.0
-radius = 10.0
-height = 15.7141
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -50.0 ]
+}
 
 [node name="GiantWasp" index="0" instance=ExtResource( 1 )]
 
@@ -180,18 +204,8 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." index="0"]
 
-position = Vector2( 0, 3.00066 )
 frames = SubResource( 1 )
-frame = 3
-
-[node name="AnimationPlayer" parent="AnimatedSprite" index="0"]
-
-autoplay = "idle"
-playback_process_mode = 0
-anims/attacking = SubResource( 3 )
-anims/idle = SubResource( 4 )
-anims/moving = SubResource( 5 )
-_sections_unfolded = [ "Playback Options" ]
+animation = "attacking"
 
 [node name="CollisionShape2D" parent="MobHitArea" index="0"]
 
@@ -208,5 +222,13 @@ scale = Vector2( 25, 25 )
 
 position = Vector2( 2.63953, -2.68458 )
 scale = Vector2( 1.54587, -1.60747 )
+
+[node name="AnimationPlayer" parent="." index="5"]
+
+playback_process_mode = 0
+anims/attacking = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/moving = SubResource( 5 )
+_sections_unfolded = [ "Playback Options" ]
 
 
