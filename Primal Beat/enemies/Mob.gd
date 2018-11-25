@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 onready var state = IdleState.new(self)
 
-export(NodePath) var AnimatedSprite
+export(NodePath) onready var animation = get_node('AnimatedSprite/AnimationPlayer')
 
 const STATE_IDLE = 'idle'
 const STATE_AGGROED = 'aggroed'
@@ -17,24 +17,43 @@ const DAMAGE = 1
 # Amount of seconds the mob will wait after disengaging before attacking the player again
 const DISENGAGE_WAIT_TIME = 2
 
-# Where to move when aggroed
+# Target to move to when aggroed
 export(Vector2) var target = Vector2()
+
+# Point to fall back to when disengaging. No effect if set to 0/0.
+const FALLBACK_OFFSET = Vector2(0, 0)
 
 # Movement properties
 export(Vector2) var velocity = Vector2()
 const GRAVITY = 600
 const SPEED = 250
-const FALLBACK_OFFSET = Vector2(0, 0)
 
 func _ready():
-	AnimatedSprite = $AnimatedSprite
 	target = get_node('../Traveler')
 	$MobHitArea.connect('area_entered', self, '_on_hit')
 	$MobAggroRange.connect('area_entered', self, '_on_aggro')
-	$AnimatedSprite.connect('animation_finished', self, '_on_animation_finished')
 
 	$DisengageTimer.wait_time = DISENGAGE_WAIT_TIME
 	$DisengageTimer.connect('timeout', self, '_on_disengage_timeout')
+
+func _physics_process(delta):
+	# print(animation.current_animation)
+	state.process(delta)
+	animation.get_parent().flip_h = velocity.x <= 0
+
+func _on_disengage_timeout():
+	set_state(STATE_AGGROED)
+
+func _on_aggro(area):
+	if area.name == 'PlayerAggroRange' and get_state() == STATE_IDLE:
+		set_state(STATE_AGGROED)
+
+func _on_hit(area):
+	if area.name == 'PlayerHitbox' and get_state() == STATE_AGGROED:
+		set_state(STATE_ATTACKING)
+
+	if area.name == 'PlayerShotHitArea':
+		queue_free()
 
 func set_state(new_state):
 	state.exit()
@@ -64,34 +83,6 @@ func get_state():
 	else:
 		return STATE_IDLE
 
-func _physics_process(delta):
-	state.process(delta)
-	# velocity.y += GRAVITY * delta
-
-	# Perform the actual movement
-	# velocity = move_and_slide(velocity, Vector2(0, -1))
-
-	_animate()
-
-func _animate():
-	$AnimatedSprite.flip_h = velocity.x < 0
-	$AnimatedSprite.play()
-
-func _on_disengage_timeout():
-	set_state(STATE_AGGROED)
-
-func _on_aggro(area):
-	if area.name == 'PlayerAggroRange' and get_state() == STATE_IDLE:
-		set_state(STATE_AGGROED)
-
-func _on_hit(area):
-	if area.name == 'PlayerHitbox' and get_state() == STATE_AGGROED:
-		set_state(STATE_ATTACKING)
-
-	if area.name == 'PlayerShotHitArea':
-		queue_free()
-
-
 class IdleState:
 	var mob
 
@@ -99,7 +90,7 @@ class IdleState:
 		self.mob = mob
 
 	func process(delta):
-		mob.AnimatedSprite.animation = 'idle'
+		mob.animation.play('idle')
 
 	func exit():
 		pass
@@ -111,7 +102,7 @@ class MovingState:
 		self.mob = mob
 
 	func process(delta):
-		mob.AnimatedSprite.animation = 'moving'
+		mob.animation.queue('moving')
 
 	func exit():
 		pass
@@ -150,7 +141,7 @@ class AttackingState:
 		self.mob = mob
 
 	func process(delta):
-		mob.AnimatedSprite.animation = 'attacking'
+		mob.animation.queue('attacking')
 		PlayerState.damage_player(mob.DAMAGE)
 		mob.set_state(mob.STATE_DISENGAGING)
 

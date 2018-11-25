@@ -9,7 +9,7 @@
 [ext_resource path="res://elements/grass.tscn" type="PackedScene" id=7]
 [ext_resource path="res://enemies/Mob.tscn" type="PackedScene" id=8]
 
-[node name="GameWorld" type="Node" index="0"]
+[node name="GameWorld" type="Node"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
