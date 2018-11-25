@@ -67,6 +67,7 @@ __meta__ = {
 "_edit_vertical_guides_": [ 988.705 ]
 }
 animation = null
+timer = null
 target = Vector2( 0, 0 )
 velocity = Vector2( 0, 0 )
 

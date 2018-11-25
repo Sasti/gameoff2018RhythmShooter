@@ -4,6 +4,7 @@ extends KinematicBody2D
 onready var state = IdleState.new(self)
 
 export(NodePath) onready var animation = $AnimationPlayer
+export(NodePath) onready var timer = $DisengageTimer
 
 const STATE_IDLE = 'idle'
 const STATE_AGGROED = 'aggroed'
@@ -34,8 +35,8 @@ func _ready():
 	$MobAggroRange.connect('area_entered', self, '_on_aggro')
 	animation.connect('animation_finished', self, '_on_anim_finished')
 
-	$DisengageTimer.wait_time = DISENGAGE_WAIT_TIME
-	$DisengageTimer.connect('timeout', self, '_on_disengage_timeout')
+	timer.wait_time = DISENGAGE_WAIT_TIME
+	timer.connect('timeout', self, '_on_disengage_timeout')
 
 func _physics_process(delta):
 	$AnimatedSprite.flip_h = velocity.x <= 0
@@ -49,7 +50,6 @@ func _on_aggro(area):
 		set_state(STATE_AGGROED)
 
 func _on_anim_finished(anim):
-	print('Animation finished: ' + anim)
 	if anim == 'attacking':
 		PlayerState.damage_player(DAMAGE)
 		set_state(STATE_DISENGAGING)
@@ -106,9 +106,10 @@ class MovingState:
 
 	func _init(mob):
 		self.mob = mob
+		mob.animation.play('moving')
 
 	func process(delta):
-		mob.animation.play('moving')
+		pass
 
 	func exit():
 		pass
@@ -119,9 +120,10 @@ class AggroedState extends MovingState:
 
 	func process(delta):
 		.process(delta)
-
 		mob.velocity = (mob.target.position - mob.position).normalized() * mob.SPEED
-		mob.move_and_collide(mob.velocity * delta)
+
+		if (mob.target.position - mob.position).length() > 5:
+			mob.move_and_collide(mob.velocity * delta)
 
 class DisengagingState extends MovingState:
 	var collision
@@ -133,22 +135,22 @@ class DisengagingState extends MovingState:
 	func process(delta):
 		.process(delta)
 
-		if collision == null:
+		if mob.global_position <= fallback_point:
 			mob.velocity = fallback_point.normalized() * mob.SPEED
 			collision = mob.move_and_collide(mob.velocity * delta)
 		else:
 			mob.set_state(mob.STATE_IDLE)
-			mob.DisengageTimer.start()
+			mob.timer.start()
 
 class AttackingState:
 	var mob
 
 	func _init(mob):
 		self.mob = mob
+		mob.animation.play('attacking')
 
 	func process(delta):
-		mob.animation.play('attacking')
-		print(mob.animation.current_animation_position)
+		pass
 
 	func exit():
 		pass
