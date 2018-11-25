@@ -50,6 +50,8 @@ func set_state(new_state):
 	else:
 		state = IdleState.new(self)
 
+	print('New state is ' + new_state)
+
 func get_state():
 	if state is AggroedState:
 		return STATE_AGGROED
@@ -104,7 +106,6 @@ class IdleState:
 
 class MovingState:
 	var mob
-	var velocity
 
 	func _init(mob):
 		self.mob = mob
@@ -122,8 +123,8 @@ class AggroedState extends MovingState:
 	func process(delta):
 		.process(delta)
 
-		velocity = (mob.target.position - mob.position).normalized() * mob.SPEED
-		mob.move_and_collide(velocity * delta)
+		mob.velocity = (mob.target.position - mob.position).normalized() * mob.SPEED
+		mob.move_and_collide(mob.velocity * delta)
 
 class DisengagingState extends MovingState:
 	var collision
@@ -135,11 +136,9 @@ class DisengagingState extends MovingState:
 	func process(delta):
 		.process(delta)
 
-		if !collision.position:
-		# if mob.global_position != fallback_point:
-			velocity = fallback_point.normalized() * mob.SPEED
-			collision = mob.move_and_collide(velocity * delta)
-		# elif: mob.global_position >= fallback_point:
+		if collision == null:
+			mob.velocity = fallback_point.normalized() * mob.SPEED
+			collision = mob.move_and_collide(mob.velocity * delta)
 		else:
 			mob.set_state(mob.STATE_IDLE)
 			mob.DisengageTimer.start()
@@ -153,6 +152,7 @@ class AttackingState:
 	func process(delta):
 		mob.AnimatedSprite.animation = 'attacking'
 		PlayerState.damage_player(mob.DAMAGE)
+		mob.set_state(mob.STATE_DISENGAGING)
 
 	func exit():
 		pass
