@@ -45,6 +45,9 @@ _sections_unfolded = [ "Collision", "collision" ]
 __meta__ = {
 "_edit_vertical_guides_": [ 988.705 ]
 }
+AnimatedSprite = null
+target = Vector2( 0, 0 )
+velocity = Vector2( 0, 0 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -98,5 +101,12 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( -0.999989, 2.34102 )
 scale = Vector2( 4, 2.5 )
 rect = Rect2( -10, -10, 20, 20 )
+
+[node name="DisengageTimer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
 
 

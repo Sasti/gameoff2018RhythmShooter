@@ -1,116 +1,158 @@
 # Default node type for a mob with basic attack pattern.
 extends KinematicBody2D
 
-const DEFAULT_ANIMATION = 'idle'
+onready var state = IdleState.new(self)
 
-# No player in sight, just hanging around
+export(NodePath) var AnimatedSprite
+
 const STATE_IDLE = 'idle'
-
-# Player has entered aggro range, and the mob is in pursuit
 const STATE_AGGROED = 'aggroed'
-
-# The mob has reached the player's hitbox, resulting in a successful attack
 const STATE_ATTACKING = 'attacking'
-
-# After a successful attack, the mob falls back
 const STATE_DISENGAGING = 'disengaging'
-
-# Lifecycle states controlling mob behaviour. This is the default state.
-var mob_state = STATE_IDLE
+const STATE_MOVING = 'moving'
 
 # Amount of damage the player suffers for each successful attack from this mob
-const damage = 1
+const DAMAGE = 1
 
 # Amount of seconds the mob will wait after disengaging before attacking the player again
 const DISENGAGE_WAIT_TIME = 2
 
 # Where to move when aggroed
-var target = Vector2()
+export(Vector2) var target = Vector2()
 
 # Movement properties
+export(Vector2) var velocity = Vector2()
 const GRAVITY = 600
 const SPEED = 250
 const FALLBACK_OFFSET = Vector2(0, 0)
 
-var velocity = Vector2()
-var fallback_point = Vector2()
-
-# Starts when disengaging after succesful attack. When it runs out, the mob engages again
-var disengage_timer
-
 func _ready():
+	AnimatedSprite = $AnimatedSprite
 	target = get_node('../Traveler')
 	$MobHitArea.connect('area_entered', self, '_on_hit')
 	$MobAggroRange.connect('area_entered', self, '_on_aggro')
 	$AnimatedSprite.connect('animation_finished', self, '_on_animation_finished')
 
-	disengage_timer = Timer.new()
-	disengage_timer.wait_time = DISENGAGE_WAIT_TIME
-	disengage_timer.one_shot = true
-	disengage_timer.connect('timeout', self, '_on_disengage_timeout')
+	$DisengageTimer.wait_time = DISENGAGE_WAIT_TIME
+	$DisengageTimer.connect('timeout', self, '_on_disengage_timeout')
 
-	add_child(disengage_timer)
+func set_state(new_state):
+	state.exit()
+
+	if new_state == STATE_MOVING:
+		state = MovingState.new(self)
+	elif new_state == STATE_AGGROED:
+		state = AggroedState.new(self)
+	elif new_state == STATE_ATTACKING:
+		state = AttackingState.new(self)
+	elif new_state == STATE_DISENGAGING:
+		state = DisengagingState.new(self)
+	else:
+		state = IdleState.new(self)
+
+func get_state():
+	if state is AggroedState:
+		return STATE_AGGROED
+	elif state is AttackingState:
+		return STATE_ATTACKING
+	elif state is DisengagingState:
+		return STATE_DISENGAGING
+	elif state is MovingState:
+		return STATE_MOVING
+	else:
+		return STATE_IDLE
 
 func _physics_process(delta):
-
+	state.process(delta)
 	# velocity.y += GRAVITY * delta
 
 	# Perform the actual movement
 	# velocity = move_and_slide(velocity, Vector2(0, -1))
 
-	if mob_state == STATE_AGGROED:
-		_move_to_target(delta)
-	elif mob_state == STATE_ATTACKING:
-		_disengage()
-	elif mob_state == STATE_DISENGAGING:
-		_move_and_wait(delta)
-
 	_animate()
 
 func _animate():
-	if mob_state == STATE_ATTACKING:
-		$AnimatedSprite.animation = 'attacking'
-	elif mob_state == STATE_IDLE:
-		$AnimatedSprite.animation = 'idle'
-	elif velocity.x != 0:
-		$AnimatedSprite.animation = 'moving'
-	else:
-		$AnimatedSprite.animation = DEFAULT_ANIMATION
-
 	$AnimatedSprite.flip_h = velocity.x < 0
 	$AnimatedSprite.play()
 
-func _move_to_target(delta):
-	velocity = (target.position - position).normalized() * SPEED
-	move_and_collide(velocity * delta)
-
-func _disengage():
-	fallback_point = global_position + FALLBACK_OFFSET
-	PlayerState.damage_player(damage)
-	mob_state = STATE_DISENGAGING
-
-# Move to fallback position after attacking and start the timer for the next attack
-func _move_and_wait(delta):
-	if global_position != fallback_point:
-		velocity = fallback_point.normalized() * SPEED
-		move_and_collide(velocity * delta)
-
-	if global_position >= fallback_point:
-		mob_state = STATE_IDLE
-		disengage_timer.start()
-
-# Called when waiting after the timer has run out - start pursuing the player again
 func _on_disengage_timeout():
-	mob_state = STATE_AGGROED
-	fallback_point = Vector2()
+	set_state(STATE_AGGROED)
 
 func _on_aggro(area):
-	if area.name == 'PlayerAggroRange' and mob_state == STATE_IDLE:
-		mob_state = STATE_AGGROED
+	if area.name == 'PlayerAggroRange' and get_state() == STATE_IDLE:
+		set_state(STATE_AGGROED)
 
 func _on_hit(area):
-	if area.name == 'PlayerHitbox' and mob_state == STATE_AGGROED:
-		mob_state = STATE_ATTACKING
+	if area.name == 'PlayerHitbox' and get_state() == STATE_AGGROED:
+		set_state(STATE_ATTACKING)
 
 	if area.name == 'PlayerShotHitArea':
 		queue_free()
+
+
+class IdleState:
+	var mob
+
+	func _init(mob):
+		self.mob = mob
+
+	func process(delta):
+		mob.AnimatedSprite.animation = 'idle'
+
+	func exit():
+		pass
+
+class MovingState:
+	var mob
+	var velocity
+
+	func _init(mob):
+		self.mob = mob
+
+	func process(delta):
+		mob.AnimatedSprite.animation = 'moving'
+
+	func exit():
+		pass
+
+class AggroedState extends MovingState:
+	func _init(mob).(mob):
+		pass
+
+	func process(delta):
+		.process(delta)
+
+		velocity = (mob.target.position - mob.position).normalized() * mob.SPEED
+		mob.move_and_collide(velocity * delta)
+
+class DisengagingState extends MovingState:
+	var collision
+	var fallback_point = Vector2()
+
+	func _init(mob).(mob):
+		fallback_point = mob.global_position + mob.FALLBACK_OFFSET
+
+	func process(delta):
+		.process(delta)
+
+		if !collision.position:
+		# if mob.global_position != fallback_point:
+			velocity = fallback_point.normalized() * mob.SPEED
+			collision = mob.move_and_collide(velocity * delta)
+		# elif: mob.global_position >= fallback_point:
+		else:
+			mob.set_state(mob.STATE_IDLE)
+			mob.DisengageTimer.start()
+
+class AttackingState:
+	var mob
+
+	func _init(mob):
+		self.mob = mob
+
+	func process(delta):
+		mob.AnimatedSprite.animation = 'attacking'
+		PlayerState.damage_player(mob.DAMAGE)
+
+	func exit():
+		pass

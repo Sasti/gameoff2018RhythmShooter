@@ -6,5 +6,5 @@ extends 'res://enemies/Mob.gd'
 const damage = 1
 
 const DISENGAGE_WAIT_TIME = 2.5
-const SPEED = 450
-const FALLBACK_OFFSET = Vector2(200, -700)
+const SPEED = 350
+const FALLBACK_OFFSET = Vector2(200, -500)
