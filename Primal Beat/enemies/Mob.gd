@@ -11,6 +11,7 @@ const STATE_AGGROED = 'aggroed'
 const STATE_ATTACKING = 'attacking'
 const STATE_DISENGAGING = 'disengaging'
 const STATE_MOVING = 'moving'
+const STATE_SLEEPING = 'sleeping'
 
 # Amount of damage the player suffers for each successful attack from this mob
 const DAMAGE = 1
@@ -76,6 +77,8 @@ func set_state(new_state):
 		state = AttackingState.new(self)
 	elif new_state == STATE_DISENGAGING:
 		state = DisengagingState.new(self)
+	elif new_state == STATE_SLEEPING:
+		state = SleepingState.new(self)
 	else:
 		state = IdleState.new(self)
 
@@ -90,6 +93,8 @@ func get_state():
 		return STATE_DISENGAGING
 	elif state is MovingState:
 		return STATE_MOVING
+	elif state is SleepingState:
+		return STATE_SLEEPING
 	else:
 		return STATE_IDLE
 
@@ -155,6 +160,18 @@ class AttackingState:
 
 	func process(delta):
 		pass
+
+	func exit():
+		pass
+
+class SleepingState:
+	var mob
+
+	func _init(mob):
+		self.mob = mob
+
+	func process(delta):
+		mob.animation.queue('idle')
 
 	func exit():
 		pass
