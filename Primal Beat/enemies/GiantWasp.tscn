@@ -27,14 +27,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "moving",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "attacking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "moving",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -74,18 +74,6 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ "attacking" ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AnimatedSprite:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -130,18 +118,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, 5 ), Vector2( 0, 0 ) ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimatedSprite:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
 
 [sub_resource type="Animation" id=5]
 
@@ -185,18 +161,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimatedSprite:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -50.0 ]
-}
 
 [node name="GiantWasp" index="0" instance=ExtResource( 1 )]
 
@@ -204,6 +168,7 @@ collision_layer = 1
 collision_mask = 1
 script = ExtResource( 2 )
 _sections_unfolded = [ "Collision", "Pickable", "collision" ]
+sprite = null
 
 [node name="AnimatedSprite" parent="." index="0"]
 
@@ -228,6 +193,7 @@ scale = Vector2( 1.54587, -1.60747 )
 [node name="AnimationPlayer" parent="." index="5"]
 
 playback_process_mode = 0
+playback_speed = 2.0
 anims/attacking = SubResource( 3 )
 anims/idle = SubResource( 4 )
 anims/moving = SubResource( 5 )

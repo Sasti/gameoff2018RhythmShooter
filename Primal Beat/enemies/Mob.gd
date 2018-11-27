@@ -51,7 +51,6 @@ func _on_aggro(area):
 
 func _on_anim_finished(anim):
 	if anim == 'attacking':
-		PlayerState.damage_player(DAMAGE)
 		set_state(STATE_DISENGAGING)
 
 func _on_hit(area):
@@ -136,8 +135,8 @@ class DisengagingState extends MovingState:
 		.process(delta)
 
 		if mob.global_position <= fallback_point:
-			mob.velocity = fallback_point.normalized() * mob.SPEED
-			collision = mob.move_and_collide(mob.velocity * delta)
+			mob.velocity = (fallback_point.normalized() * mob.SPEED)
+			mob.move_and_collide(mob.velocity * delta)
 		else:
 			mob.set_state(mob.STATE_IDLE)
 			mob.timer.start()
@@ -148,6 +147,7 @@ class AttackingState:
 	func _init(mob):
 		self.mob = mob
 		mob.animation.play('attacking')
+		PlayerState.damage_player(DAMAGE)
 
 	func process(delta):
 		pass

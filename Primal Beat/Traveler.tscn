@@ -39,7 +39,7 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
@@ -53,7 +53,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 10.0
@@ -64,7 +64,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[node name="Traveler" type="KinematicBody2D" index="0"]
+[node name="Traveler" type="KinematicBody2D"]
 
 z_index = 50
 input_pickable = false
@@ -85,7 +85,7 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 position = Vector2( 11.0059, -1.8959 )
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 5 )
+frames = SubResource( 2 )
 animation = "idle"
 script = ExtResource( 18 )
 _sections_unfolded = [ "Transform" ]
@@ -103,7 +103,7 @@ audio_bus_name = "Master"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAggroRange" index="0"]
 
 scale = Vector2( 25, 25 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="PlayerHitbox" type="Area2D" parent="." index="3"]
