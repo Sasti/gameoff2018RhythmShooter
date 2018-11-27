@@ -7,4 +7,5 @@ const damage = 1
 
 const DISENGAGE_WAIT_TIME = 2.5
 const SPEED = 350
+const GRAVITY = 0
 const FALLBACK_OFFSET = Vector2(200, -550)

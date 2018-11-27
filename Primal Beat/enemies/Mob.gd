@@ -26,7 +26,8 @@ const FALLBACK_OFFSET = Vector2(0, 0)
 
 # Movement properties
 export(Vector2) var velocity = Vector2()
-const GRAVITY = 600
+
+const GRAVITY = 200.0
 const SPEED = 250
 
 func _ready():
@@ -39,6 +40,10 @@ func _ready():
 	timer.connect('timeout', self, '_on_disengage_timeout')
 
 func _physics_process(delta):
+	if GRAVITY:
+		velocity.y += delta * GRAVITY
+		move_and_collide(velocity * delta)
+
 	$AnimatedSprite.flip_h = velocity.x <= 0
 	state.process(delta)
 
@@ -125,7 +130,6 @@ class AggroedState extends MovingState:
 			mob.move_and_collide(mob.velocity * delta)
 
 class DisengagingState extends MovingState:
-	var collision
 	var fallback_point = Vector2()
 
 	func _init(mob).(mob):
