@@ -1,20 +1,45 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://dummy_assets/jungle_tiles/oop/Jungle_terrain.png" type="Texture" id=1]
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 16.0693, 16.0085 )
+extents = Vector2( 16, 16 )
 
-[node name="jungle-terrain" type="Node"]
+[sub_resource type="ConvexPolygonShape2D" id=31]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 16, -16, 16, 16, -16, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=32]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -16, 16, 16, 16, -16, -16 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=33]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -16, 0, 16, -16, 16, 16, -16, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=34]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -16, -16, 16, 0, 16, 16, -16, 16 )
+
+[node name="jungle-terrain" type="Node" index="0"]
 
 [node name="grass-mud1" type="Sprite" parent="." index="0"]
 
 position = Vector2( -34, -1 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 25, 32, 38 )
+region_rect = Rect2( 0, 25, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="grass-mud1" index="0"]
@@ -34,7 +59,7 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="grass-mud1/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -45,7 +70,7 @@ __meta__ = {
 position = Vector2( -4, -1 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 32, 25, 32, 38 )
+region_rect = Rect2( 32, 25, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="grass-mud2" index="0"]
@@ -65,7 +90,7 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="grass-mud2/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -76,7 +101,7 @@ __meta__ = {
 position = Vector2( 26, -1 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 64, 25, 32, 38 )
+region_rect = Rect2( 64, 25, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="grass-mud3" index="0"]
@@ -96,7 +121,7 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="grass-mud3/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -107,7 +132,7 @@ __meta__ = {
 position = Vector2( 150, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 96, 25, 32, 38 )
+region_rect = Rect2( 96, 25, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="mud-little-grass1" index="0"]
@@ -126,7 +151,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mud-little-grass1/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -137,7 +162,7 @@ __meta__ = {
 position = Vector2( 180, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 128, 25, 32, 38 )
+region_rect = Rect2( 128, 25, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="mud-little-grass2" index="0"]
@@ -156,7 +181,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mud-little-grass2/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -167,7 +192,7 @@ __meta__ = {
 position = Vector2( 120, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 160, 25, 32, 38 )
+region_rect = Rect2( 160, 25, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="mud-little-grass3" index="0"]
@@ -186,21 +211,21 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mud-little-grass3/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="triangle-mud-up" type="Sprite" parent="." index="6"]
+[node name="triangle-mud-up-1" type="Sprite" parent="." index="6"]
 
-position = Vector2( 350, 0 )
+position = Vector2( 260, -30 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 192, 27, 64, 68 )
+region_rect = Rect2( 192, 27, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="triangle-mud-up" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-mud-up-1" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -213,47 +238,20 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="triangle-mud-up/StaticBody2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triangle-mud-up-1/StaticBody2D" index="0"]
 
-build_mode = 0
-polygon = PoolVector2Array( -30, 0, 0, -30, 30, 0, 30, 30, -30, 30 )
-
-[node name="triangle-mud-up2" type="Sprite" parent="." index="7"]
-
-position = Vector2( 350, 100 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 192, 123, 64, 36 )
-_sections_unfolded = [ "Region" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="triangle-mud-up2" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="triangle-mud-up2/StaticBody2D" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( -30, 0, 0.345947, -15.3472, 30, 0, 30, 20, -30, 20 )
+shape = SubResource( 31 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="triangle-mud-up4" type="Sprite" parent="." index="8"]
+[node name="triangle-mud-up-2" type="Sprite" parent="." index="7"]
 
-position = Vector2( 500, 100 )
+position = Vector2( 300, -30 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 256, 107, 64, 52 )
+region_rect = Rect2( 224, 27, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="triangle-mud-up4" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-mud-up-2" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -266,20 +264,19 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="triangle-mud-up4/StaticBody2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triangle-mud-up-2/StaticBody2D" index="0"]
 
-build_mode = 0
-polygon = PoolVector2Array( -30, -20, 0, -10, 30, -20, 30, 20, -30, 20, -30, -20 )
+shape = SubResource( 32 )
 
-[node name="triangle-mud-up5" type="Sprite" parent="." index="9"]
+[node name="triangle-mud-up-3" type="Sprite" parent="." index="8"]
 
-position = Vector2( 500, 190 )
+position = Vector2( 260, 10 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 256, 171, 64, 52 )
+region_rect = Rect2( 192, 59, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="triangle-mud-up5" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-mud-up-3" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -292,20 +289,20 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="triangle-mud-up5/StaticBody2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triangle-mud-up-3/StaticBody2D" index="0"]
 
-build_mode = 0
-polygon = PoolVector2Array( -30, -20, 0, -10, 30, -20, 30, 20, -30, 20, -30, -20 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="triangle-mud-up3" type="Sprite" parent="." index="10"]
+[node name="triangle-mud-up-4" type="Sprite" parent="." index="9"]
 
-position = Vector2( 350, 200 )
+position = Vector2( 300, 10 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 192, 187, 64, 36 )
+region_rect = Rect2( 224, 61, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="triangle-mud-up3" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-mud-up-4" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -318,20 +315,20 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="triangle-mud-up3/StaticBody2D" index="0"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="triangle-mud-up-4/StaticBody2D" index="0"]
 
-build_mode = 0
-polygon = PoolVector2Array( -30, 0, 0.345947, -15.3472, 30, 0, 30, 20, -30, 20 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="stone-triangle-up" type="Sprite" parent="." index="11"]
+[node name="triangle-stone-up-small-1" type="Sprite" parent="." index="10"]
 
-position = Vector2( 500, 0 )
+position = Vector2( 260, 100 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 256, 27, 64, 68 )
+region_rect = Rect2( 192, 123, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="stone-triangle-up" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-stone-up-small-1" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -344,20 +341,275 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="stone-triangle-up/StaticBody2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triangle-stone-up-small-1/StaticBody2D" index="0"]
 
-build_mode = 0
-polygon = PoolVector2Array( -30, 0, 0, -30, 30, 0, 30, 30, -30, 30 )
+shape = SubResource( 33 )
 
-[node name="grass-stone1" type="Sprite" parent="." index="12"]
+[node name="triangle-stone-up-small-2" type="Sprite" parent="." index="11"]
 
+position = Vector2( 300, 100 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 224, 123, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-stone-up-small-2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triangle-stone-up-small-2/StaticBody2D" index="0"]
+
+shape = SubResource( 34 )
+
+[node name="triangle-stone-up-1" type="Sprite" parent="." index="12"]
+
+position = Vector2( 450, 100 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 107, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-stone-up-1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="triangle-stone-up-1/StaticBody2D" index="0"]
+
+shape = SubResource( 34 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="triangle-stone-up-2" type="Sprite" parent="." index="13"]
+
+position = Vector2( 490, 100 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 288, 107, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-stone-up-2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="triangle-stone-up-2/StaticBody2D" index="0"]
+
+shape = SubResource( 33 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="triangle-mud-up-5" type="Sprite" parent="." index="14"]
+
+position = Vector2( 450, 200 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 171, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-mud-up-5" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="triangle-mud-up-5/StaticBody2D" index="0"]
+
+shape = SubResource( 34 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="triangle-mud-up-6" type="Sprite" parent="." index="15"]
+
+position = Vector2( 490, 200 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 288, 171, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-mud-up-6" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="triangle-mud-up-6/StaticBody2D" index="0"]
+
+shape = SubResource( 33 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="triangle-mud-up-low-angle-1" type="Sprite" parent="." index="16"]
+
+position = Vector2( 260, 200 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 187, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-mud-up-low-angle-1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="triangle-mud-up-low-angle-1/StaticBody2D" index="0"]
+
+shape = SubResource( 33 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="triangle-mud-up-low-angle-2" type="Sprite" parent="." index="17"]
+
+position = Vector2( 300, 200 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 224, 187, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-mud-up-low-angle-2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="triangle-mud-up-low-angle-2/StaticBody2D" index="0"]
+
+shape = SubResource( 34 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="triangle-up-1" type="Sprite" parent="." index="18"]
+
+position = Vector2( 450, -30 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 27, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-up-1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="triangle-up-1/StaticBody2D" index="0"]
+
+shape = SubResource( 31 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="triangle-up-2" type="Sprite" parent="." index="19"]
+
+position = Vector2( 490, -30 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 288, 27, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-up-2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="triangle-up-2/StaticBody2D" index="0"]
+
+shape = SubResource( 32 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="20"]
+
+visible = false
 position = Vector2( -30, 100 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="triangle-up-3" type="Sprite" parent="." index="21"]
+
+position = Vector2( 450, 10 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 90, 32, 38 )
+region_rect = Rect2( 256, 65, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="grass-stone1" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-up-3" index="0"]
 
 visible = false
 input_pickable = false
@@ -371,20 +623,52 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="grass-stone1/StaticBody2D" index="0"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="triangle-up-3/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="triangle-up-4" type="Sprite" parent="." index="22"]
+
+position = Vector2( 490, 10 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 288, 65, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="triangle-up-4" index="0"]
+
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="grass-stone2" type="Sprite" parent="." index="13"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="triangle-up-4/StaticBody2D" index="0"]
+
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="grass-stone1" type="Sprite" parent="." index="23"]
+
+position = Vector2( -30, 100 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 90, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="grass-stone2" type="Sprite" parent="." index="24"]
 
 position = Vector2( 0, 100 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 32, 90, 32, 38 )
+region_rect = Rect2( 32, 90, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="grass-stone2" index="0"]
@@ -403,18 +687,18 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grass-stone2/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="grass-stone3" type="Sprite" parent="." index="14"]
+[node name="grass-stone3" type="Sprite" parent="." index="25"]
 
 position = Vector2( 30, 100 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 64, 90, 32, 38 )
+region_rect = Rect2( 64, 90, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="grass-stone3" index="0"]
@@ -433,18 +717,18 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grass-stone3/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone1" type="Sprite" parent="." index="15"]
+[node name="stone1" type="Sprite" parent="." index="26"]
 
 position = Vector2( 120, 100 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 96, 90, 32, 38 )
+region_rect = Rect2( 96, 90, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stone1" index="0"]
@@ -463,18 +747,18 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stone1/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone2" type="Sprite" parent="." index="16"]
+[node name="stone2" type="Sprite" parent="." index="27"]
 
 position = Vector2( 150, 100 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 128, 90, 32, 38 )
+region_rect = Rect2( 128, 90, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stone2" index="0"]
@@ -493,18 +777,18 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stone2/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone3" type="Sprite" parent="." index="17"]
+[node name="stone3" type="Sprite" parent="." index="28"]
 
 position = Vector2( 180, 100 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 160, 90, 32, 38 )
+region_rect = Rect2( 160, 90, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stone3" index="0"]
@@ -523,18 +807,18 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stone3/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-mud1" type="Sprite" parent="." index="18"]
+[node name="dark-grass-mud1" type="Sprite" parent="." index="29"]
 
 position = Vector2( -30, 200 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 154, 32, 38 )
+region_rect = Rect2( 0, 154, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dark-grass-mud1" index="0"]
@@ -553,18 +837,18 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dark-grass-mud1/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-mud2" type="Sprite" parent="." index="19"]
+[node name="dark-grass-mud2" type="Sprite" parent="." index="30"]
 
 position = Vector2( 0, 200 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 32, 154, 32, 38 )
+region_rect = Rect2( 32, 154, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dark-grass-mud2" index="0"]
@@ -583,22 +867,23 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dark-grass-mud2/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-mud3" type="Sprite" parent="." index="20"]
+[node name="dark-grass-mud3" type="Sprite" parent="." index="31"]
 
 position = Vector2( 30, 200 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 64, 154, 32, 38 )
+region_rect = Rect2( 64, 154, 32, 32 )
 _sections_unfolded = [ "Region", "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dark-grass-mud3" index="0"]
 
+visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -612,18 +897,18 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dark-grass-mud3/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-stone8" type="Sprite" parent="." index="21"]
+[node name="dark-grass-stone8" type="Sprite" parent="." index="32"]
 
 position = Vector2( -30, 290 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 218, 32, 38 )
+region_rect = Rect2( 0, 218, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dark-grass-stone8" index="0"]
@@ -642,18 +927,18 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dark-grass-stone8/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-stone6" type="Sprite" parent="." index="22"]
+[node name="dark-grass-stone6" type="Sprite" parent="." index="33"]
 
 position = Vector2( 0, 290 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 32, 218, 32, 38 )
+region_rect = Rect2( 32, 218, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dark-grass-stone6" index="0"]
@@ -672,18 +957,18 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dark-grass-stone6/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-stone7" type="Sprite" parent="." index="23"]
+[node name="dark-grass-stone7" type="Sprite" parent="." index="34"]
 
 position = Vector2( 30, 290 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 64, 218, 32, 38 )
+region_rect = Rect2( 64, 218, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dark-grass-stone7" index="0"]
@@ -702,13 +987,13 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dark-grass-stone7/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-top1" type="Sprite" parent="." index="24"]
+[node name="mud-top1" type="Sprite" parent="." index="35"]
 
 position = Vector2( 120, 380 )
 texture = ExtResource( 1 )
@@ -732,13 +1017,13 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mud-top1/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-top2" type="Sprite" parent="." index="25"]
+[node name="mud-top2" type="Sprite" parent="." index="36"]
 
 position = Vector2( 150, 380 )
 texture = ExtResource( 1 )
@@ -762,13 +1047,13 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mud-top2/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-top3" type="Sprite" parent="." index="26"]
+[node name="mud-top3" type="Sprite" parent="." index="37"]
 
 position = Vector2( 180, 380 )
 texture = ExtResource( 1 )
@@ -792,22 +1077,23 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mud-top3/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-stone4" type="Sprite" parent="." index="27"]
+[node name="dirt-triangle-top-1" type="Sprite" parent="." index="38"]
 
-position = Vector2( 170, 460 )
+position = Vector2( 106, 456 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 96, 288, 128, 32 )
+region_rect = Rect2( 96, 288, 32, 32 )
 _sections_unfolded = [ "Region", "Transform" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="dark-grass-stone4" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="dirt-triangle-top-1" index="0"]
 
+visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -820,21 +1106,106 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dark-grass-stone4/StaticBody2D" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dirt-triangle-top-1/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -68.0442, -15.9897, 1.67201, 18.4484, 67.6085, -15.9897 )
+polygon = PoolVector2Array( -21.6714, -16.8758, 16.7592, 3.90527, 16.7592, -16.8758 )
 
-[node name="dark-grass-stone5" type="Sprite" parent="." index="28"]
+[node name="dirt-triangle-top-2" type="Sprite" parent="." index="39"]
 
-position = Vector2( 340, 460 )
+position = Vector2( 196, 456 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 224, 288, 128, 32 )
+region_rect = Rect2( 192, 288, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="dirt-triangle-top-2" index="0"]
+
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dirt-triangle-top-2/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -16.4889, -16.5546, -16.4889, 3.6571, 20.5185, -16.5546 )
+
+[node name="dirt-triangle-top-3" type="Sprite" parent="." index="40"]
+
+position = Vector2( 136, 456 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 288, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="dirt-triangle-top-3" index="0"]
+
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dirt-triangle-top-3/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -16, -16, -15.8612, 2.46002, 16.3067, 19.5403, 16.3067, -16.0436 )
+
+[node name="dirt-triangle-top-4" type="Sprite" parent="." index="41"]
+
+position = Vector2( 166, 456 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 288, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="dirt-triangle-top-4" index="0"]
+
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dirt-triangle-top-4/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -17.1604, -16.0582, -17.1604, 19.2411, 17.0002, 0.16803, 17.0002, -16.0582 )
+
+[node name="stone-triangle-top-1" type="Sprite" parent="." index="42"]
+
+position = Vector2( 266, 456 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 224, 288, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="dark-grass-stone5" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="stone-triangle-top-1" index="0"]
 
+visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -846,13 +1217,97 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="dark-grass-stone5/StaticBody2D" index="0"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="stone-triangle-top-1/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -68.0442, -15.9897, 1.67201, 18.4484, 67.6085, -15.9897 )
+polygon = PoolVector2Array( -21.9355, -17.1969, 16.7798, 4.15344, 16.7798, -17.1969 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="stone-top1" type="Sprite" parent="." index="29"]
+[node name="stone-triangle-top-2" type="Sprite" parent="." index="43"]
+
+position = Vector2( 296, 456 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 288, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="stone-triangle-top-2" index="0"]
+
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="stone-triangle-top-2/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -16.7822, -16.0582, -16.7822, 1.30673, 16.5244, 18.6717, 16.5244, -16.0582 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="stone-triangle-top-3" type="Sprite" parent="." index="44"]
+
+position = Vector2( 326, 456 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 288, 288, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="stone-triangle-top-3" index="0"]
+
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="stone-triangle-top-3/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -16.3224, -16.3429, -16.3224, 18.6718, 16.9843, 2.16077, 16.9843, -16.3429 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="stone-triangle-top-4" type="Sprite" parent="." index="45"]
+
+position = Vector2( 356, 456 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 288, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="stone-triangle-top-4" index="0"]
+
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="stone-triangle-top-4/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -16.1471, -16.0582, -16.1471, 3.29947, 21.1448, -16.0582 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="stone-top1" type="Sprite" parent="." index="46"]
 
 position = Vector2( 310, 380 )
 texture = ExtResource( 1 )
@@ -876,13 +1331,13 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stone-top1/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-top2" type="Sprite" parent="." index="30"]
+[node name="stone-top2" type="Sprite" parent="." index="47"]
 
 position = Vector2( 340, 380 )
 texture = ExtResource( 1 )
@@ -906,13 +1361,13 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stone-top2/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-top3" type="Sprite" parent="." index="31"]
+[node name="stone-top3" type="Sprite" parent="." index="48"]
 
 position = Vector2( 370, 380 )
 texture = ExtResource( 1 )
@@ -936,23 +1391,22 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stone-top3/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-block1" type="Sprite" parent="." index="32"]
+[node name="mud-block1" type="Sprite" parent="." index="49"]
 
 position = Vector2( -30, 380 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 284, 32, 38 )
+region_rect = Rect2( 0, 284, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="mud-block1" index="0"]
 
-visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -966,18 +1420,18 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mud-block1/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-block2" type="Sprite" parent="." index="33"]
+[node name="mud-block2" type="Sprite" parent="." index="50"]
 
 position = Vector2( 0, 380 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 32, 284, 32, 38 )
+region_rect = Rect2( 32, 284, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="mud-block2" index="0"]
@@ -996,18 +1450,18 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mud-block2/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-block3" type="Sprite" parent="." index="34"]
+[node name="mud-block3" type="Sprite" parent="." index="51"]
 
 position = Vector2( 30, 380 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 64, 284, 32, 38 )
+region_rect = Rect2( 64, 284, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="mud-block3" index="0"]
@@ -1026,18 +1480,18 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mud-block3/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-block1" type="Sprite" parent="." index="35"]
+[node name="stone-block1" type="Sprite" parent="." index="52"]
 
 position = Vector2( -30, 460 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 350, 32, 38 )
+region_rect = Rect2( 0, 350, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stone-block1" index="0"]
@@ -1056,18 +1510,18 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stone-block1/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-block2" type="Sprite" parent="." index="36"]
+[node name="stone-block2" type="Sprite" parent="." index="53"]
 
 position = Vector2( 0, 460 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 32, 350, 32, 38 )
+region_rect = Rect2( 32, 350, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stone-block2" index="0"]
@@ -1086,22 +1540,23 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stone-block2/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-block3" type="Sprite" parent="." index="37"]
+[node name="stone-block3" type="Sprite" parent="." index="54"]
 
 position = Vector2( 30, 460 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 64, 350, 32, 38 )
+region_rect = Rect2( 64, 350, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stone-block3" index="0"]
 
+visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -1115,18 +1570,18 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stone-block3/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-mud_small1" type="Sprite" parent="." index="38"]
+[node name="dark-grass-mud_small1" type="Sprite" parent="." index="55"]
 
 position = Vector2( 130, 200 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 96, 154, 32, 38 )
+region_rect = Rect2( 96, 154, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dark-grass-mud_small1" index="0"]
@@ -1144,18 +1599,18 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="dark-grass-mud_small1/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-mud_small2" type="Sprite" parent="." index="39"]
+[node name="dark-grass-mud_small2" type="Sprite" parent="." index="56"]
 
 position = Vector2( 160, 200 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 128, 154, 32, 38 )
+region_rect = Rect2( 128, 154, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dark-grass-mud_small2" index="0"]
@@ -1173,18 +1628,18 @@ __meta__ = {
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="dark-grass-mud_small2/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-stone_small1" type="Sprite" parent="." index="40"]
+[node name="dark-grass-stone_small1" type="Sprite" parent="." index="57"]
 
 position = Vector2( 130, 290 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 96, 218, 32, 38 )
+region_rect = Rect2( 96, 218, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dark-grass-stone_small1" index="0"]
@@ -1202,18 +1657,18 @@ __meta__ = {
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="dark-grass-stone_small1/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-stone_small2" type="Sprite" parent="." index="41"]
+[node name="dark-grass-stone_small2" type="Sprite" parent="." index="58"]
 
 position = Vector2( 160, 290 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 128, 218, 32, 38 )
+region_rect = Rect2( 128, 218, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dark-grass-stone_small2" index="0"]
@@ -1231,7 +1686,7 @@ __meta__ = {
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="dark-grass-stone_small2/StaticBody2D" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true

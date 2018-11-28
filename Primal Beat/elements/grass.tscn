@@ -14,7 +14,7 @@ radius = 10.0
 custom_solver_bias = 0.0
 extents = Vector2( 10, 13 )
 
-[node name="Grass" type="Node2D"]
+[node name="Grass" type="Node2D" index="0"]
 
 position = Vector2( 387, 304.5 )
 scale = Vector2( 7, 7 )
