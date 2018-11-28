@@ -5,15 +5,17 @@ export(PackedScene) var spawnedEnemy
 
 func _on_spawn_detection_area_entered(area):
 	if _check_if_is_player_area(area):
-		print("Player entered spawn area")
+		# print("Player entered spawn area")
 
 		_spawn_enemy()
 
 func _on_noise_detection_area_entered(area):
+	pass
 	if _check_if_is_player_area(area):
 		print("Player entered noise detection area")
 
 func _on_grass_touch_detection_area_entered(area):
+	pass
 	if _check_if_is_player_area(area):
 		print("Player entered the grass")
 

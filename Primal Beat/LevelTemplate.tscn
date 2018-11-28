@@ -9,11 +9,14 @@
 [ext_resource path="res://elements/grass.tscn" type="PackedScene" id=7]
 [ext_resource path="res://elements/jungle-terrain.tres" type="TileSet" id=8]
 [ext_resource path="res://elements/little-grass-stripe.tscn" type="PackedScene" id=9]
+[ext_resource path="res://elements/Ladder.tscn" type="PackedScene" id=10]
+[ext_resource path="res://elements/MovingSpikes.tscn" type="PackedScene" id=11]
 
 [sub_resource type="StreamTexture" id=2]
 
 flags = 2
 load_path = "res://.import/background-3.png-c9b958044ea7c983eaa73e38b0a300e6.stex"
+
 
 [node name="GameWorld" type="Node" index="0"]
 
@@ -217,5 +220,69 @@ __meta__ = {
 
 position = Vector2( 70, 460 )
 scale = Vector2( 0.726563, 0.726563 )
+
+[node name="Node2D6" type="Node2D" parent="." index="10"]
+
+position = Vector2( 170, 370 )
+scale = Vector2( 0.117187, 0.117187 )
+
+[node name="Ladder" parent="Node2D6" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 0, 1024 )
+scale = Vector2( 1, 1 )
+
+[node name="Ladder2" parent="Node2D6" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 0, 768.001 )
+scale = Vector2( 1, 1 )
+
+[node name="Ladder3" parent="Node2D6" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 0, 512 )
+scale = Vector2( 1, 1 )
+
+[node name="Ladder4" parent="Node2D6" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 0, 256 )
+scale = Vector2( 1, 1 )
+
+[node name="Ladder5" parent="Node2D6" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 0, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="Spikes_1" parent="." index="11" instance=ExtResource( 9 )]
+
+position = Vector2( 480.404, 505.354 )
+scale = Vector2( 0.13125, 0.0858592 )
+spikes_idle_time = 5.0
+spikes_speed = 500
+
+[node name="Spikes_2" parent="." index="12" instance=ExtResource( 9 )]
+
+position = Vector2( 510.404, 505.354 )
+scale = Vector2( 0.13125, 0.0858592 )
+spikes_idle_time = 5.0
+spikes_speed = 500
+
+[connection signal="player_entered" from="Node2D6/Ladder" to="Traveler" method="_on_Ladder_player_entered"]
+
+[connection signal="player_left" from="Node2D6/Ladder" to="Traveler" method="_on_Ladder_player_left"]
+
+[connection signal="player_entered" from="Node2D6/Ladder2" to="Traveler" method="_on_Ladder_player_entered"]
+
+[connection signal="player_left" from="Node2D6/Ladder2" to="Traveler" method="_on_Ladder_player_left"]
+
+[connection signal="player_entered" from="Node2D6/Ladder3" to="Traveler" method="_on_Ladder_player_entered"]
+
+[connection signal="player_left" from="Node2D6/Ladder3" to="Traveler" method="_on_Ladder_player_left"]
+
+[connection signal="player_entered" from="Node2D6/Ladder4" to="Traveler" method="_on_Ladder_player_entered"]
+
+[connection signal="player_left" from="Node2D6/Ladder4" to="Traveler" method="_on_Ladder_player_left"]
+
+[connection signal="player_entered" from="Node2D6/Ladder5" to="Traveler" method="_on_Ladder_player_entered"]
+
+[connection signal="player_left" from="Node2D6/Ladder5" to="Traveler" method="_on_Ladder_player_left"]
 
 
