@@ -3,7 +3,7 @@
 [ext_resource path="res://dummy_assets/jungle_tiles/oop/Jungle_terrain_filtered_import.png" type="Texture" id=1]
 [ext_resource path="res://elements/GrassMovement.gd" type="Script" id=2]
 
-[node name="little-grass-bush" type="Node2D" index="0"]
+[node name="little-grass-bush" type="Node2D"]
 
 position = Vector2( 344, 294 )
 scale = Vector2( 7.0625, 7.0625 )
