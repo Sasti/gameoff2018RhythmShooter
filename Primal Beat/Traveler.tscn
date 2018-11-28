@@ -140,6 +140,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
 
+offset = Vector2( 0, -128 )
 anchor_mode = 1
 rotating = false
 current = true

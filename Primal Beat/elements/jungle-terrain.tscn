@@ -2126,7 +2126,7 @@ __meta__ = {
 [node name="bridge-1" type="Sprite" parent="." index="76"]
 
 position = Vector2( 0, 640 )
-z_index = -1
+z_index = 1
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 412, 32, 64 )
@@ -2157,7 +2157,7 @@ __meta__ = {
 [node name="bridge-2" type="Sprite" parent="." index="77"]
 
 position = Vector2( 32, 640 )
-z_index = -1
+z_index = 1
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 32, 412, 32, 64 )
@@ -2188,7 +2188,7 @@ __meta__ = {
 [node name="bridge-3" type="Sprite" parent="." index="78"]
 
 position = Vector2( 64, 640 )
-z_index = -1
+z_index = 1
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 64, 412, 32, 64 )
@@ -2219,7 +2219,7 @@ __meta__ = {
 [node name="bridge-4" type="Sprite" parent="." index="79"]
 
 position = Vector2( 96, 640 )
-z_index = -1
+z_index = 1
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 96, 412, 32, 64 )
@@ -2250,7 +2250,7 @@ __meta__ = {
 [node name="bridge-5" type="Sprite" parent="." index="80"]
 
 position = Vector2( 128, 640 )
-z_index = -1
+z_index = 1
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 128, 412, 32, 64 )
@@ -2281,7 +2281,7 @@ __meta__ = {
 [node name="bridge-6" type="Sprite" parent="." index="81"]
 
 position = Vector2( 160, 640 )
-z_index = -1
+z_index = 1
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 160, 412, 32, 64 )
@@ -2312,7 +2312,7 @@ __meta__ = {
 [node name="bridge-foreground-1" type="Sprite" parent="." index="82"]
 
 position = Vector2( 16, 720 )
-z_index = 1
+z_index = 2
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 192, 412, 32, 64 )
@@ -2321,7 +2321,7 @@ _sections_unfolded = [ "Region", "Z Index" ]
 [node name="bridge-foreground-2" type="Sprite" parent="." index="83"]
 
 position = Vector2( 144, 720 )
-z_index = 1
+z_index = 2
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 320, 412, 32, 64 )
@@ -2330,7 +2330,7 @@ _sections_unfolded = [ "Region", "Z Index" ]
 [node name="bridge-foreground-3" type="Sprite" parent="." index="84"]
 
 position = Vector2( 112, 720 )
-z_index = 1
+z_index = 2
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 288, 412, 32, 64 )
@@ -2339,7 +2339,7 @@ _sections_unfolded = [ "Region", "Z Index" ]
 [node name="bridge-foreground-4" type="Sprite" parent="." index="85"]
 
 position = Vector2( 80, 720 )
-z_index = 1
+z_index = 2
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 256, 412, 32, 64 )
@@ -2348,7 +2348,7 @@ _sections_unfolded = [ "Region", "Z Index" ]
 [node name="bridge-foreground-5" type="Sprite" parent="." index="86"]
 
 position = Vector2( 48, 720 )
-z_index = 1
+z_index = 2
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 224, 412, 32, 64 )
