@@ -70,7 +70,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 6.82864
 
-[node name="Traveler" type="KinematicBody2D" index="0"]
+[node name="Traveler" type="KinematicBody2D"]
 
 z_index = 50
 input_pickable = false

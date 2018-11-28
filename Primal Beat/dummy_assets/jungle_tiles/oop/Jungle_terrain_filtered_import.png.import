@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grass_bush_cut.png-0d8e002bab321f79ea298d24245f055e.stex"
+path="res://.import/Jungle_terrain_filtered_import.png-2fffbd2515ca6de52c5eae0d9fe983fd.stex"
 
 [deps]
 
-source_file="res://sprites/grass_bush_cut.png"
-dest_files=[ "res://.import/grass_bush_cut.png-0d8e002bab321f79ea298d24245f055e.stex" ]
+source_file="res://dummy_assets/jungle_tiles/oop/Jungle_terrain_filtered_import.png"
+dest_files=[ "res://.import/Jungle_terrain_filtered_import.png-2fffbd2515ca6de52c5eae0d9fe983fd.stex" ]
 
 [params]
 
@@ -18,7 +18,7 @@ compress/normal_map=0
 flags/repeat=0
 flags/filter=true
 flags/mipmaps=true
-flags/anisotropic=false
+flags/anisotropic=true
 flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
