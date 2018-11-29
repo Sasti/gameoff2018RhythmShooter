@@ -30,9 +30,9 @@ texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 128, 128 )
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
-wobbleSpeed = 1.3
+wobbleSpeed = 0.6
 wobbleDistance = 0.2
-wobbleDirection = -1
+wobbleDirection = 1
 
 [node name="grass_touch_detection" type="Area2D" parent="." index="1"]
 

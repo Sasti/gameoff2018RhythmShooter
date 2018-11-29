@@ -34,6 +34,6 @@ func _physics_process(delta):
 	
 	var shering = Transform2D()
 	shering[0] = Vector2(1, 0)
-	shering[1] = Vector2((sin(deltaSum / wobbleSpeed) + wobbleDirection) * wobbleDistance, 1)
+	shering[1] = Vector2((sin(2 * PI * deltaSum / wobbleSpeed) + wobbleDirection) * wobbleDistance, 1)
 	
 	set_transform( transformUp * shering * transformDown * baseTransform )

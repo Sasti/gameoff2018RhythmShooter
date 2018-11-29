@@ -19,7 +19,7 @@ _sections_unfolded = [ "Material", "Region", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
-wobbleSpeed = 1.3
+wobbleSpeed = 0.6
 wobbleDistance = 0.2
 wobbleDirection = 1
 
