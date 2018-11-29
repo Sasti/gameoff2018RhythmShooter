@@ -33,7 +33,13 @@ func _physics_process(delta):
 	transformDown = transformDown.translated( Vector2(0, -elementSize.y / 2) ) 
 	
 	var shering = Transform2D()
+	# This vector represents the shering on the y axis. The grass shall not move in that direction so we set 
+	# this part of the transformation to use just the unchanged y values.
 	shering[0] = Vector2(1, 0)
+	# This vector represets the shering on the x axis. The strength of the shering is calculated 
+	# with a sin function so that it moves nicely in a loop. The calculation tries to make the 
+	# configuration of the wobbleSpeed more user friendly by shortening the sin wave by 2 * PI. 
+	# This will result in a sin function oscilation between 1 and -1 on second basis. 
 	shering[1] = Vector2((sin(2 * PI * deltaSum / wobbleSpeed) + wobbleDirection) * wobbleDistance, 1)
 	
 	set_transform( transformUp * shering * transformDown * baseTransform )
