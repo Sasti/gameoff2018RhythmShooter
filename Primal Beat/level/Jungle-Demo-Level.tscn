@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://LevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://elements/jungle-terrain.tres" type="TileSet" id=2]
-[ext_resource path="res://elements/Ladder.tscn" type="PackedScene" id=3]
-[ext_resource path="res://dummy_assets/jungle_tiles/Trees - Jungle/01.png" type="Texture" id=4]
-[ext_resource path="res://dummy_assets/jungle_tiles/Trees - Jungle/00.png" type="Texture" id=5]
-[ext_resource path="res://dummy_assets/jungle_tiles/Trees - Jungle/03.png" type="Texture" id=6]
+[ext_resource path="res://elements/little-grass-stripe.tscn" type="PackedScene" id=3]
+[ext_resource path="res://elements/little-grass-bush.tscn" type="PackedScene" id=4]
+[ext_resource path="res://elements/Ladder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://dummy_assets/jungle_tiles/Trees - Jungle/01.png" type="Texture" id=6]
+[ext_resource path="res://dummy_assets/jungle_tiles/Trees - Jungle/00.png" type="Texture" id=7]
+[ext_resource path="res://dummy_assets/jungle_tiles/Trees - Jungle/03.png" type="Texture" id=8]
 
 [node name="GameWorld" index="0" instance=ExtResource( 1 )]
 
@@ -161,9 +163,96 @@ __meta__ = {
 
 [node name="Start-Area" type="Node2D" parent="." index="4"]
 
-position = Vector2( 760, 340 )
+position = Vector2( 760, 344 )
 scale = Vector2( 32.5, 15.125 )
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="little-grass-stripe" parent="Start-Area" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( -21.1692, 23.0083 )
+scale = Vector2( 0.0384615, 0.0826446 )
+z_index = -10
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="little-grass-stripe3" parent="Start-Area" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 11.8154, 23.2727 )
+scale = Vector2( 0.0269231, 0.0578512 )
+z_index = -10
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="little-grass-stripe2" parent="Start-Area" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( -11.3692, 21.2112 )
+scale = Vector2( 0.021676, 0.046576 )
+z_index = -10
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="little-grass-bush" parent="Start-Area" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( -14.2769, 20.6281 )
+scale = Vector2( 0.0432692, 0.0929752 )
+z_index = -10
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="little-grass-bush3" parent="Start-Area" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( -13.0462, 20.5126 )
+scale = Vector2( 0.052404, 0.112603 )
+z_index = -10
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="little-grass-bush2" parent="Start-Area" index="5" instance=ExtResource( 4 )]
+
+position = Vector2( -16.4923, 23.0083 )
+scale = Vector2( 0.0370192, 0.0795455 )
+z_index = -10
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="little-grass-bush4" parent="Start-Area" index="6" instance=ExtResource( 4 )]
+
+position = Vector2( 0.738462, 19.0413 )
+scale = Vector2( 0.0370192, 0.0795455 )
+z_index = -10
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="little-grass-bush5" parent="Start-Area" index="7" instance=ExtResource( 4 )]
+
+position = Vector2( 1.96923, 18.5124 )
+scale = Vector2( 0.0370192, 0.0795455 )
+z_index = -10
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="little-grass-bush6" parent="Start-Area" index="8" instance=ExtResource( 4 )]
+
+position = Vector2( 3.2, 19.0413 )
+scale = Vector2( 0.0370192, 0.0795455 )
+z_index = -10
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="little-grass-bush7" parent="Start-Area" index="9" instance=ExtResource( 4 )]
+
+position = Vector2( 4.18462, 18.5124 )
+scale = Vector2( 0.0370192, 0.0795455 )
+z_index = -10
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="little-grass-bush8" parent="Start-Area" index="10" instance=ExtResource( 4 )]
+
+position = Vector2( 2.70769, 18.5124 )
+scale = Vector2( 0.0370192, 0.0795455 )
+z_index = -10
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="little-grass-bush9" parent="Start-Area" index="11" instance=ExtResource( 4 )]
+
+position = Vector2( 1.47692, 18.5124 )
+scale = Vector2( 0.0370192, 0.0795455 )
+z_index = -10
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Ankylosaurus-Area" type="Node2D" parent="." index="5"]
 
@@ -185,22 +274,22 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Ladder-Part" parent="Tiger-Area/Ladder-Tiger" index="0" instance=ExtResource( 3 )]
+[node name="Ladder-Part" parent="Tiger-Area/Ladder-Tiger" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, 21.3334 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part2" parent="Tiger-Area/Ladder-Tiger" index="1" instance=ExtResource( 3 )]
+[node name="Ladder-Part2" parent="Tiger-Area/Ladder-Tiger" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, 7.11115 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part3" parent="Tiger-Area/Ladder-Tiger" index="2" instance=ExtResource( 3 )]
+[node name="Ladder-Part3" parent="Tiger-Area/Ladder-Tiger" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, -7.11108 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part4" parent="Tiger-Area/Ladder-Tiger" index="3" instance=ExtResource( 3 )]
+[node name="Ladder-Part4" parent="Tiger-Area/Ladder-Tiger" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, -21.3333 )
 scale = Vector2( 0.168295, 0.0555813 )
@@ -224,7 +313,7 @@ __meta__ = {
 position = Vector2( -12.4179, 4.32678 )
 scale = Vector2( 0.100032, 0.149183 )
 z_index = -10
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -235,7 +324,7 @@ __meta__ = {
 position = Vector2( 2.38806, 7.17594 )
 scale = Vector2( -0.100032, 0.149183 )
 z_index = -10
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -246,7 +335,7 @@ __meta__ = {
 position = Vector2( 23.3055, 5.52877 )
 scale = Vector2( 0.100032, 0.149183 )
 z_index = -10
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -257,7 +346,7 @@ __meta__ = {
 position = Vector2( -6.68655, 7.17594 )
 scale = Vector2( 0.118609, 0.176888 )
 z_index = -10
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -268,7 +357,7 @@ __meta__ = {
 position = Vector2( -22.9254, 4.32678 )
 scale = Vector2( -0.175105, 0.261144 )
 z_index = -10
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -279,7 +368,7 @@ __meta__ = {
 position = Vector2( 10.9851, 7.17594 )
 scale = Vector2( 0.144411, 0.215368 )
 z_index = -10
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -290,7 +379,7 @@ __meta__ = {
 position = Vector2( -1.91043, -2.08382 )
 scale = Vector2( 0.295849, 0.441217 )
 z_index = -11
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -301,7 +390,7 @@ __meta__ = {
 position = Vector2( 18.3701, -1.40501 )
 scale = Vector2( 0.140795, 0.209976 )
 z_index = -9
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -312,7 +401,7 @@ __meta__ = {
 position = Vector2( -19.4197, 9.72334 )
 scale = Vector2( -0.063941, 0.095358 )
 z_index = -9
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -324,22 +413,22 @@ editor/display_folded = true
 position = Vector2( -13.6065, 15.2191 )
 scale = Vector2( 0.0398629, 0.178349 )
 
-[node name="Ladder-Part" parent="Ape-Area/Ladder-Ape" index="0" instance=ExtResource( 3 )]
+[node name="Ladder-Part" parent="Ape-Area/Ladder-Ape" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, 21.3334 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part2" parent="Ape-Area/Ladder-Ape" index="1" instance=ExtResource( 3 )]
+[node name="Ladder-Part2" parent="Ape-Area/Ladder-Ape" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, 7.11115 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part3" parent="Ape-Area/Ladder-Ape" index="2" instance=ExtResource( 3 )]
+[node name="Ladder-Part3" parent="Ape-Area/Ladder-Ape" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, -7.11108 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part4" parent="Ape-Area/Ladder-Ape" index="3" instance=ExtResource( 3 )]
+[node name="Ladder-Part4" parent="Ape-Area/Ladder-Ape" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, -21.3333 )
 scale = Vector2( 0.168295, 0.0555813 )
@@ -350,22 +439,22 @@ editor/display_folded = true
 position = Vector2( 8.50409, 14.585 )
 scale = Vector2( 0.0398629, 0.178349 )
 
-[node name="Ladder-Part" parent="Ape-Area/Ladder-Ape2" index="0" instance=ExtResource( 3 )]
+[node name="Ladder-Part" parent="Ape-Area/Ladder-Ape2" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, 21.3334 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part2" parent="Ape-Area/Ladder-Ape2" index="1" instance=ExtResource( 3 )]
+[node name="Ladder-Part2" parent="Ape-Area/Ladder-Ape2" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, 7.11115 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part3" parent="Ape-Area/Ladder-Ape2" index="2" instance=ExtResource( 3 )]
+[node name="Ladder-Part3" parent="Ape-Area/Ladder-Ape2" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, -7.11108 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part4" parent="Ape-Area/Ladder-Ape2" index="3" instance=ExtResource( 3 )]
+[node name="Ladder-Part4" parent="Ape-Area/Ladder-Ape2" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, -21.3333 )
 scale = Vector2( 0.168295, 0.0555813 )
@@ -376,22 +465,22 @@ editor/display_folded = true
 position = Vector2( 3.40164, 6.97544 )
 scale = Vector2( 0.0398629, 0.178349 )
 
-[node name="Ladder-Part" parent="Ape-Area/Ladder-Ape3" index="0" instance=ExtResource( 3 )]
+[node name="Ladder-Part" parent="Ape-Area/Ladder-Ape3" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, 21.3334 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part2" parent="Ape-Area/Ladder-Ape3" index="1" instance=ExtResource( 3 )]
+[node name="Ladder-Part2" parent="Ape-Area/Ladder-Ape3" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, 7.11115 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part3" parent="Ape-Area/Ladder-Ape3" index="2" instance=ExtResource( 3 )]
+[node name="Ladder-Part3" parent="Ape-Area/Ladder-Ape3" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, -7.11108 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part4" parent="Ape-Area/Ladder-Ape3" index="3" instance=ExtResource( 3 )]
+[node name="Ladder-Part4" parent="Ape-Area/Ladder-Ape3" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, -21.3333 )
 scale = Vector2( 0.168295, 0.0555813 )
@@ -402,22 +491,22 @@ editor/display_folded = true
 position = Vector2( -8.50409, 5.07305 )
 scale = Vector2( 0.0398629, 0.178349 )
 
-[node name="Ladder-Part" parent="Ape-Area/Ladder-Ape4" index="0" instance=ExtResource( 3 )]
+[node name="Ladder-Part" parent="Ape-Area/Ladder-Ape4" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, 21.3334 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part2" parent="Ape-Area/Ladder-Ape4" index="1" instance=ExtResource( 3 )]
+[node name="Ladder-Part2" parent="Ape-Area/Ladder-Ape4" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, 7.11115 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part3" parent="Ape-Area/Ladder-Ape4" index="2" instance=ExtResource( 3 )]
+[node name="Ladder-Part3" parent="Ape-Area/Ladder-Ape4" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, -7.11108 )
 scale = Vector2( 0.168295, 0.0555813 )
 
-[node name="Ladder-Part4" parent="Ape-Area/Ladder-Ape4" index="3" instance=ExtResource( 3 )]
+[node name="Ladder-Part4" parent="Ape-Area/Ladder-Ape4" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( -0.000976562, -21.3333 )
 scale = Vector2( 0.168295, 0.0555813 )
@@ -433,7 +522,7 @@ scale = Vector2( 26.875, 14.75 )
 position = Vector2( -24.8558, -8.67797 )
 scale = Vector2( 0.0908084, 0.165456 )
 z_index = -10
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Z Index" ]
 
 [connection signal="player_entered" from="Tiger-Area/Ladder-Tiger/Ladder-Part" to="Traveler" method="_on_Ladder_player_entered"]
