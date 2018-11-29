@@ -12,10 +12,11 @@
 flags = 34
 load_path = "res://.import/background-3.png-c9b958044ea7c983eaa73e38b0a300e6.stex"
 
-[node name="GameWorld" type="Node" index="0"]
+[node name="GameWorld" type="Node"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
+editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
