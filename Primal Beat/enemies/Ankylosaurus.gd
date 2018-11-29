@@ -8,8 +8,8 @@ const GRAVITY = 300.0
 const SPEED = 100
 const FALLBACK_OFFSET = Vector2(0, 0)
 
-func _init():
-	state = SleepingState.new(self)
+func _ready():
+	set_state(STATE_SLEEPING)
 
 func _on_aggro(area):
 	# Wake up when the player bumps into the mob.

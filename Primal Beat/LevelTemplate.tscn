@@ -10,7 +10,7 @@
 [ext_resource path="res://elements/grass.tscn" type="PackedScene" id=8]
 [ext_resource path="res://enemies/Mob.tscn" type="PackedScene" id=9]
 
-[node name="GameWorld" type="Node" index="0"]
+[node name="GameWorld" type="Node"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
@@ -82,7 +82,7 @@ position = Vector2( 842.638, 230.055 )
 
 [node name="Ankylosaurus" parent="GiantWasp" index="7" instance=ExtResource( 6 )]
 
-position = Vector2( -398.638, 105.945 )
+position = Vector2( -390.638, 167.945 )
 
 [node name="TileMap" type="TileMap" parent="." index="4"]
 

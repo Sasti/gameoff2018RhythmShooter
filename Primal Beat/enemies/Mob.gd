@@ -171,7 +171,7 @@ class SleepingState:
 		self.mob = mob
 
 	func process(delta):
-		mob.animation.queue('idle')
+		mob.animation.queue('sleeping')
 
 	func exit():
 		pass

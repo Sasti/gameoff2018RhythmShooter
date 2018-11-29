@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://enemies/Mob.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/Ankylosaurus.gd" type="Script" id=2]
@@ -20,21 +20,21 @@
 [ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-sleeping-5.png" type="Texture" id=18]
 [ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-sleeping-6.png" type="Texture" id=19]
 [ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-sleeping-7.png" type="Texture" id=20]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-attacking-0.png" type="Texture" id=21]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-attacking-1.png" type="Texture" id=22]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-attacking-2.png" type="Texture" id=23]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-attacking-3.png" type="Texture" id=24]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-attacking-4.png" type="Texture" id=25]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-attacking-5.png" type="Texture" id=26]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-attacking-6.png" type="Texture" id=27]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-0.png" type="Texture" id=28]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-1.png" type="Texture" id=29]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-2.png" type="Texture" id=30]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-3.png" type="Texture" id=31]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-4.png" type="Texture" id=32]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-5.png" type="Texture" id=33]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-6.png" type="Texture" id=34]
-[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-7.png" type="Texture" id=35]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-0.png" type="Texture" id=21]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-1.png" type="Texture" id=22]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-2.png" type="Texture" id=23]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-3.png" type="Texture" id=24]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-4.png" type="Texture" id=25]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-5.png" type="Texture" id=26]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-6.png" type="Texture" id=27]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-move-7.png" type="Texture" id=28]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-attacking-0.png" type="Texture" id=29]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-attacking-1.png" type="Texture" id=30]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-attacking-2.png" type="Texture" id=31]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-attacking-3.png" type="Texture" id=32]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-attacking-4.png" type="Texture" id=33]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-attacking-5.png" type="Texture" id=34]
+[ext_resource path="res://enemies/assets/ankylosaurus/ankylosaurus-attacking-6.png" type="Texture" id=35]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -49,14 +49,14 @@ animations = [ {
 "name": "sleeping",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "attacking",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
 "loop": true,
 "name": "moving",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "attacking",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -72,17 +72,98 @@ height = 12.5553
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Ankylosaurus" index="0" instance=ExtResource( 1 )]
+[sub_resource type="Animation" id=4]
+
+resource_name = "attacking"
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=5]
+
+length = 1.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "moving"
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=7]
+
+resource_name = "sleeping"
+length = 1.6
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "sleeping" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 0 ]
+}
+
+[node name="Ankylosaurus" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 
-[node name="AnimatedSprite" parent="." index="0"]
+[node name="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 6.02514, 7.55639 )
+scale = Vector2( 12.0789, 3.73653 )
+
+[node name="AnimatedSprite" parent="." index="1"]
 
 scale = Vector2( 1, 1 )
 frames = SubResource( 1 )
+animation = "sleeping"
 flip_h = false
 
-[node name="MobHitArea" parent="." index="1"]
+[node name="MobHitArea" parent="." index="2"]
 
 gravity = 1.0
 
@@ -99,10 +180,20 @@ position = Vector2( 4.00001, 7.34099 )
 scale = Vector2( 12.5, 4 )
 shape = SubResource( 3 )
 
-[node name="VisibilityNotifier2D" parent="." index="3"]
+[node name="VisibilityNotifier2D" parent="." index="4"]
 
 position = Vector2( 4.00001, 7.34099 )
 scale = Vector2( 12.5, 4 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer" parent="." index="6"]
+
+autoplay = "sleeping"
+playback_process_mode = 0
+anims/attacking = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/moving = SubResource( 6 )
+anims/sleeping = SubResource( 7 )
+_sections_unfolded = [ "Playback Options" ]
 
 
