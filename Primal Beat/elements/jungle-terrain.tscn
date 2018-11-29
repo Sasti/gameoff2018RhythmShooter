@@ -51,7 +51,6 @@ extents = Vector2( 16, 8 )
 
 [node name="grass-mud1" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( -40, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -60,6 +59,7 @@ _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="grass-mud1" index="0"]
 
+editor/display_folded = true
 visible = false
 input_pickable = false
 collision_layer = 1
@@ -139,7 +139,6 @@ _sections_unfolded = [ "Region" ]
 
 [node name="grass-mud2" type="Sprite" parent="." index="8"]
 
-editor/display_folded = true
 position = Vector2( -8, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -148,6 +147,7 @@ _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="grass-mud2" index="0"]
 
+editor/display_folded = true
 visible = false
 input_pickable = false
 collision_layer = 1
@@ -180,6 +180,7 @@ _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="grass-mud3" index="0"]
 
+editor/display_folded = true
 visible = false
 input_pickable = false
 collision_layer = 1
