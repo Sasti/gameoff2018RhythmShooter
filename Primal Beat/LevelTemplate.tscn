@@ -1,23 +1,17 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://sprites/background-color.png" type="Texture" id=1]
 [ext_resource path="res://sprites/background-1.png" type="Texture" id=2]
 [ext_resource path="res://sprites/background-2.png" type="Texture" id=3]
 [ext_resource path="res://ui/GameUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Traveler.tscn" type="PackedScene" id=5]
-[ext_resource path="res://enemies/FlyingMeleeMob.tscn" type="PackedScene" id=6]
-[ext_resource path="res://elements/grass.tscn" type="PackedScene" id=7]
-[ext_resource path="res://elements/jungle-terrain.tres" type="TileSet" id=8]
-[ext_resource path="res://elements/Ladder.tscn" type="PackedScene" id=9]
-[ext_resource path="res://elements/MovingSpikes.tscn" type="PackedScene" id=10]
-[ext_resource path="res://elements/little-grass-stripe.tscn" type="PackedScene" id=11]
 
 [sub_resource type="StreamTexture" id=1]
 
 flags = 34
 load_path = "res://.import/background-3.png-c9b958044ea7c983eaa73e38b0a300e6.stex"
 
-[node name="GameWorld" type="Node" index="0"]
+[node name="GameWorld" type="Node"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
@@ -126,160 +120,5 @@ current_health = 3
 [node name="Traveler" parent="." index="2" instance=ExtResource( 5 )]
 
 position = Vector2( -40, 460 )
-
-[node name="FlyingMeleeMob" parent="." index="3" instance=ExtResource( 6 )]
-
-position = Vector2( 709.88, 283.136 )
-_sections_unfolded = [ "Collision", "Transform", "collision" ]
-
-[node name="Node2D" parent="." index="4" instance=ExtResource( 7 )]
-
-position = Vector2( 160, 450 )
-scale = Vector2( 1.02734, 0.949219 )
-_sections_unfolded = [ "Transform", "Z Index" ]
-
-[node name="Node2D2" parent="." index="5" instance=ExtResource( 7 )]
-
-position = Vector2( 200, 450 )
-scale = Vector2( 1.02734, 0.949219 )
-
-[node name="Node2D3" parent="." index="6" instance=ExtResource( 7 )]
-
-position = Vector2( 250, 450 )
-scale = Vector2( 1.02734, 0.949219 )
-spawnOffset = Vector2( 160, -160 )
-spawnedEnemy = ExtResource( 6 )
-
-[node name="Node2D4" parent="." index="7" instance=ExtResource( 7 )]
-
-position = Vector2( 320, 450 )
-scale = Vector2( 1.02734, 0.949219 )
-_sections_unfolded = [ "Transform", "Z Index" ]
-
-[node name="Node2D5" parent="." index="8" instance=ExtResource( 7 )]
-
-position = Vector2( 90, 450 )
-scale = Vector2( 1.02734, 0.949219 )
-_sections_unfolded = [ "Transform", "Z Index" ]
-
-[node name="jungle-tileset" type="TileMap" parent="." index="9"]
-
-position = Vector2( 0, 48 )
-mode = 0
-tile_set = ExtResource( 8 )
-cell_size = Vector2( 32, 32 )
-cell_quadrant_size = 32
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray( 851954, 101, 0, 851955, 102, 0, 851956, 103, 0, 851957, 104, 0, 851958, 103, 0, 851959, 104, 0, 851960, 103, 0, 851961, 104, 0, 851962, 105, 0, 851963, 106, 0, 786446, 20, 0, 786447, 21, 0, 786448, 21, 0, 786449, 21, 0, 786450, 22, 0, 917499, 44, 0, 917500, 44, 0, 917501, 44, 0, 917502, 44, 0, 917503, 44, 0, 851968, 44, 0, 851969, 44, 0, 851970, 44, 0, 851971, 44, 0, 851972, 44, 0, 851973, 44, 0, 851974, 44, 0, 851975, 44, 0, 851976, 44, 0, 851977, 44, 0, 851978, 44, 0, 851979, 44, 0, 851980, 44, 0, 851981, 45, 0, 851987, 53, 0, 851988, 26, 0, 851989, 26, 0, 851990, 26, 0, 851991, 26, 0, 851992, 26, 0, 851993, 26, 0, 851994, 28, 0, 851995, 29, 0, 851996, 30, 0, 851997, 30, 0, 851998, 28, 0, 851999, 29, 0, 852000, 51, 0, 852001, 35, 0, 852002, 35, 0, 852003, 35, 0, 852004, 35, 0, 852005, 36, 0, 917542, 43, 0, 917543, 44, 0, 917544, 44, 0, 917545, 44, 0, 917546, 44, 0, 917547, 44, 0, 917548, 44, 0, 917549, 44, 0, 917550, 44, 0, 917551, 45, 0, 46267984, 18, 0, 46268048, 18, 0, 46268112, 18, 0, 46268176, 18, 0, 46268240, 10, 0, 46268335, 10, 0, 46202894, 10, 0, 46202990, 10, 0, 46203086, 10, 0, 46203182, 10, 0, 46203278, 10, 0 )
-_sections_unfolded = [ "Cell", "Collision", "Occluder", "Transform", "Z Index" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="bridge-foreground" type="TileMap" parent="jungle-tileset" index="0"]
-
-position = Vector2( 16, 0 )
-z_index = 100
-mode = 0
-tile_set = ExtResource( 8 )
-cell_size = Vector2( 32, 32 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray( 851954, 107, 0, 851955, 111, 0, 851956, 110, 0, 851957, 110, 0, 851958, 110, 0, 851959, 110, 0, 851960, 110, 0, 851961, 109, 0, 851962, 108, 0 )
-_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Node2D6" type="Node2D" parent="." index="10"]
-
-position = Vector2( 170, 370 )
-scale = Vector2( 0.117187, 0.117187 )
-
-[node name="Ladder" parent="Node2D6" index="0" instance=ExtResource( 9 )]
-
-position = Vector2( 1681.07, 725.332 )
-scale = Vector2( 1, 1 )
-
-[node name="Ladder2" parent="Node2D6" index="1" instance=ExtResource( 9 )]
-
-position = Vector2( 1681.07, 469.333 )
-scale = Vector2( 1, 1 )
-
-[node name="Ladder3" parent="Node2D6" index="2" instance=ExtResource( 9 )]
-
-position = Vector2( 1681.07, 213.332 )
-scale = Vector2( 1, 1 )
-
-[node name="Ladder4" parent="Node2D6" index="3" instance=ExtResource( 9 )]
-
-position = Vector2( 1681.07, -42.6685 )
-scale = Vector2( 1, 1 )
-
-[node name="Ladder5" parent="Node2D6" index="4" instance=ExtResource( 9 )]
-
-position = Vector2( 1681.07, -298.668 )
-scale = Vector2( 1, 1 )
-
-[node name="Spikes_1" parent="." index="11" instance=ExtResource( 10 )]
-
-position = Vector2( 623.125, 458.077 )
-scale = Vector2( 0.13125, 0.0858592 )
-spikes_idle_time = 5.0
-spikes_speed = 500
-
-[node name="Spikes_2" parent="." index="12" instance=ExtResource( 10 )]
-
-position = Vector2( 653.125, 458.077 )
-scale = Vector2( 0.13125, 0.0858592 )
-spikes_idle_time = 5.0
-spikes_speed = 500
-
-[node name="little-grass-stripe" parent="." index="13" instance=ExtResource( 11 )]
-
-position = Vector2( 70, 460 )
-scale = Vector2( 0.726563, 0.726563 )
-
-[connection signal="player_entered" from="Node2D6/Ladder" to="Traveler" method="_on_Ladder_player_entered"]
-
-[connection signal="player_left" from="Node2D6/Ladder" to="Traveler" method="_on_Ladder_player_left"]
-
-[connection signal="player_entered" from="Node2D6/Ladder2" to="Traveler" method="_on_Ladder_player_entered"]
-
-[connection signal="player_left" from="Node2D6/Ladder2" to="Traveler" method="_on_Ladder_player_left"]
-
-[connection signal="player_entered" from="Node2D6/Ladder3" to="Traveler" method="_on_Ladder_player_entered"]
-
-[connection signal="player_left" from="Node2D6/Ladder3" to="Traveler" method="_on_Ladder_player_left"]
-
-[connection signal="player_entered" from="Node2D6/Ladder4" to="Traveler" method="_on_Ladder_player_entered"]
-
-[connection signal="player_left" from="Node2D6/Ladder4" to="Traveler" method="_on_Ladder_player_left"]
-
-[connection signal="player_entered" from="Node2D6/Ladder5" to="Traveler" method="_on_Ladder_player_entered"]
-
-[connection signal="player_left" from="Node2D6/Ladder5" to="Traveler" method="_on_Ladder_player_left"]
 
 

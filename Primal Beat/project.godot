@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Primal Beat"
-run/main_scene="res://LevelTemplate.tscn"
+run/main_scene="res://level/Jungle-Demo-Level.tscn"
 config/icon="res://icon.png"
 
 [autoload]
