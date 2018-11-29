@@ -7,50 +7,51 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=31]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( 16, -16, 16, 16, -16, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=32]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( -16, 16, 16, 16, -16, -16 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=33]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( -16, 0, 16, -16, 16, 16, -16, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=34]
+[sub_resource type="ConvexPolygonShape2D" id=6]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( -16, -16, 16, 0, 16, 16, -16, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=35]
+[sub_resource type="ConvexPolygonShape2D" id=7]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( -16, -32, 16, -16, 16, 16, -16, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=36]
+[sub_resource type="ConvexPolygonShape2D" id=8]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( -16, -16, 16, -32, 16, 0, -16, 16 )
 
-[sub_resource type="RectangleShape2D" id=37]
+[sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 8 )
 
-[node name="jungle-terrain" type="Node"]
+[node name="jungle-terrain" type="Node" index="0"]
 
 [node name="grass-mud1" type="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( -40, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -138,6 +139,7 @@ _sections_unfolded = [ "Region" ]
 
 [node name="grass-mud2" type="Sprite" parent="." index="8"]
 
+editor/display_folded = true
 position = Vector2( -8, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -169,6 +171,7 @@ __meta__ = {
 
 [node name="grass-mud3" type="Sprite" parent="." index="9"]
 
+editor/display_folded = true
 position = Vector2( 24, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -200,6 +203,7 @@ __meta__ = {
 
 [node name="mud-little-grass1" type="Sprite" parent="." index="10"]
 
+editor/display_folded = true
 position = Vector2( 144, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -230,6 +234,7 @@ __meta__ = {
 
 [node name="mud-little-grass2" type="Sprite" parent="." index="11"]
 
+editor/display_folded = true
 position = Vector2( 176, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -260,6 +265,7 @@ __meta__ = {
 
 [node name="mud-little-grass3" type="Sprite" parent="." index="12"]
 
+editor/display_folded = true
 position = Vector2( 112, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -290,6 +296,7 @@ __meta__ = {
 
 [node name="triangle-mud-up-1" type="Sprite" parent="." index="13"]
 
+editor/display_folded = true
 position = Vector2( 256, -24 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -312,11 +319,12 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="triangle-mud-up-1/StaticBody2D" index="0"]
 
-shape = SubResource( 31 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="triangle-mud-up-2" type="Sprite" parent="." index="14"]
 
+editor/display_folded = true
 position = Vector2( 288, -24 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -339,10 +347,11 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="triangle-mud-up-2/StaticBody2D" index="0"]
 
-shape = SubResource( 32 )
+shape = SubResource( 3 )
 
 [node name="triangle-mud-up-3" type="Sprite" parent="." index="15"]
 
+editor/display_folded = true
 position = Vector2( 256, 8 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -365,11 +374,12 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="triangle-mud-up-3/StaticBody2D" index="0"]
 
 visible = false
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="triangle-mud-up-4" type="Sprite" parent="." index="16"]
 
+editor/display_folded = true
 position = Vector2( 288, 8 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -392,11 +402,12 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="triangle-mud-up-4/StaticBody2D" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="triangle-stone-up-small-1" type="Sprite" parent="." index="17"]
 
+editor/display_folded = true
 position = Vector2( 256, 96 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -419,10 +430,11 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="triangle-stone-up-small-1/StaticBody2D" index="0"]
 
-shape = SubResource( 33 )
+shape = SubResource( 5 )
 
 [node name="triangle-stone-up-small-2" type="Sprite" parent="." index="18"]
 
+editor/display_folded = true
 position = Vector2( 288, 96 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -445,10 +457,11 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="triangle-stone-up-small-2/StaticBody2D" index="0"]
 
-shape = SubResource( 34 )
+shape = SubResource( 6 )
 
 [node name="triangle-stone-up-1" type="Sprite" parent="." index="19"]
 
+editor/display_folded = true
 position = Vector2( 448, 96 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -471,11 +484,12 @@ __meta__ = {
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="triangle-stone-up-1/StaticBody2D" index="0"]
 
-shape = SubResource( 35 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="triangle-stone-up-2" type="Sprite" parent="." index="20"]
 
+editor/display_folded = true
 position = Vector2( 480, 96 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -499,11 +513,12 @@ __meta__ = {
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="triangle-stone-up-2/StaticBody2D" index="0"]
 
-shape = SubResource( 36 )
+shape = SubResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="triangle-mud-up-5" type="Sprite" parent="." index="21"]
 
+editor/display_folded = true
 position = Vector2( 448, 200 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -527,11 +542,12 @@ __meta__ = {
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="triangle-mud-up-5/StaticBody2D" index="0"]
 
 visible = false
-shape = SubResource( 35 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="triangle-mud-up-6" type="Sprite" parent="." index="22"]
 
+editor/display_folded = true
 position = Vector2( 480, 200 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -554,11 +570,12 @@ __meta__ = {
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="triangle-mud-up-6/StaticBody2D" index="0"]
 
 visible = false
-shape = SubResource( 36 )
+shape = SubResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="triangle-mud-up-low-angle-1" type="Sprite" parent="." index="23"]
 
+editor/display_folded = true
 position = Vector2( 264, 200 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -581,11 +598,12 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="triangle-mud-up-low-angle-1/StaticBody2D" index="0"]
 
-shape = SubResource( 33 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="triangle-mud-up-low-angle-2" type="Sprite" parent="." index="24"]
 
+editor/display_folded = true
 position = Vector2( 296, 200 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -608,11 +626,12 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="triangle-mud-up-low-angle-2/StaticBody2D" index="0"]
 
-shape = SubResource( 34 )
+shape = SubResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="triangle-up-1" type="Sprite" parent="." index="25"]
 
+editor/display_folded = true
 position = Vector2( 448, -32 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -635,11 +654,12 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="triangle-up-1/StaticBody2D" index="0"]
 
-shape = SubResource( 31 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="triangle-up-2" type="Sprite" parent="." index="26"]
 
+editor/display_folded = true
 position = Vector2( 480, -32 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -663,34 +683,12 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="triangle-up-2/StaticBody2D" index="0"]
 
-shape = SubResource( 32 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="27"]
+[node name="triangle-up-3" type="Sprite" parent="." index="27"]
 
-visible = false
-position = Vector2( -30, 100 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="triangle-up-3" type="Sprite" parent="." index="28"]
-
+editor/display_folded = true
 position = Vector2( 448, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -713,11 +711,12 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="triangle-up-3/StaticBody2D" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="triangle-up-4" type="Sprite" parent="." index="29"]
+[node name="triangle-up-4" type="Sprite" parent="." index="28"]
 
+editor/display_folded = true
 position = Vector2( 480, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -740,11 +739,12 @@ __meta__ = {
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="triangle-up-4/StaticBody2D" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="grass-stone1" type="Sprite" parent="." index="30"]
+[node name="grass-stone1" type="Sprite" parent="." index="29"]
 
+editor/display_folded = true
 position = Vector2( -40, 88 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -774,8 +774,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="grass-stone2" type="Sprite" parent="." index="31"]
+[node name="grass-stone2" type="Sprite" parent="." index="30"]
 
+editor/display_folded = true
 position = Vector2( -8, 88 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -804,8 +805,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="grass-stone3" type="Sprite" parent="." index="32"]
+[node name="grass-stone3" type="Sprite" parent="." index="31"]
 
+editor/display_folded = true
 position = Vector2( 24, 88 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -834,8 +836,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone1" type="Sprite" parent="." index="33"]
+[node name="stone1" type="Sprite" parent="." index="32"]
 
+editor/display_folded = true
 position = Vector2( 112, 72 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -863,8 +866,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone2" type="Sprite" parent="." index="34"]
+[node name="stone2" type="Sprite" parent="." index="33"]
 
+editor/display_folded = true
 position = Vector2( 144, 72 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -893,8 +897,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone3" type="Sprite" parent="." index="35"]
+[node name="stone3" type="Sprite" parent="." index="34"]
 
+editor/display_folded = true
 position = Vector2( 176, 72 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -923,8 +928,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-mud1" type="Sprite" parent="." index="36"]
+[node name="dark-grass-mud1" type="Sprite" parent="." index="35"]
 
+editor/display_folded = true
 position = Vector2( -32, 200 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -953,8 +959,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-mud2" type="Sprite" parent="." index="37"]
+[node name="dark-grass-mud2" type="Sprite" parent="." index="36"]
 
+editor/display_folded = true
 position = Vector2( 0, 200 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -983,8 +990,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-mud3" type="Sprite" parent="." index="38"]
+[node name="dark-grass-mud3" type="Sprite" parent="." index="37"]
 
+editor/display_folded = true
 position = Vector2( 32, 200 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1013,8 +1021,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-stone8" type="Sprite" parent="." index="39"]
+[node name="dark-grass-stone8" type="Sprite" parent="." index="38"]
 
+editor/display_folded = true
 position = Vector2( -32, 288 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1043,8 +1052,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-stone6" type="Sprite" parent="." index="40"]
+[node name="dark-grass-stone6" type="Sprite" parent="." index="39"]
 
+editor/display_folded = true
 position = Vector2( 0, 288 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1073,8 +1083,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-stone7" type="Sprite" parent="." index="41"]
+[node name="dark-grass-stone7" type="Sprite" parent="." index="40"]
 
+editor/display_folded = true
 position = Vector2( 32, 288 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1103,8 +1114,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-top1" type="Sprite" parent="." index="42"]
+[node name="mud-top1" type="Sprite" parent="." index="41"]
 
+editor/display_folded = true
 position = Vector2( 120, 376 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1133,8 +1145,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-top2" type="Sprite" parent="." index="43"]
+[node name="mud-top2" type="Sprite" parent="." index="42"]
 
+editor/display_folded = true
 position = Vector2( 152, 376 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1163,8 +1176,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-top3" type="Sprite" parent="." index="44"]
+[node name="mud-top3" type="Sprite" parent="." index="43"]
 
+editor/display_folded = true
 position = Vector2( 184, 376 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1193,8 +1207,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dirt-triangle-top-1" type="Sprite" parent="." index="45"]
+[node name="dirt-triangle-top-1" type="Sprite" parent="." index="44"]
 
+editor/display_folded = true
 position = Vector2( 104, 456 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1221,8 +1236,9 @@ __meta__ = {
 build_mode = 0
 polygon = PoolVector2Array( -21.6714, -16.8758, 16.7592, 3.90527, 16.7592, -16.8758 )
 
-[node name="dirt-triangle-top-2" type="Sprite" parent="." index="46"]
+[node name="dirt-triangle-top-2" type="Sprite" parent="." index="45"]
 
+editor/display_folded = true
 position = Vector2( 200, 456 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1249,8 +1265,9 @@ __meta__ = {
 build_mode = 0
 polygon = PoolVector2Array( -16.4889, -16.5546, -16.4889, 3.6571, 20.5185, -16.5546 )
 
-[node name="dirt-triangle-top-3" type="Sprite" parent="." index="47"]
+[node name="dirt-triangle-top-3" type="Sprite" parent="." index="46"]
 
+editor/display_folded = true
 position = Vector2( 136, 456 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1277,8 +1294,9 @@ __meta__ = {
 build_mode = 0
 polygon = PoolVector2Array( -16, -16, -15.8612, 2.46002, 16.3067, 19.5403, 16.3067, -16.0436 )
 
-[node name="dirt-triangle-top-4" type="Sprite" parent="." index="48"]
+[node name="dirt-triangle-top-4" type="Sprite" parent="." index="47"]
 
+editor/display_folded = true
 position = Vector2( 168, 456 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1305,8 +1323,9 @@ __meta__ = {
 build_mode = 0
 polygon = PoolVector2Array( -17.1604, -16.0582, -17.1604, 19.2411, 17.0002, 0.16803, 17.0002, -16.0582 )
 
-[node name="dirt-triangle-top-5" type="Sprite" parent="." index="49"]
+[node name="dirt-triangle-top-5" type="Sprite" parent="." index="48"]
 
+editor/display_folded = true
 position = Vector2( 128, 528 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1336,8 +1355,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dirt-triangle-top-6" type="Sprite" parent="." index="50"]
+[node name="dirt-triangle-top-6" type="Sprite" parent="." index="49"]
 
+editor/display_folded = true
 position = Vector2( 160, 528 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1367,8 +1387,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dirt-triangle-top-7" type="Sprite" parent="." index="51"]
+[node name="dirt-triangle-top-7" type="Sprite" parent="." index="50"]
 
+editor/display_folded = true
 position = Vector2( 128, 560 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1398,8 +1419,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dirt-triangle-top-8" type="Sprite" parent="." index="52"]
+[node name="dirt-triangle-top-8" type="Sprite" parent="." index="51"]
 
+editor/display_folded = true
 position = Vector2( 160, 560 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1429,8 +1451,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-triangle-top-5" type="Sprite" parent="." index="53"]
+[node name="mud-triangle-top-5" type="Sprite" parent="." index="52"]
 
+editor/display_folded = true
 position = Vector2( 272, 528 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1460,8 +1483,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-triangle-top-7" type="Sprite" parent="." index="54"]
+[node name="mud-triangle-top-7" type="Sprite" parent="." index="53"]
 
+editor/display_folded = true
 position = Vector2( 304, 528 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1491,8 +1515,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-triangle-top-5" type="Sprite" parent="." index="55"]
+[node name="stone-triangle-top-5" type="Sprite" parent="." index="54"]
 
+editor/display_folded = true
 position = Vector2( 352, 528 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1522,8 +1547,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-triangle-top-7" type="Sprite" parent="." index="56"]
+[node name="stone-triangle-top-7" type="Sprite" parent="." index="55"]
 
+editor/display_folded = true
 position = Vector2( 384, 528 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1553,8 +1579,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-triangle-top-9" type="Sprite" parent="." index="57"]
+[node name="stone-triangle-top-9" type="Sprite" parent="." index="56"]
 
+editor/display_folded = true
 position = Vector2( 440, 528 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1584,8 +1611,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-triangle-top-10" type="Sprite" parent="." index="58"]
+[node name="stone-triangle-top-10" type="Sprite" parent="." index="57"]
 
+editor/display_folded = true
 position = Vector2( 440, 560 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1615,8 +1643,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-triangle-top-11" type="Sprite" parent="." index="59"]
+[node name="stone-triangle-top-11" type="Sprite" parent="." index="58"]
 
+editor/display_folded = true
 position = Vector2( 472, 560 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1646,8 +1675,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-triangle-top-12" type="Sprite" parent="." index="60"]
+[node name="stone-triangle-top-12" type="Sprite" parent="." index="59"]
 
+editor/display_folded = true
 position = Vector2( 472, 528 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1677,8 +1707,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-triangle-top-8" type="Sprite" parent="." index="61"]
+[node name="stone-triangle-top-8" type="Sprite" parent="." index="60"]
 
+editor/display_folded = true
 position = Vector2( 384, 560 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1708,8 +1739,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-triangle-top-6" type="Sprite" parent="." index="62"]
+[node name="stone-triangle-top-6" type="Sprite" parent="." index="61"]
 
+editor/display_folded = true
 position = Vector2( 352, 560 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1739,8 +1771,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-triangle-top-8" type="Sprite" parent="." index="63"]
+[node name="mud-triangle-top-8" type="Sprite" parent="." index="62"]
 
+editor/display_folded = true
 position = Vector2( 304, 560 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1770,8 +1803,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-triangle-top-6" type="Sprite" parent="." index="64"]
+[node name="mud-triangle-top-6" type="Sprite" parent="." index="63"]
 
+editor/display_folded = true
 position = Vector2( 272, 560 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1801,8 +1835,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-triangle-top-1" type="Sprite" parent="." index="65"]
+[node name="stone-triangle-top-1" type="Sprite" parent="." index="64"]
 
+editor/display_folded = true
 position = Vector2( 264, 456 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1829,8 +1864,9 @@ build_mode = 0
 polygon = PoolVector2Array( -21.9355, -17.1969, 16.7798, 4.15344, 16.7798, -17.1969 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="stone-triangle-top-2" type="Sprite" parent="." index="66"]
+[node name="stone-triangle-top-2" type="Sprite" parent="." index="65"]
 
+editor/display_folded = true
 position = Vector2( 296, 456 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1857,8 +1893,9 @@ build_mode = 0
 polygon = PoolVector2Array( -16.7822, -16.0582, -16.7822, 1.30673, 16.5244, 18.6717, 16.5244, -16.0582 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="stone-triangle-top-3" type="Sprite" parent="." index="67"]
+[node name="stone-triangle-top-3" type="Sprite" parent="." index="66"]
 
+editor/display_folded = true
 position = Vector2( 328, 456 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1885,8 +1922,9 @@ build_mode = 0
 polygon = PoolVector2Array( -16.3224, -16.3429, -16.3224, 18.6718, 16.9843, 2.16077, 16.9843, -16.3429 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="stone-triangle-top-4" type="Sprite" parent="." index="68"]
+[node name="stone-triangle-top-4" type="Sprite" parent="." index="67"]
 
+editor/display_folded = true
 position = Vector2( 360, 456 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1913,8 +1951,9 @@ build_mode = 0
 polygon = PoolVector2Array( -16.1471, -16.0582, -16.1471, 3.29947, 21.1448, -16.0582 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="stone-top1" type="Sprite" parent="." index="69"]
+[node name="stone-top1" type="Sprite" parent="." index="68"]
 
+editor/display_folded = true
 position = Vector2( 312, 376 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1943,8 +1982,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-top2" type="Sprite" parent="." index="70"]
+[node name="stone-top2" type="Sprite" parent="." index="69"]
 
+editor/display_folded = true
 position = Vector2( 344, 376 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -1973,8 +2013,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-top3" type="Sprite" parent="." index="71"]
+[node name="stone-top3" type="Sprite" parent="." index="70"]
 
+editor/display_folded = true
 position = Vector2( 376, 376 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -2003,8 +2044,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-block1" type="Sprite" parent="." index="72"]
+[node name="mud-block1" type="Sprite" parent="." index="71"]
 
+editor/display_folded = true
 position = Vector2( -32, 376 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -2033,8 +2075,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-block2" type="Sprite" parent="." index="73"]
+[node name="mud-block2" type="Sprite" parent="." index="72"]
 
+editor/display_folded = true
 position = Vector2( 0, 376 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -2063,8 +2106,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mud-block3" type="Sprite" parent="." index="74"]
+[node name="mud-block3" type="Sprite" parent="." index="73"]
 
+editor/display_folded = true
 position = Vector2( 32, 376 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -2093,8 +2137,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-block1" type="Sprite" parent="." index="75"]
+[node name="stone-block1" type="Sprite" parent="." index="74"]
 
+editor/display_folded = true
 position = Vector2( -32, 456 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -2123,8 +2168,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="bridge-1" type="Sprite" parent="." index="76"]
+[node name="bridge-1" type="Sprite" parent="." index="75"]
 
+editor/display_folded = true
 position = Vector2( 0, 640 )
 z_index = 1
 texture = ExtResource( 1 )
@@ -2148,14 +2194,15 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bridge-1/StaticBody2D" index="0"]
 
 position = Vector2( 0, 8 )
-shape = SubResource( 37 )
+shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="bridge-2" type="Sprite" parent="." index="77"]
+[node name="bridge-2" type="Sprite" parent="." index="76"]
 
+editor/display_folded = true
 position = Vector2( 32, 640 )
 z_index = 1
 texture = ExtResource( 1 )
@@ -2179,14 +2226,15 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bridge-2/StaticBody2D" index="0"]
 
 position = Vector2( 0, 8 )
-shape = SubResource( 37 )
+shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="bridge-3" type="Sprite" parent="." index="78"]
+[node name="bridge-3" type="Sprite" parent="." index="77"]
 
+editor/display_folded = true
 position = Vector2( 64, 640 )
 z_index = 1
 texture = ExtResource( 1 )
@@ -2210,14 +2258,15 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bridge-3/StaticBody2D" index="0"]
 
 position = Vector2( 0, 8 )
-shape = SubResource( 37 )
+shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="bridge-4" type="Sprite" parent="." index="79"]
+[node name="bridge-4" type="Sprite" parent="." index="78"]
 
+editor/display_folded = true
 position = Vector2( 96, 640 )
 z_index = 1
 texture = ExtResource( 1 )
@@ -2241,14 +2290,15 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bridge-4/StaticBody2D" index="0"]
 
 position = Vector2( 0, 8 )
-shape = SubResource( 37 )
+shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="bridge-5" type="Sprite" parent="." index="80"]
+[node name="bridge-5" type="Sprite" parent="." index="79"]
 
+editor/display_folded = true
 position = Vector2( 128, 640 )
 z_index = 1
 texture = ExtResource( 1 )
@@ -2272,14 +2322,15 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bridge-5/StaticBody2D" index="0"]
 
 position = Vector2( 0, 8 )
-shape = SubResource( 37 )
+shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="bridge-6" type="Sprite" parent="." index="81"]
+[node name="bridge-6" type="Sprite" parent="." index="80"]
 
+editor/display_folded = true
 position = Vector2( 160, 640 )
 z_index = 1
 texture = ExtResource( 1 )
@@ -2303,13 +2354,13 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bridge-6/StaticBody2D" index="0"]
 
 position = Vector2( 0, 8 )
-shape = SubResource( 37 )
+shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="bridge-foreground-1" type="Sprite" parent="." index="82"]
+[node name="bridge-foreground-1" type="Sprite" parent="." index="81"]
 
 position = Vector2( 16, 720 )
 z_index = 2
@@ -2318,7 +2369,7 @@ region_enabled = true
 region_rect = Rect2( 192, 412, 32, 64 )
 _sections_unfolded = [ "Region", "Z Index" ]
 
-[node name="bridge-foreground-2" type="Sprite" parent="." index="83"]
+[node name="bridge-foreground-2" type="Sprite" parent="." index="82"]
 
 position = Vector2( 144, 720 )
 z_index = 2
@@ -2327,7 +2378,7 @@ region_enabled = true
 region_rect = Rect2( 320, 412, 32, 64 )
 _sections_unfolded = [ "Region", "Z Index" ]
 
-[node name="bridge-foreground-3" type="Sprite" parent="." index="84"]
+[node name="bridge-foreground-3" type="Sprite" parent="." index="83"]
 
 position = Vector2( 112, 720 )
 z_index = 2
@@ -2336,7 +2387,7 @@ region_enabled = true
 region_rect = Rect2( 288, 412, 32, 64 )
 _sections_unfolded = [ "Region", "Z Index" ]
 
-[node name="bridge-foreground-4" type="Sprite" parent="." index="85"]
+[node name="bridge-foreground-4" type="Sprite" parent="." index="84"]
 
 position = Vector2( 80, 720 )
 z_index = 2
@@ -2345,7 +2396,7 @@ region_enabled = true
 region_rect = Rect2( 256, 412, 32, 64 )
 _sections_unfolded = [ "Region", "Z Index" ]
 
-[node name="bridge-foreground-5" type="Sprite" parent="." index="86"]
+[node name="bridge-foreground-5" type="Sprite" parent="." index="85"]
 
 position = Vector2( 48, 720 )
 z_index = 2
@@ -2354,8 +2405,9 @@ region_enabled = true
 region_rect = Rect2( 224, 412, 32, 64 )
 _sections_unfolded = [ "Region", "Z Index" ]
 
-[node name="stone-block2" type="Sprite" parent="." index="87"]
+[node name="stone-block2" type="Sprite" parent="." index="86"]
 
+editor/display_folded = true
 position = Vector2( 0, 456 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -2384,8 +2436,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="stone-block3" type="Sprite" parent="." index="88"]
+[node name="stone-block3" type="Sprite" parent="." index="87"]
 
+editor/display_folded = true
 position = Vector2( 32, 456 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -2414,8 +2467,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-mud_small1" type="Sprite" parent="." index="89"]
+[node name="dark-grass-mud_small1" type="Sprite" parent="." index="88"]
 
+editor/display_folded = true
 position = Vector2( 128, 200 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -2444,8 +2498,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-mud_small2" type="Sprite" parent="." index="90"]
+[node name="dark-grass-mud_small2" type="Sprite" parent="." index="89"]
 
+editor/display_folded = true
 position = Vector2( 160, 200 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -2474,8 +2529,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-stone_small1" type="Sprite" parent="." index="91"]
+[node name="dark-grass-stone_small1" type="Sprite" parent="." index="90"]
 
+editor/display_folded = true
 position = Vector2( 128, 288 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -2504,8 +2560,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dark-grass-stone_small2" type="Sprite" parent="." index="92"]
+[node name="dark-grass-stone_small2" type="Sprite" parent="." index="91"]
 
+editor/display_folded = true
 position = Vector2( 160, 288 )
 texture = ExtResource( 1 )
 region_enabled = true
