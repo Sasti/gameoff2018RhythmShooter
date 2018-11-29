@@ -1,17 +1,18 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://sprites/background-color.png" type="Texture" id=1]
-[ext_resource path="res://sprites/background-1.png" type="Texture" id=2]
-[ext_resource path="res://sprites/background-2.png" type="Texture" id=3]
-[ext_resource path="res://ui/GameUI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Traveler.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sprites/background-color-green.png" type="Texture" id=1]
+[ext_resource path="res://sprites/background-color.png" type="Texture" id=2]
+[ext_resource path="res://sprites/background-1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/background-2.png" type="Texture" id=4]
+[ext_resource path="res://ui/GameUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Traveler.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StreamTexture" id=1]
 
 flags = 34
 load_path = "res://.import/background-3.png-c9b958044ea7c983eaa73e38b0a300e6.stex"
 
-[node name="GameWorld" type="Node"]
+[node name="GameWorld" type="Node" index="0"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
@@ -27,9 +28,16 @@ scroll_limit_begin = Vector2( 0, 0 )
 scroll_limit_end = Vector2( 0, 0 )
 scroll_ignore_camera_zoom = true
 
-[node name="BackgroundColor" type="Sprite" parent="ParallaxBackground" index="0"]
+[node name="Background-Colors" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
 
-position = Vector2( -30, -930 )
+editor/display_folded = true
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 0 )
+
+[node name="BackgroundColorBottom" type="Sprite" parent="ParallaxBackground/Background-Colors" index="0"]
+
+position = Vector2( -30, 2070 )
 z_index = -1000
 z_as_relative = false
 texture = ExtResource( 1 )
@@ -37,26 +45,19 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 300000, 3000 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
-[node name="Green-Lower-Half" type="ColorRect" parent="ParallaxBackground" index="1"]
+[node name="BackgroundColorTop" type="Sprite" parent="ParallaxBackground/Background-Colors" index="1"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -160080.0
-margin_top = 600.0
-margin_right = 239920.0
-margin_bottom = 4600.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 0.137255, 0.192157, 0.0823529, 1 )
+position = Vector2( -30, -930 )
+z_index = -1000
+z_as_relative = false
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 300000, 3000 )
+_sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
-[node name="ParallaxLayerSky" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
+[node name="ParallaxLayerSky" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
 
+editor/display_folded = true
 z_index = -1
 motion_scale = Vector2( 0.5, 1 )
 motion_offset = Vector2( 0, 0 )
@@ -71,8 +72,9 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 30000, 300 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
-[node name="ParallaxLayerFar" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
+[node name="ParallaxLayerFar" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
 
+editor/display_folded = true
 motion_scale = Vector2( 0.7, 1 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 0, 0 )
@@ -82,15 +84,16 @@ _sections_unfolded = [ "Motion" ]
 
 position = Vector2( 27750, 390 )
 scale = Vector2( 2.46667, 2.46667 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 30000, 300 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
-[node name="ParallaxLayerNear" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
+[node name="ParallaxLayerNear" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
 
+editor/display_folded = true
 z_index = 1
-motion_scale = Vector2( 0.9, 1 )
+motion_scale = Vector2( 0.85, 1 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 0, 0 )
 _sections_unfolded = [ "Motion", "Transform", "Z Index" ]
@@ -99,7 +102,7 @@ _sections_unfolded = [ "Motion", "Transform", "Z Index" ]
 
 position = Vector2( -5740, 350 )
 scale = Vector2( 2.1, 2.1 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 30000, 300 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
@@ -112,12 +115,12 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="GameUI" parent="UI-Overlay" index="0" instance=ExtResource( 4 )]
+[node name="GameUI" parent="UI-Overlay" index="0" instance=ExtResource( 5 )]
 
 current_lives = 3
 current_health = 3
 
-[node name="Traveler" parent="." index="2" instance=ExtResource( 5 )]
+[node name="Traveler" parent="." index="2" instance=ExtResource( 6 )]
 
 position = Vector2( -40, 460 )
 
