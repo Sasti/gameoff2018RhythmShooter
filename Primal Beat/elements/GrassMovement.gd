@@ -1,5 +1,8 @@
 extends Sprite
 
+# This script can be used to make a spripte wobble on the x-axis. For example a bush or gras can wave from
+# left to right in the speed configured with wobbleSpeed and wobbleDistance.
+
 # The size of the used texture. Needs to be an Vector2
 var spriteSize
 
@@ -7,10 +10,14 @@ var spriteSize
 onready var baseTransform = get_transform()
 onready var elementScale = get_scale()
 
+# deltaSum contains the sum of the delta time provided in the _physics_process call
 var deltaSum = 0.0
 
+# wobbleSpeed is the speed in which the wobble effect should happen
 export var wobbleSpeed = 1.3
+# wobbleDistance controlls the max wobble distance
 export var wobbleDistance = 0.2
+# wobbleDirection controlls in which direction the effect is applied. 1 > moves left; -1 > moved right; 0 > moves both directions
 export var wobbleDirection = 1
 
 func _ready():
