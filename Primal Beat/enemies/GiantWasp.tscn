@@ -164,7 +164,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[node name="GiantWasp" index="0" instance=ExtResource( 1 )]
+[node name="GiantWasp" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 _sections_unfolded = [ "Collision", "Pickable", "collision" ]

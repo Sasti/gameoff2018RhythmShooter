@@ -1,7 +1,7 @@
 # Default node type for a mob with basic attack pattern.
 extends KinematicBody2D
 
-onready var state = IdleState.new(self)
+var state
 
 export(NodePath) onready var animation = $AnimationPlayer
 export(NodePath) onready var timer = $DisengageTimer
@@ -20,7 +20,7 @@ const DAMAGE = 1
 const DISENGAGE_WAIT_TIME = 2
 
 # Target to move to when aggroed
-export(Vector2) var target = Vector2()
+export(Vector2) onready var target = get_node('../Traveler')
 
 # Point to fall back to when disengaging. No effect if set to 0/0.
 const FALLBACK_OFFSET = Vector2(0, 0)
@@ -31,8 +31,10 @@ export(Vector2) var velocity = Vector2()
 const GRAVITY = 200.0
 const SPEED = 250
 
+func _init():
+	state = IdleState.new(self)
+
 func _ready():
-	target = get_node('../Traveler')
 	$MobHitArea.connect('area_entered', self, '_on_hit')
 	$MobAggroRange.connect('area_entered', self, '_on_aggro')
 	animation.connect('animation_finished', self, '_on_anim_finished')
@@ -108,7 +110,7 @@ class IdleState:
 		mob.animation.queue('idle')
 
 	func exit():
-		pass
+		mob.animation.clear_queue()
 
 class MovingState:
 	var mob
@@ -174,4 +176,4 @@ class SleepingState:
 		mob.animation.queue('sleeping')
 
 	func exit():
-		pass
+		mob.animation.clear_queue()
