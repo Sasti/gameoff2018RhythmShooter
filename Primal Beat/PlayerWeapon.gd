@@ -10,6 +10,10 @@ var shooting = false
 var shot_timer
 var shot
 
+onready var shotSound = get_node("PlayerShot")
+
+signal shot_emitted
+
 func _init():
 	shot = load('res://PlayerShot.tscn')
 
@@ -46,6 +50,7 @@ func _process(delta):
 		var shotInstance = shot.instance()
 		shotInstance.position = player.position
 		gameworld.add_child(shotInstance)
+		shotSound.play()
 		shooting = true
 		shot_timer.start()
 
