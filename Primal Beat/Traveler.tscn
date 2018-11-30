@@ -71,7 +71,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 6.82864
 
-[node name="Traveler" type="KinematicBody2D"]
+[node name="Traveler" type="KinematicBody2D" index="0"]
 
 z_index = 50
 input_pickable = false
@@ -105,7 +105,7 @@ pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Traveler"
+bus = "Master"
 area_mask = 1
 _sections_unfolded = [ "Transform" ]
 

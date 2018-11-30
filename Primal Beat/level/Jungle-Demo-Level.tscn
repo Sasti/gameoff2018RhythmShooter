@@ -11,7 +11,7 @@
 [ext_resource path="res://dummy_assets/jungle_tiles/Trees - Jungle/03.png" type="Texture" id=9]
 [ext_resource path="res://audio/SFX.wav" type="AudioStream" id=10]
 
-[node name="GameWorld" index="0" instance=ExtResource( 1 )]
+[node name="GameWorld" instance=ExtResource( 1 )]
 
 [node name="ParallaxBackground" parent="." index="0"]
 
