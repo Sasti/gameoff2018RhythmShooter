@@ -102,6 +102,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("MobHitArea/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5.33011, 74.9426 ) ]
+}
 
 [sub_resource type="Animation" id=5]
 
@@ -131,6 +143,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MobHitArea/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -4.66333, 76.515 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -163,6 +187,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("MobHitArea/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5.33011, 74.9426 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 
@@ -194,6 +230,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("MobHitArea/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 35.3103, 68.1295 ) ]
+}
 
 [node name="Ankylosaurus" index="0" instance=ExtResource( 1 )]
 
@@ -214,10 +262,11 @@ flip_h = false
 [node name="MobHitArea" parent="." index="2"]
 
 gravity = 1.0
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" parent="MobHitArea" index="0"]
 
-position = Vector2( 3.28518, 72.4914 )
+position = Vector2( 35.3103, 68.1295 )
 rotation = -0.349066
 scale = Vector2( 1.32055, -1.27686 )
 shape = SubResource( 2 )

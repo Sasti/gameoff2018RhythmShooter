@@ -31,11 +31,14 @@ export(Vector2) var velocity = Vector2()
 const GRAVITY = 200.0
 const SPEED = 250
 
+export(bool) var playerInRange = false
+
 func _init():
 	state = IdleState.new(self)
 
 func _ready():
 	$MobHitArea.connect('area_entered', self, '_on_hit')
+	$MobHitArea.connect('area_exited', self, '_on_hit_exit')
 	$MobAggroRange.connect('area_entered', self, '_on_aggro')
 	animation.connect('animation_finished', self, '_on_anim_finished')
 
@@ -59,14 +62,22 @@ func _on_aggro(area):
 
 func _on_anim_finished(anim):
 	if anim == 'attacking':
+		if playerInRange:
+			PlayerState.damage_player(DAMAGE)
 		set_state(STATE_DISENGAGING)
 
 func _on_hit(area):
-	if area.name == 'PlayerHitbox' and get_state() == STATE_AGGROED:
-		set_state(STATE_ATTACKING)
+	if area.name == 'PlayerHitbox':
+		playerInRange = true
+		if get_state() == STATE_AGGROED:
+			set_state(STATE_ATTACKING)
 
 	if area.name == 'PlayerShotHitArea':
 		queue_free()
+
+func _on_hit_exit(area):
+	if area.name == 'PlayerHitbox':
+		playerInRange = false
 
 func set_state(new_state):
 	state.exit()
@@ -158,7 +169,6 @@ class AttackingState:
 	func _init(mob):
 		self.mob = mob
 		mob.animation.play('attacking')
-		PlayerState.damage_player(DAMAGE)
 
 	func process(delta):
 		pass

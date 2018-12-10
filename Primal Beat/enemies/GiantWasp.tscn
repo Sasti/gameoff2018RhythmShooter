@@ -168,6 +168,7 @@ tracks/2/keys = {
 
 script = ExtResource( 2 )
 _sections_unfolded = [ "Collision", "Pickable", "collision" ]
+playerInRange = false
 
 [node name="CollisionShape2D" parent="." index="0"]
 

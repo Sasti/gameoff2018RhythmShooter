@@ -4,13 +4,13 @@
 [ext_resource path="res://dummy_assets/2015-02-26 [DB32](Generic Platformer)(Mountains).png" type="Texture" id=2]
 [ext_resource path="res://ui/GameUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Traveler.tscn" type="PackedScene" id=4]
-[ext_resource path="res://enemies/GiantWasp.tscn" type="PackedScene" id=5]
-[ext_resource path="res://enemies/Ankylosaurus.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemies/Ankylosaurus.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/GiantWasp.tscn" type="PackedScene" id=6]
 [ext_resource path="res://dummy_assets/basic_tileset.res" type="TileSet" id=7]
 [ext_resource path="res://elements/grass.tscn" type="PackedScene" id=8]
 [ext_resource path="res://enemies/Mob.tscn" type="PackedScene" id=9]
 
-[node name="GameWorld" type="Node"]
+[node name="GameWorld" type="Node" index="0"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
@@ -76,18 +76,19 @@ current_health = 3
 
 position = Vector2( 20, 390 )
 
-[node name="GiantWasp" parent="." index="3" instance=ExtResource( 5 )]
+[node name="Ankylosaurus" parent="." index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 452, 398 )
+target = null
+playerInRange = false
+
+[node name="GiantWasp" parent="." index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 842.638, 230.055 )
 collision_layer = 1
 target = null
 
-[node name="Ankylosaurus" parent="GiantWasp" index="7" instance=ExtResource( 6 )]
-
-position = Vector2( -390.638, 167.945 )
-target = null
-
-[node name="TileMap" type="TileMap" parent="." index="4"]
+[node name="TileMap" type="TileMap" parent="." index="5"]
 
 mode = 0
 tile_set = ExtResource( 7 )
@@ -111,29 +112,29 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Node2D" parent="." index="5" instance=ExtResource( 8 )]
+[node name="Node2D" parent="." index="6" instance=ExtResource( 8 )]
 
 position = Vector2( 160, 480 )
 scale = Vector2( 1.02734, 0.949219 )
 
-[node name="Node2D2" parent="." index="6" instance=ExtResource( 8 )]
+[node name="Node2D2" parent="." index="7" instance=ExtResource( 8 )]
 
 position = Vector2( 200, 480 )
 scale = Vector2( 1.02734, 0.949219 )
 
-[node name="Node2D3" parent="." index="7" instance=ExtResource( 8 )]
+[node name="Node2D3" parent="." index="8" instance=ExtResource( 8 )]
 
 position = Vector2( 240, 480 )
 scale = Vector2( 1.02734, 0.949219 )
 spawnOffset = Vector2( 160, -160 )
 spawnedEnemy = ExtResource( 9 )
 
-[node name="Node2D4" parent="." index="8" instance=ExtResource( 8 )]
+[node name="Node2D4" parent="." index="9" instance=ExtResource( 8 )]
 
 position = Vector2( 280, 480 )
 scale = Vector2( 1.02734, 0.949219 )
 
-[node name="Node2D5" parent="." index="9" instance=ExtResource( 8 )]
+[node name="Node2D5" parent="." index="10" instance=ExtResource( 8 )]
 
 position = Vector2( 120, 480 )
 scale = Vector2( 1.02734, 0.949219 )

@@ -13,5 +13,20 @@ func _init():
 
 func _on_aggro(area):
 	# Wake up when the player bumps into the mob.
-	if area.name == 'PlayerHitbox' and get_state() == STATE_SLEEPING:
+	if area.name == 'PlayerAggroRange' and get_state() == STATE_SLEEPING:
+		set_state(STATE_IDLE)
+
+	if area.name == 'PlayerHitbox':
+		set_state(STATE_ATTACKING)
+
+func _on_anim_finished(anim):
+	if anim == 'attacking':
+		if playerInRange:
+			PlayerState.damage_player(DAMAGE)
+			timer.start()
+		else:
+			set_state(STATE_IDLE)
+
+func _on_disengage_timeout():
+	if playerInRange:
 		set_state(STATE_ATTACKING)
