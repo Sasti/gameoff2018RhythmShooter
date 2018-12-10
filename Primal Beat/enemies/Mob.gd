@@ -82,34 +82,36 @@ func _on_hit_exit(area):
 func set_state(new_state):
 	state.exit()
 
-	if new_state == STATE_MOVING:
-		state = MovingState.new(self)
-	elif new_state == STATE_AGGROED:
-		state = AggroedState.new(self)
-	elif new_state == STATE_ATTACKING:
-		state = AttackingState.new(self)
-	elif new_state == STATE_DISENGAGING:
-		state = DisengagingState.new(self)
-	elif new_state == STATE_SLEEPING:
-		state = SleepingState.new(self)
-	else:
-		state = IdleState.new(self)
+	match new_state:
+		STATE_MOVING:
+			state = MovingState.new(self)
+		STATE_AGGROED:
+			state = AggroedState.new(self)
+		STATE_ATTACKING:
+			state = AttackingState.new(self)
+		STATE_DISENGAGING:
+			state = DisengagingState.new(self)
+		STATE_SLEEPING:
+			state = SleepingState.new(self)
+		_:
+			state = IdleState.new(self)
 
 	print('New state is ' + new_state)
 
 func get_state():
-	if state is AggroedState:
-		return STATE_AGGROED
-	elif state is AttackingState:
-		return STATE_ATTACKING
-	elif state is DisengagingState:
-		return STATE_DISENGAGING
-	elif state is MovingState:
-		return STATE_MOVING
-	elif state is SleepingState:
-		return STATE_SLEEPING
-	else:
-		return STATE_IDLE
+	match state:
+		AggroedState:
+			return STATE_AGGROED
+		AttackingState:
+			return STATE_ATTACKING
+		DisengagingState:
+			return STATE_DISENGAGING
+		MovingState:
+			return STATE_MOVING
+		SleepingState:
+			return STATE_SLEEPING
+		_:
+			return STATE_IDLE
 
 class IdleState:
 	var mob
