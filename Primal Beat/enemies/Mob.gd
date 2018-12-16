@@ -1,7 +1,7 @@
 # Default node type for a mob with basic attack pattern.
 extends KinematicBody2D
 
-var state
+var state = IdleState.new(self)
 
 export(NodePath) onready var animation = $AnimationPlayer
 export(NodePath) onready var timer = $DisengageTimer
@@ -32,9 +32,6 @@ const GRAVITY = 200.0
 const SPEED = 250
 
 export(bool) var playerInRange = false
-
-func _init():
-	state = IdleState.new(self)
 
 func _ready():
 	$MobHitArea.connect('area_entered', self, '_on_hit')
@@ -76,8 +73,9 @@ func _on_hit(area):
 		queue_free()
 
 func _on_hit_exit(area):
-	if area.name == 'PlayerHitbox':
+	if area.name == 'PlayerHitbox' and get_state() == STATE_ATTACKING:
 		playerInRange = false
+		set_state(STATE_DISENGAGING)
 
 func set_state(new_state):
 	state.exit()
@@ -99,19 +97,18 @@ func set_state(new_state):
 	print('New state is ' + new_state)
 
 func get_state():
-	match state:
-		AggroedState:
-			return STATE_AGGROED
-		AttackingState:
-			return STATE_ATTACKING
-		DisengagingState:
-			return STATE_DISENGAGING
-		MovingState:
-			return STATE_MOVING
-		SleepingState:
-			return STATE_SLEEPING
-		_:
-			return STATE_IDLE
+	if state is AggroedState:
+		return STATE_AGGROED
+	if state is AttackingState:
+		return STATE_ATTACKING
+	if state is DisengagingState:
+		return STATE_DISENGAGING
+	if state is MovingState:
+		return STATE_MOVING
+	if state is SleepingState:
+		return STATE_SLEEPING
+
+	return STATE_IDLE
 
 class IdleState:
 	var mob
@@ -149,6 +146,9 @@ class AggroedState extends MovingState:
 		if (mob.target.position - mob.position).length() > 5:
 			mob.move_and_collide(mob.velocity * delta)
 
+	func exit():
+		pass
+
 class DisengagingState extends MovingState:
 	var fallback_point = Vector2()
 
@@ -164,6 +164,9 @@ class DisengagingState extends MovingState:
 		else:
 			mob.set_state(mob.STATE_IDLE)
 			mob.timer.start()
+
+	func exit():
+		pass
 
 class AttackingState:
 	var mob

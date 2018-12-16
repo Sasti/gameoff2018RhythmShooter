@@ -8,7 +8,7 @@ const GRAVITY = 300.0
 const SPEED = 100
 const FALLBACK_OFFSET = Vector2(0, 0)
 
-func _init():
+func _ready():
 	state = SleepingState.new(self)
 
 func _on_aggro(area):
