@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Jungle_terrain.png-fea30cc2ee89a512266a93edcf84ff29.stex"
+path="res://.import/background-color.png-955614ad3a93d204622857784d7646cc.stex"
 
 [deps]
 
-source_file="res://dummy_assets/jungle_tiles/oop/Jungle_terrain.png"
-dest_files=[ "res://.import/Jungle_terrain.png-fea30cc2ee89a512266a93edcf84ff29.stex" ]
+source_file="res://sprites/background-color.png"
+dest_files=[ "res://.import/background-color.png-955614ad3a93d204622857784d7646cc.stex" ]
 
 [params]
 

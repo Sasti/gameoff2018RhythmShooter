@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Jungle_terrain.png-fea30cc2ee89a512266a93edcf84ff29.stex"
+path="res://.import/background-2.png-f0e694ca02ad8b898e66253c9648ced1.stex"
 
 [deps]
 
-source_file="res://dummy_assets/jungle_tiles/oop/Jungle_terrain.png"
-dest_files=[ "res://.import/Jungle_terrain.png-fea30cc2ee89a512266a93edcf84ff29.stex" ]
+source_file="res://sprites/background-2.png"
+dest_files=[ "res://.import/background-2.png-f0e694ca02ad8b898e66253c9648ced1.stex" ]
 
 [params]
 
@@ -15,7 +15,7 @@ compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=2
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
