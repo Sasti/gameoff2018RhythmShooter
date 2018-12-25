@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/troll-1414023002.png-3e4389c8ea524c0411d17b6b2e8d5ff5.stex"
+path="res://.import/ankylosaurus-sleeping-2.png-bb7d17be54665a36b12f278cada092e6.stex"
 
 [deps]
 
-source_file="res://sprites/troll-1414023002.png"
-dest_files=[ "res://.import/troll-1414023002.png-3e4389c8ea524c0411d17b6b2e8d5ff5.stex" ]
+source_file="res://enemies/assets/ankylosaurus/ankylosaurus-sleeping-2.png"
+dest_files=[ "res://.import/ankylosaurus-sleeping-2.png-bb7d17be54665a36b12f278cada092e6.stex" ]
 
 [params]
 

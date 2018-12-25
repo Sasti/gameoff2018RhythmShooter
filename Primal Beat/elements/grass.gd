@@ -12,12 +12,14 @@ func _on_spawn_detection_area_entered(area):
 func _on_noise_detection_area_entered(area):
 	pass
 	if _check_if_is_player_area(area):
-		print("Player entered noise detection area")
+		# print("Player entered noise detection area")
+		pass
 
 func _on_grass_touch_detection_area_entered(area):
 	pass
 	if _check_if_is_player_area(area):
-		print("Player entered the grass")
+		# print("Player entered the grass")
+		pass
 
 func _check_if_is_player_area(area):
 	if area.name == "PlayerHitbox":
@@ -29,7 +31,7 @@ func _spawn_enemy():
 	if spawnedEnemy != null:
 		var enemyInstance = spawnedEnemy.instance()
 		enemyInstance.position = position + spawnOffset
-		
+
 		var gameworldNode = get_tree().get_root().get_node("Root")
 		if gameworldNode != null:
 			gameworldNode.add_child(enemyInstance)
