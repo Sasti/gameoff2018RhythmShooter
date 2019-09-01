@@ -7,10 +7,10 @@ const RUN_SPEED = 400
 const LADDER_SPEED = 250
 
 # acceleration for going up
-const JUMP_SPEED = -250
+const JUMP_SPEED = -400
 
 # acceleration for going down
-const GRAVITY = 600
+const GRAVITY = 1600
 
 # Whether the character is jumping (allows us to control the animation)
 var jumping = false

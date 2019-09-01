@@ -1,12 +1,12 @@
 # A high-damage, slow melee mob with moderate range. Sleeps peacefully, but will attack relentlessly once provoked.
 extends "res://enemies/Mob.gd"
 
-const DAMAGE = 3
-const DISENGAGE_WAIT_TIME = 4
+# const DAMAGE = 3
+# const DISENGAGE_WAIT_TIME = 4
 
-const GRAVITY = 300.0
-const SPEED = 100
-const FALLBACK_OFFSET = Vector2(0, 0)
+# const GRAVITY = 300.0
+# const SPEED = 100
+# const FALLBACK_OFFSET = Vector2(0, 0)
 
 func _ready():
 	state = SleepingState.new(self)

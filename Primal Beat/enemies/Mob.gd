@@ -20,7 +20,7 @@ const DAMAGE = 1
 const DISENGAGE_WAIT_TIME = 2
 
 # Target to move to when aggroed
-export(Vector2) onready var target = get_node('../Traveler')
+var target
 
 # Point to fall back to when disengaging. No effect if set to 0/0.
 const FALLBACK_OFFSET = Vector2(0, 0)
@@ -38,7 +38,9 @@ func _ready():
 	$MobHitArea.connect('area_exited', self, '_on_hit_exit')
 	$MobAggroRange.connect('area_entered', self, '_on_aggro')
 	animation.connect('animation_finished', self, '_on_anim_finished')
-
+	
+	target = get_node("/root/GameWorld/Traveler")
+	
 	timer.wait_time = DISENGAGE_WAIT_TIME
 	timer.connect('timeout', self, '_on_disengage_timeout')
 
