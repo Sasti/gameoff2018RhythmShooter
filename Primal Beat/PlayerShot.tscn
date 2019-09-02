@@ -19,11 +19,12 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="PlayerShot" type="AnimatedSprite"]
+[node name="PlayerShot" type="AnimatedSprite" index="0"]
 
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
 animation = "bullet"
+frame = 1
 playing = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Z Index" ]

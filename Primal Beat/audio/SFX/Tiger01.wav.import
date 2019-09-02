@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Tiger01.wav-17209166e67d6da854c336136a95bdae.sample"
+
+[deps]
+
+source_file="res://audio/SFX/Tiger01.wav"
+dest_files=[ "res://.import/Tiger01.wav-17209166e67d6da854c336136a95bdae.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

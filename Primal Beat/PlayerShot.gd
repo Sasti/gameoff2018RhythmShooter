@@ -6,6 +6,7 @@ var direction
 
 func _ready():
 	$PlayerShotHitArea.connect('area_entered', self, 'hit')
+	$PlayerShotHitArea.connect('body_entered', self, 'hit')
 	var player = get_node('/root/GameWorld/Traveler')
 
 	direction = player.facing
@@ -19,4 +20,8 @@ func _on_Visibility_screen_exited():
 
 func hit(object):
 	if object.name == 'MobHitArea':
+		queue_free()
+		
+	if object.get_class() == "TileMap":
+		hide()
 		queue_free()
