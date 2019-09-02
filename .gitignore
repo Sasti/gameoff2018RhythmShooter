@@ -6,3 +6,8 @@ export_presets.cfg
 
 # Mono-specific ignores
 .mono/
+Primal Beat/Primal Beat.js
+Primal Beat/Primal Beat.wasm
+Primal Beat/Primal Beat.png.import
+Primal Beat/Primal Beat.pck
+Primal Beat/Primal Beat.html
